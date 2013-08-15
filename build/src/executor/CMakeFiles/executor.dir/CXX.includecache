@@ -25,8 +25,6 @@ transport/TTransportUtils.h
 -
 transport/TSocket.h
 -
-glog/logging.h
--
 string
 -
 sys/types.h
@@ -94,47 +92,47 @@ thrift/protocol/TProtocol.h
 thrift/transport/TTransport.h
 -
 
-/home/wm/work/git/Lynn/src/executor/executor.cpp
+/home/zale/workspaces/lynn/src/executor/executor.cpp
 iostream
 -
 glog/logging.h
 -
 common/rpc.h
-/home/wm/work/git/Lynn/src/executor/common/rpc.h
+/home/zale/workspaces/lynn/src/executor/common/rpc.h
 executor/executor_service.h
-/home/wm/work/git/Lynn/src/executor/executor/executor_service.h
+/home/zale/workspaces/lynn/src/executor/executor/executor_service.h
 
-/home/wm/work/git/Lynn/src/executor/executor_service.cpp
+/home/zale/workspaces/lynn/src/executor/executor_service.cpp
 glog/logging.h
 -
 executor/executor_service.h
-/home/wm/work/git/Lynn/src/executor/executor/executor_service.h
+/home/zale/workspaces/lynn/src/executor/executor/executor_service.h
 
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/Collector.cpp
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/Collector.cpp
 Collector.h
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/Collector.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/Collector.h
 
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/Collector.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/Collector.h
 thrift/TDispatchProcessor.h
 -
 collector_types.h
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_types.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_types.h
 
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_constants.cpp
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_constants.cpp
 collector_constants.h
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_constants.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_constants.h
 
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_constants.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_constants.h
 collector_types.h
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_types.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_types.h
 
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_types.cpp
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_types.cpp
 collector_types.h
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_types.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_types.h
 algorithm
 -
 
-/home/wm/work/git/Lynn/src/proxy/collector/gen-cpp/collector_types.h
+/home/zale/workspaces/lynn/src/proxy/collector/gen-cpp/collector_types.h
 thrift/Thrift.h
 -
 thrift/TApplicationException.h
@@ -144,31 +142,31 @@ thrift/protocol/TProtocol.h
 thrift/transport/TTransport.h
 -
 
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/Executor.cpp
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/Executor.cpp
 Executor.h
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/Executor.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/Executor.h
 
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/Executor.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/Executor.h
 thrift/TDispatchProcessor.h
 -
 executor_types.h
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_types.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_types.h
 
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_constants.cpp
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_constants.cpp
 executor_constants.h
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_constants.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_constants.h
 
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_constants.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_constants.h
 executor_types.h
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_types.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_types.h
 
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_types.cpp
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_types.cpp
 executor_types.h
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_types.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_types.h
 algorithm
 -
 
-/home/wm/work/git/Lynn/src/proxy/executor/gen-cpp/executor_types.h
+/home/zale/workspaces/lynn/src/proxy/executor/gen-cpp/executor_types.h
 thrift/Thrift.h
 -
 thrift/TApplicationException.h
@@ -178,31 +176,31 @@ thrift/protocol/TProtocol.h
 thrift/transport/TTransport.h
 -
 
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/Scheduler.cpp
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/Scheduler.cpp
 Scheduler.h
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/Scheduler.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/Scheduler.h
 
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/Scheduler.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/Scheduler.h
 thrift/TDispatchProcessor.h
 -
 scheduler_types.h
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
 
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_constants.cpp
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_constants.cpp
 scheduler_constants.h
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_constants.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_constants.h
 
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_constants.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_constants.h
 scheduler_types.h
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
 
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_types.cpp
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_types.cpp
 scheduler_types.h
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
 algorithm
 -
 
-/home/wm/work/git/Lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
+/home/zale/workspaces/lynn/src/proxy/scheduler/gen-cpp/scheduler_types.h
 thrift/Thrift.h
 -
 thrift/TApplicationException.h

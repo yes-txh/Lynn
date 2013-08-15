@@ -11,7 +11,6 @@
 #include <transport/TTransportUtils.h>
 #include <transport/TSocket.h>
 
-#include <glog/logging.h>
 #include <string>
 
 #include <sys/types.h>

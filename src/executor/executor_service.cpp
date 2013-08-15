@@ -6,7 +6,6 @@
  Description: executor service
 *********************************/
 
-#include <glog/logging.h>
 #include "executor/executor_service.h"
 
 int32_t ExecutorService::Helloworld()

@@ -51,7 +51,6 @@ SET(SRC
 
 ADD_EXECUTABLE(scheduler ${SRC})
 
-TARGET_LINK_LIBRARIES(scheduler glog)
 TARGET_LINK_LIBRARIES(scheduler thrift)
 TARGET_LINK_LIBRARIES(scheduler pthread)
 

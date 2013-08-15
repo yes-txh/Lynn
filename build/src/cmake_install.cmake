@@ -1,8 +1,8 @@
-# Install script for directory: /home/wm/work/git/Lynn/src
+# Install script for directory: /home/zale/workspaces/lynn/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/wm/work/git/Lynn")
+  SET(CMAKE_INSTALL_PREFIX "/home/zale/workspaces/lynn")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,8 +34,8 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/wm/work/git/Lynn/build/src/scheduler/cmake_install.cmake")
-  INCLUDE("/home/wm/work/git/Lynn/build/src/executor/cmake_install.cmake")
+  INCLUDE("/home/zale/workspaces/lynn/build/src/scheduler/cmake_install.cmake")
+  INCLUDE("/home/zale/workspaces/lynn/build/src/executor/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

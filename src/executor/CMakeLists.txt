@@ -52,7 +52,6 @@ SET(SRC
 
 ADD_EXECUTABLE(executor ${SRC})
 
-TARGET_LINK_LIBRARIES(executor glog)
 TARGET_LINK_LIBRARIES(executor thrift)
 TARGET_LINK_LIBRARIES(executor pthread)
 

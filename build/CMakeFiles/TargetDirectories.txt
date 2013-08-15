@@ -1,2 +1,0 @@
-/home/wm/work/git/Lynn/build/src/executor/CMakeFiles/executor.dir
-/home/wm/work/git/Lynn/build/src/scheduler/CMakeFiles/scheduler.dir

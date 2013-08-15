@@ -7,7 +7,6 @@
 *********************************/
 
 #include <iostream>
-#include <glog/logging.h>
 
 #include "common/rpc.h"
 #include "executor/executor_service.h"
@@ -42,11 +41,11 @@ int main(int argc, char **argv)
     google::SetLogDestination(google::FATAL, fatal_log.c_str());*/
 
     // initilize log
-    google::InitGoogleLogging(argv[0]);
-    google::SetLogDestination(google::INFO, "../log/executor_info_");
-    google::SetLogDestination(google::WARNING, "../log/executor_warning_");
-    google::SetLogDestination(google::ERROR, "../log/executor_error_");
-    google::SetLogDestination(google::FATAL, "../log/executor_fatal_");
+    //google::InitGoogleLogging(argv[0]);
+    //google::SetLogDestination(google::INFO, "../log/executor_info_");
+    //google::SetLogDestination(google::WARNING, "../log/executor_warning_");
+    //google::SetLogDestination(google::ERROR, "../log/executor_error_");
+    //google::SetLogDestination(google::FATAL, "../log/executor_fatal_");
 
     /*// is root?
     if (geteuid() != 0) 
@@ -59,8 +58,8 @@ int main(int argc, char **argv)
     // Listen for service 
     //Rpc<ExecutorService, ExecutorProcessor>::Listen(
     //    atoi(ConfigI::Instance()->Get("port").c_str()));
-    int port = 9997; 
-    Rpc<ExecutorService, ExecutorProcessor>::Listen(port);
+    //int port = 9997; 
+    //Rpc<ExecutorService, ExecutorProcessor>::Listen(port);
 
     return 0;
 }
