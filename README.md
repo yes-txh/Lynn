@@ -7,7 +7,7 @@ Author
 ====
     Zhang Zhang, IIE, Chinese Academic of Sciences
 
-    Wangmin Min, IIE, Chinese Academic of Sciences
+    Wang Min, IIE, Chinese Academic of Sciences
 
 
 Email
