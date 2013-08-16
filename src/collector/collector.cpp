@@ -1,9 +1,9 @@
 /********************************
- FileName: scheduler/scheduler.cpp
- Author:   
+ FileName: collector/collector.cpp
+ Author:   ZhangZhang 
  Date:     2013-08-16
  Version:  0.1
- Description: scheduler main
+ Description: collector main
 *********************************/
 
 #include <iostream>
@@ -33,11 +33,11 @@ using log4cplus::helpers::SharedObjectPtr;
 
 int main(int argc, char **argv)
 {
-    SharedObjectPtr<Appender> append(new FileAppender("scheduler.log"));
-    append->setName(LOG4CPLUS_TEXT("append for scheduler"));
+    SharedObjectPtr<Appender> append(new FileAppender("collector.log"));
+    append->setName(LOG4CPLUS_TEXT("append for collector"));
     auto_ptr<Layout> layout(new PatternLayout(LOG4CPLUS_TEXT("%d{%m/%d/%y %H:%M:%S} %p %l:%m %n")));
     append->setLayout(layout);
-    Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("scheduler"));
+    Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("collector"));
     logger.addAppender(append);
     logger.setLogLevel(log4cplus::INFO_LOG_LEVEL);
     return 0;

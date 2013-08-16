@@ -1,2 +1,0 @@
-/home/zale/workspaces/lynn/bin/scheduler
-/home/zale/workspaces/lynn/bin/executor

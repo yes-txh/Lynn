@@ -39,20 +39,18 @@ ADD_CUSTOM_COMMAND (
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
-#SET(COMMON_SOURCE
-#    ../proxy/collector_wrapper.cpp)
 
 SET(SRC 
-    # ${COMMON_SOURCE}
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
-    scheduler.cpp)
+    collector_service.cpp
+    collector.cpp)
 
-ADD_EXECUTABLE(scheduler ${SRC})
+ADD_EXECUTABLE(collector ${SRC})
 
-TARGET_LINK_LIBRARIES(scheduler thrift)
-TARGET_LINK_LIBRARIES(scheduler pthread)
-TARGET_LINK_LIBRARIES(scheduler log4cplus)
+TARGET_LINK_LIBRARIES(collector thrift)
+TARGET_LINK_LIBRARIES(collector pthread)
+TARGET_LINK_LIBRARIES(collector log4cplus)
 
-INSTALL(TARGETS scheduler RUNTIME DESTINATION bin)
+INSTALL(TARGETS collector RUNTIME DESTINATION bin)
