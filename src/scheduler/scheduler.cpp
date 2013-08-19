@@ -1,6 +1,6 @@
 /********************************
  FileName: scheduler/scheduler.cpp
- Author:   
+ Author:   ZhangZhang 
  Date:     2013-08-16
  Version:  0.1
  Description: scheduler main
