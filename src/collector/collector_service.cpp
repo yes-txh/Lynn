@@ -1,20 +1,29 @@
 /********************************
- FileName: scheduler/scheduler_service.cpp
+ FileName: collector/collector_service.cpp
  Author:   ZhangZhang
- Date:     2013-08-16
- Version:  0.1
- Description: scheduler service
+ Description: collector service
 *********************************/
 
-#include "scheduler/scheduler_service.h"
+#include "collector/collector_service.h"
 
-int64_t SchedulerService::SubmitJob(const string& job_ad)
+void CollectorService::SendHeartbeat(const string& heartbeat_ad)
 {
     printf("SendHeartbeat\n");
-    return 0;
 }
 
-bool SchedulerService::ReportTaskState(int64_t job_id, int64_t task_id, TaskState::type state){
-    printf("MatchMachinei\n");
+bool CollectorService::RegistMachine(const string& machine_ad){
+    printf("RegistMachine\n");
     return true;
+}
+
+void CollectorService::MatchMachine(string& result, const string& job_ad){
+    printf("MatchMachinei\n");
+}
+
+void CollectorService::QueryMachine(string& result, const string& machine){
+    printf("QueryMachine\n");
+}
+
+void CollectorService::ListAllMachines(vector<string>& result){
+    printf("ListAllMachines\n");
 }

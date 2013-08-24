@@ -1,0 +1,3 @@
+/home/zale/workspace/lynn/bin/scheduler
+/home/zale/workspace/lynn/bin/collector
+/home/zale/workspace/lynn/bin/executor

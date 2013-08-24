@@ -1,5 +1,5 @@
 /********************************
- FileName: collector/colletor_service.h
+ FileName: collector/collector_service.h
  Author:   ZhangZhang
  Date:     2013-08-16
  Version:  0.1
@@ -18,6 +18,7 @@ class CollectorService : public CollectorIf
 {
 public:
     void SendHeartbeat(const string& heartbeat_ad);
+    bool RegistMachine(const string& machine_ad);
     void MatchMachine(string& result, const string& job_ad);
     void QueryMachine(string& result, const string& machine);
     void ListAllMachines(vector<string>& result);

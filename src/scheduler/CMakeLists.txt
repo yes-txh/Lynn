@@ -47,6 +47,7 @@ SET(SRC
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
+    scheduler_service.cpp
     scheduler.cpp)
 
 ADD_EXECUTABLE(scheduler ${SRC})
