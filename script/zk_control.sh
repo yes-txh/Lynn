@@ -3,7 +3,7 @@ function usage()
 {
     echo "$0 op"
     echo "op start/stop"
-    exit
+    exit 1
 }
 
 if [ $# -ne 1 ]; then
@@ -23,7 +23,7 @@ elif [ $1 == "stop" ]; then
    ./server3/zookeeper-3.4.5/bin/zkServer.sh stop
 elif [ $1 == "client" ]; then
    cd ../zookeeper
-   ./server1/zookeeper-3.4.5/bin/zkCli.sh -server 127.0.0.1:2182,127.0.0.1:2183,127.0.0.1:2184
+   ./server1/zookeeper-3.4.5/bin/zkCli.sh -server 127.0.0.1:2182
 else 
     echo "unknown op $1"
     exit 1
