@@ -1,3 +1,11 @@
+/********************************
+ FileName: common/metux.h
+ Author:   
+ Date:     2013-08-21
+ Version:  0.1
+ Description: metux, lock for multi thread
+*********************************/
+
 #ifndef SRC_COMMON_MUTEX_H_
 #define SRC_COMMON_MUTEX_H_
 

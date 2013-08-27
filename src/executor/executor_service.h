@@ -13,8 +13,7 @@
 
 using std::string;
 
-class ExecutorService : public ExecutorIf
-{
+class ExecutorService : public ExecutorIf {
 public:
     int32_t  Helloworld();
     void SendVMHeartbeat(const string& heartbeat_ad);

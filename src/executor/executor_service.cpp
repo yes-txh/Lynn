@@ -8,8 +8,7 @@
 
 #include "executor/executor_service.h"
 
-int32_t ExecutorService::Helloworld()
-{
+int32_t ExecutorService::Helloworld() {
     printf("Hello world\n");
     return 0;
 }
@@ -28,4 +27,3 @@ bool ExecutorService::StopTask(const int32_t task_id) {
 
 bool ExecutorService::KillVM(const int32_t task_id) {
 }
-

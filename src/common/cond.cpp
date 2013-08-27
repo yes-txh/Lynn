@@ -1,3 +1,11 @@
+/********************************
+ FileName: common/cond.cpp
+ Author:   
+ Date:     2013-08-21
+ Version:  0.1
+ Description: pthread condition lock 
+*********************************/
+
 #include <string>
 #include <stdexcept>
 #include <string.h>

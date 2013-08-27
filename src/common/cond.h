@@ -1,3 +1,11 @@
+/********************************
+ FileName: common/cond.h
+ Author:   
+ Date:     2013-08-21
+ Version:  0.1
+ Description: pthread condition lock 
+*********************************/
+
 #ifndef SRC_COMMON_COND_H_
 #define SRC_COMMON_COND_H_
 

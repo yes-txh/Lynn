@@ -1,3 +1,11 @@
+/********************************
+ FileName: common/singleton.h
+ Author:   
+ Date:     2013-08-21
+ Version:  0.1
+ Description: singleton, single case 
+*********************************/
+
 #ifndef SRC_COMMON_SINGLETON_H_
 #define SRC_COMMON_SINGLETON_H_
 
