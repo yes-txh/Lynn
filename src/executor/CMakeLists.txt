@@ -47,12 +47,29 @@ SET(SRC
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
+    config.cpp
+    system.cpp
+    task_entity.cpp
+    task_entity_pool.cpp
+    vm.cpp
+    kvm.cpp
+    # lxc.cpp
+    # resource_manager.cpp
     executor_service.cpp
     executor.cpp)
 
 ADD_EXECUTABLE(executor ${SRC})
+# ADD_EXECUTABLE(clean_environment clean_environment.cpp)
 
-TARGET_LINK_LIBRARIES(executor thrift)
 TARGET_LINK_LIBRARIES(executor pthread)
+TARGET_LINK_LIBRARIES(executor thrift)
+TARGET_LINK_LIBRARIES(executor log4cplus)
+TARGET_LINK_LIBRARIES(executor gflags)
+TARGET_LINK_LIBRARIES(executor classad)
+TARGET_LINK_LIBRARIES(executor virt)
+TARGET_LINK_LIBRARIES(executor lxc)
+
+# TARGET_LINK_LIBRARIES(clean_environment virt)
 
 INSTALL(TARGETS executor RUNTIME DESTINATION bin)
+# INSTALL(TARGETS clean_environment RUNTIME DESTINATION bin)

@@ -8,51 +8,63 @@
 
 #include <iostream>
 
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/configurator.h>
+#include <log4cplus/fileappender.h>
+#include <log4cplus/consoleappender.h>
+#include <log4cplus/layout.h>
+#include <gflags/gflags.h>
+
 #include "common/rpc.h"
 #include "executor/executor_service.h"
 
+using std::string;
 using std::cout;
 using std::endl;
+using std::auto_ptr;
 
-int main(int argc, char **argv)
-{
-    /*// CELLOS_HOME
-    if (!getenv("CELLOS_HOME"))
-    {
-        fprintf(stderr, "environment value CELLOS_HOME is not set.\n");
-        return -1;
+using log4cplus::Logger;
+using log4cplus::ConsoleAppender;
+using log4cplus::FileAppender;
+using log4cplus::Appender;
+using log4cplus::Layout;
+using log4cplus::PatternLayout;
+using log4cplus::helpers::SharedObjectPtr;
+
+// gflag, config for executor
+DECLARE_int32(port);
+DECLARE_string(collector_endpoint);
+DECLARE_string(scheduler_endpoint);
+DECLARE_int32(heartbeat_interval);
+DECLARE_string(interface);
+DECLARE_string(img_dir);
+DECLARE_string(log_path);
+
+int main(int argc, char **argv) {
+    // is root?
+    if (geteuid() != 0) {
+        fprintf(stderr, "Executor: must be run as root, or sudo run it.\n");
+        exit(1);
     }
-    string cellos_home = string(getenv("CELLOS_HOME"));
-    if (!cellos_home.c_str()) {
-        fprintf(stderr, "environment value CELLOS_HOME is not set.\n");
-        return -1;
-    }
-    printf("CELLOS_HOME:%s\n",cellos_home.c_str());
-   
-    // initilize log
-    google::InitGoogleLogging(argv[0]);
-    string info_log = cellos_home + "/log/slave_info_";
-    google::SetLogDestination(google::INFO, info_log.c_str());
-    string warning_log = cellos_home + "/log/slave_warning_";
-    google::SetLogDestination(google::WARNING, warning_log.c_str());
-    string error_log = cellos_home + "log/slave_error_";
-    google::SetLogDestination(google::ERROR, error_log.c_str());
-    string fatal_log = cellos_home + "/log/slave_fatal_";
-    google::SetLogDestination(google::FATAL, fatal_log.c_str());*/
 
-    // initilize log
-    //google::InitGoogleLogging(argv[0]);
-    //google::SetLogDestination(google::INFO, "../log/executor_info_");
-    //google::SetLogDestination(google::WARNING, "../log/executor_warning_");
-    //google::SetLogDestination(google::ERROR, "../log/executor_error_");
-    //google::SetLogDestination(google::FATAL, "../log/executor_fatal_");
+    // config file
+    if (argc > 1)
+        google::ParseCommandLineFlags(&argc, &argv, true);
+    else
+        google::ReadFromFlagsFile("../conf/executor.conf", argv[0], true);
 
-    /*// is root?
-    if (geteuid() != 0) 
-    {  
-        fprintf(stderr, "Executor must run as root, or sudo run it.\n");  
-        exit(1);  
-    } */
+    // initilize log log4cplus
+    SharedObjectPtr<Appender> append(new FileAppender(FLAGS_log_path + "/executor.log"));
+    append->setName(LOG4CPLUS_TEXT("append for executor"));
+    auto_ptr<Layout> layout(new PatternLayout(LOG4CPLUS_TEXT("%d{%y/%m/%d %H:%M:%S} %p [%l]: %m %n")));
+    append->setLayout(layout);
+    Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("executor"));
+    logger.addAppender(append);
+    logger.setLogLevel(log4cplus::DEBUG_LOG_LEVEL);
+    LOG4CPLUS_DEBUG(logger, "This is the FIRST debug message");
+    LOG4CPLUS_INFO(logger, "This is the FIRST info message");
+    LOG4CPLUS_ERROR(logger, "This is the FIRST error message");
    
     cout << "Executor is OK." << endl;
     // Listen for service 

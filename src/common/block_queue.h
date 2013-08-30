@@ -1,10 +1,17 @@
+/********************************
+ FileName: common/block_queue.h
+ Author:   
+ Date:     2013-08-21
+ Version:  0.1
+ Description: block queue with list and pthread_cond_t
+*********************************/
+ 
 #ifndef SRC_COMMON_BLOCK_QUEUE_H
 #define SRC_COMMON_BLOCK_QUEUE_H
 
 #include <list>
 
 #include "common/cond.h"
-#include "common/mutex.h"
 
 using std::list;
 using lynn::Mutex;

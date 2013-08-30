@@ -1,6 +1,27 @@
 include "../scheduler/scheduler.thrift"
 include "../collector/collector.thrift"
 
+enum TaskEntityState {
+    TASKENTITY_NOTFOUND,
+    TASKENTITY_WAIT,
+    TASKENTITY_RUN,
+    TASKENTITY_FINISHED,
+    TASKENTITY_FAILED,
+}
+
+enum VMType {
+    VM_UNKNOWN,
+    VM_KVM,
+    VM_LXC,
+}
+
+enum VMState {
+    VM_NOTFOUND,
+    VM_ONLINE,
+    VM_SERVICE_ONLINE,
+    VM_OFFLINE,
+}
+
 service Executor {
     i32 Helloworld(),
     void SendVMHeartbeat(1: string heartbeat_ad),
