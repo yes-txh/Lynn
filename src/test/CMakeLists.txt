@@ -44,15 +44,13 @@ SET(SRC
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
-    machine.cpp
-    machine_pool.cpp
-    collector_service.cpp
-    collector.cpp)
+    test.cpp)
 
-ADD_EXECUTABLE(collector ${SRC})
+ADD_EXECUTABLE(test ${SRC})
 
-TARGET_LINK_LIBRARIES(collector thrift)
-TARGET_LINK_LIBRARIES(collector pthread)
-TARGET_LINK_LIBRARIES(collector log4cplus)
+TARGET_LINK_LIBRARIES(test thrift)
+TARGET_LINK_LIBRARIES(test pthread)
+TARGET_LINK_LIBRARIES(test classad)
+TARGET_LINK_LIBRARIES(test zookeeper_mt)
 
-INSTALL(TARGETS collector RUNTIME DESTINATION bin)
+INSTALL(TARGETS test RUNTIME DESTINATION bin)

@@ -1,5 +1,5 @@
-#ifndef SRC_COMMON_RPC_H_
-#define SRC_COMMON_RPC_H_
+#ifndef SRC_COMMON_RPC_H
+#define SRC_COMMON_RPC_H
 
 #include <concurrency/ThreadManager.h>
 #include <concurrency/PosixThreadFactory.h>

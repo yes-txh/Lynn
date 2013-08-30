@@ -1,5 +1,5 @@
-#ifndef SRC_COMMON_RWLOCK_H_
-#define SRC_COMMON_RWLOCK_H_
+#ifndef SRC_COMMON_RWLOCK_H
+#define SRC_COMMON_RWLOCK_H
 
 #include <pthread.h>
 #include <errno.h>

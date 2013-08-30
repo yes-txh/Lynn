@@ -1,5 +1,5 @@
-#ifndef SRC_COMMON_BLOCK_QUEUE_H_
-#define SRC_COMMON_BLOCK_QUEUE_H_
+#ifndef SRC_COMMON_BLOCK_QUEUE_H
+#define SRC_COMMON_BLOCK_QUEUE_H
 
 #include <list>
 

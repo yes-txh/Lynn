@@ -5,6 +5,7 @@
 *********************************/
 
 #include "collector/collector_service.h"
+#include "collector/machine_pool.h"
 
 void CollectorService::SendHeartbeat(const string& heartbeat_ad)
 {
@@ -12,7 +13,8 @@ void CollectorService::SendHeartbeat(const string& heartbeat_ad)
 }
 
 bool CollectorService::RegistMachine(const string& machine_ad){
-    printf("RegistMachine\n");
+    MachinePtr machine_ptr(new Machine(machine_ad));
+    MachinePoolI::Instance()->Insert(machine_ptr);
     return true;
 }
 

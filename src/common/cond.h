@@ -1,5 +1,5 @@
-#ifndef SRC_COMMON_COND_H_
-#define SRC_COMMON_COND_H_
+#ifndef SRC_COMMON_COND_H
+#define SRC_COMMON_COND_H
 
 #include <pthread.h>
 

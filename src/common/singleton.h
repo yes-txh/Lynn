@@ -1,5 +1,5 @@
-#ifndef SRC_COMMON_SINGLETON_H_
-#define SRC_COMMON_SINGLETON_H_
+#ifndef SRC_COMMON_SINGLETON_H
+#define SRC_COMMON_SINGLETON_H
 
 #include "common/mutex.h"
 

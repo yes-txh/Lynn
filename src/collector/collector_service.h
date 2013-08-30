@@ -1,8 +1,6 @@
 /********************************
  FileName: collector/collector_service.h
  Author:   ZhangZhang
- Date:     2013-08-16
- Version:  0.1
  Description: collector service
 *********************************/
 
