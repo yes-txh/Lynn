@@ -51,6 +51,10 @@ SET(SRC
     system.cpp
     task_entity.cpp
     task_entity_pool.cpp
+    vm.cpp
+    kvm.cpp
+    # lxc.cpp
+    # resource_manager.cpp
     executor_service.cpp
     executor.cpp)
 

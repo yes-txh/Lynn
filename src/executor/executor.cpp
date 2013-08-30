@@ -38,6 +38,7 @@ DECLARE_string(collector_endpoint);
 DECLARE_string(scheduler_endpoint);
 DECLARE_int32(heartbeat_interval);
 DECLARE_string(interface);
+DECLARE_string(img_dir);
 DECLARE_string(log_path);
 
 int main(int argc, char **argv) {
@@ -63,7 +64,7 @@ int main(int argc, char **argv) {
     logger.setLogLevel(log4cplus::DEBUG_LOG_LEVEL);
     LOG4CPLUS_DEBUG(logger, "This is the FIRST debug message");
     LOG4CPLUS_INFO(logger, "This is the FIRST info message");
-
+    LOG4CPLUS_ERROR(logger, "This is the FIRST error message");
    
     cout << "Executor is OK." << endl;
     // Listen for service 

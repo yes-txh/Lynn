@@ -15,6 +15,13 @@ enum VMType {
     VM_LXC,
 }
 
+enum VMState {
+    VM_NOTFOUND,
+    VM_ONLINE,
+    VM_SERVICE_ONLINE,
+    VM_OFFLINE,
+}
+
 service Executor {
     i32 Helloworld(),
     void SendVMHeartbeat(1: string heartbeat_ad),

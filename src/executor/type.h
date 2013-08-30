@@ -14,15 +14,17 @@
 #include <sys/ipc.h>
 // inter process communication
 #include <string>
+#include <vector>
 
 #include "include/proxy.h"
 
 using std::string;
+using std::vector;
 
 // app
 struct AppInfo {
     string name;
-    string os;
+    // string os;
     // outside vm, hdfs
     string src_path;     // source path
     string job_out_dir; // result out dir
@@ -33,17 +35,17 @@ struct AppInfo {
     string stop_path;    // stop
     string exe_out_dir;
 
-    string user;
+    // string user;
 };
 
 // resource vm
 struct VMInfo {
-    VMType::type type;
-    string os;
+    
     // resource
     int32_t memory;
     int32_t vcpu;
 
+    string os;
     string ip;
     int32_t port;
 
@@ -57,10 +59,32 @@ struct VMInfo {
 struct TaskInfo {
     int32_t id;
     int32_t job_id;
+    // vm resource
+    VMType::type type;
     VMInfo vm_info;
     // app
     bool is_run;
     AppInfo app_info;
 };
- 
+
+struct HbVMInfo {
+    int32_t id;  // task id, vm id
+    double cpu_usage;
+    double memroy_usage;
+    int64_t bytes_in;
+    int64_t bytes_out;
+    VMState::type state;
+    bool app_running;
+};
+
+struct HbMachineInfo {
+    string ip;
+    int32_t port;
+    double cpu_usage;
+    double memory_usage;
+    int64_t bytes_in;
+    int64_t bytes_out;
+    vector<HbVMInfo> hb_vminfo_list;
+};
+
 #endif

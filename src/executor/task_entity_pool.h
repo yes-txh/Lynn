@@ -48,6 +48,8 @@ public:
 
     bool DeleteTaskEntity(const int64_t id);
 
+    TaskPtr GetTaskPtr(int64_t id);
+
 private:
     // <taskid, executor pointer>
     map<int64_t, TaskPtr> m_task_map;

@@ -20,8 +20,6 @@
 
 using lynn::WriteLocker;
 using lynn::ReadLocker;
-// using std::ifstream;
-// using std::stringstream;
 
 TaskEntity::TaskEntity(const string& task_info, bool& ret) {
     // classad init, string task_info --> ClassAd *ad_ptr
@@ -49,7 +47,7 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
         ret = false;
         return;
     }
-    m_info.vm_info.type = VMType::type(type);
+    m_info.type = VMType::type(type);
 
     if (!ad_ptr->EvaluateAttrString("OS", m_info.vm_info.os)) {
         ret = false;
@@ -109,6 +107,13 @@ TaskEntityState::type TaskEntity::GetState() {
 double TaskEntity::GetPercentage() {
     ReadLocker locker(m_lock);
     return m_percentage;
+}
+
+bool TaskEntity::SetStates(const TaskEntityState::type state, const double percentage) {
+   WriteLocker locker(m_lock);
+   m_state = state;
+   m_percentage = percentage;
+   return true;
 }
 
 bool TaskEntity::SetState(const TaskEntityState::type state) {

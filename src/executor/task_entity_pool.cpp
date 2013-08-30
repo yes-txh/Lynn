@@ -85,3 +85,13 @@ bool TaskEntityPool::DeleteTaskEntity(const int64_t id) {
         return false;
     }
 }
+
+TaskPtr TaskEntityPool::GetTaskPtr(int64_t id) {
+    ReadLocker locker(m_lock);
+    map<int64_t, TaskPtr>::iterator it = m_task_map.find(id);
+    if (it != m_task_map.end()) {
+        return it->second;
+    }
+    // not find then return NULL
+    return TaskPtr();
+}
