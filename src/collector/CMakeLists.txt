@@ -54,5 +54,6 @@ ADD_EXECUTABLE(collector ${SRC})
 TARGET_LINK_LIBRARIES(collector thrift)
 TARGET_LINK_LIBRARIES(collector pthread)
 TARGET_LINK_LIBRARIES(collector log4cplus)
+TARGET_LINK_LIBRARIES(collector classad)
 
 INSTALL(TARGETS collector RUNTIME DESTINATION bin)

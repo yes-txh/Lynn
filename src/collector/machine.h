@@ -1,8 +1,9 @@
 /********************************
  *  FileName: collector/machine.h
- *   Author:   ZhangZhang
- *    Description: the machine class
- *    *********************************/
+ *  Author:   ZhangZhang
+ *  Description: the machine class
+ *
+ *********************************/
 
 #ifndef SRC_COLLECTOR_MACHINE_H
 #define SRC_COLLECTOR_MACHINE_H
@@ -16,12 +17,13 @@ using boost::shared_ptr;
 
 class Machine {
 public:
-    explicit Machine(const string& machine_ad);
-    string GetEndpoint() {
-         return m_endpoint;
-    }
+    Machine(){};
+    Machine(const string& machine_ad){};
+    int32_t ParseAttr(const string& machine_ad);
+    string GetEndpoint();
 private:
-    string m_endpoint;
+    string m_ip;
+    int32_t m_port;
 };
 
 typedef shared_ptr<Machine> MachinePtr;

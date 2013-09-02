@@ -16,7 +16,7 @@ class CollectorService : public CollectorIf
 {
 public:
     void SendHeartbeat(const string& heartbeat_ad);
-    bool RegistMachine(const string& machine_ad);
+    int32_t RegistMachine(const string& machine_ad);
     void MatchMachine(string& result, const string& job_ad);
     void QueryMachine(string& result, const string& machine);
     void ListAllMachines(vector<string>& result);
