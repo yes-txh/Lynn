@@ -39,39 +39,31 @@ ADD_CUSTOM_COMMAND (
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
-#SET(COMMON_SOURCE
-#    ../proxy/collector_wrapper.cpp)
+SET (TEST_EXECUTOR
+     system_test)
+     #container_test)
 
-SET(SRC 
-    # ${COMMON_SOURCE}
-    ${SCHEDULER_THRIFT_SOURCE}
-    ${COLLECTOR_THRIFT_SOURCE}
-    ${EXECUTOR_THRIFT_SOURCE}
-    config.cpp
-    system.cpp
-    task_entity.cpp
-    task_entity_pool.cpp
-    vm.cpp
-    kvm.cpp
-    # lxc.cpp
-    vm_pool.cpp
-    resource_manager.cpp
-    work_thread.cpp
-    executor_service.cpp
-    executor.cpp)
 
-ADD_EXECUTABLE(executor ${SRC})
-# ADD_EXECUTABLE(clean_environment clean_environment.cpp)
+# test
+ADD_EXECUTABLE(system_test system_test.cpp ../../executor/system.cpp)
+#ADD_EXECUTABLE(container_test container_test.cpp ../../slave/container.cpp
+#                              ${COMMON_SOURCE} ../../slave/config.cpp
+#                              ../../slave/system.cpp 
+#                              ../../slave/message_manager.cpp)
+FOREACH(t ${TEST_EXECUTOR})
+    TARGET_LINK_LIBRARIES(${t} pthread)
+    TARGET_LINK_LIBRARIES(${t} log4cplus)
+    TARGET_LINK_LIBRARIES(${t} gtest)
+ENDFOREACH(t ${TEST_EXECUTOR})
 
-TARGET_LINK_LIBRARIES(executor pthread)
-TARGET_LINK_LIBRARIES(executor thrift)
-TARGET_LINK_LIBRARIES(executor log4cplus)
-TARGET_LINK_LIBRARIES(executor gflags)
-TARGET_LINK_LIBRARIES(executor classad)
-TARGET_LINK_LIBRARIES(executor virt)
-TARGET_LINK_LIBRARIES(executor lxc)
+#### start task ####
+SET (START_TASK
+   ${EXECUTOR_THRIFT_SOURCE}
+   start_task.cpp)
 
-# TARGET_LINK_LIBRARIES(clean_environment virt)
+ADD_EXECUTABLE(start-task ${START_TASK})
+TARGET_LINK_LIBRARIES(start-task thrift)
+TARGET_LINK_LIBRARIES(start-task classad)
 
-INSTALL(TARGETS executor RUNTIME DESTINATION bin)
-# INSTALL(TARGETS clean_environment RUNTIME DESTINATION bin)
+INSTALL(TARGETS ${TEST_EXECUTOR} RUNTIME DESTINATION test/executor)
+INSTALL(TARGETS start-task RUNTIME DESTINATION bin)

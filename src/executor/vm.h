@@ -15,6 +15,7 @@
 #include "include/proxy.h"
 #include "common/rwlock.h"
 #include "executor/type.h"
+#include "executor/task_entity_pool.h"
 
 using std::string;
 using boost::shared_ptr;
@@ -27,24 +28,28 @@ public:
         m_id = info.id;
         m_info = info;
         m_type = info.type;
-        m_first = true;
-        m_prev_cpu = 0.0;
-        m_prev_total = 0.0;
+        m_state = VMState::VM_OFFLINE;
     }
 
     ~VM() {}
 
-    int64_t GetId() {
-        return m_id;
-    }
+    int64_t GetId();
 
-    TaskInfo GetTaskInfo() {
-        return m_info;
-    }
+    string GetName();
 
-    void Hello();
+    TaskInfo GetTaskInfo();
+
+    VMState::type GetState();
+
+    TaskPtr GetTaskPtr();    
+
+    void SetState(VMState::type state);
+
+    void SetNameByString(string name);
 
     // key function
+    // virtual void SetName();
+
     virtual int32_t CreateEnv() = 0; // create enviroment, kvm or lxc
 
     virtual bool Execute() = 0;  // execute the task, run the app
@@ -56,24 +61,21 @@ public:
     virtual HbVMInfo GetHbVMInfo() = 0; // get heartbeart
 
     // general
-    // VMState::type GetVMState();
 
 private:
-    virtual void SetName();
+    virtual void SetName() = 0;
 
 private:
     int64_t m_id;
     string m_name;     // vm name, maybe kvm name or lxc name
     VMType::type m_type; // VM_KVM or VM_LXC
     TaskInfo m_info;   // TODO
+    VMState::type m_state;
     RWLock m_lock;
-
-    // m_state 
+    
     time_t m_start_time;
-    // report resource, is first?
-    bool m_first;
-    double m_prev_cpu;
-    double m_prev_total;
+    int32_t m_timestamp;
+    int32_t m_time_to_death;
 };
 
 typedef shared_ptr<VM> VMPtr;

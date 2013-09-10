@@ -19,7 +19,7 @@ public:
 
     void SendVMHeartbeat(const string& heartbeat_ad);
 
-    void GetMachineInfo(string& info);
+    // void GetMachineInfo(string& info);
 
     bool StartTask(const string& info);
 

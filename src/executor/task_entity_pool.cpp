@@ -9,23 +9,25 @@
 #include <assert.h>
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
-#include <log4cplus/configurator.h>
-#include <log4cplus/fileappender.h>
-#include <log4cplus/consoleappender.h>
-#include <log4cplus/layout.h>
 
 #include "executor/task_entity_pool.h"
 
+using log4cplus::Logger;
 using lynn::ReadLocker;
 using lynn::WriteLocker;
+
+static Logger logger = Logger::getInstance("executor");
 
 // TODO just for test
 void TaskEntityPool::PrintAll() {
     ReadLocker locker(m_lock);
+    printf("task_entity_pool.cpp\n");
+    printf("************ Task Entity ************\n");
     for (map<int64_t, TaskPtr>::iterator it = m_task_map.begin();
          it != m_task_map.end(); ++it) {
         printf("taskentity: %ld\n", it->first);
     }    
+    printf("**************************************\n");
 }
 
 bool TaskEntityPool::Find(const TaskPtr& ptr) {
@@ -67,7 +69,7 @@ void TaskEntityPool::StartTaskEntity() {
     ReadLocker locker(m_lock);
     for (map<int64_t, TaskPtr>::iterator it = m_task_map.begin();
          it != m_task_map.end(); ++it) {
-        if ((it->second)->GetState() == TaskEntityState::TASKENTITY_WAIT) {
+        if ((it->second)->GetState() == TaskEntityState::TASKENTITY_WAITING) {
             (it->second)->Start();
             return;
         }

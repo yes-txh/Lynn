@@ -24,7 +24,7 @@ class TaskEntity {
 public:
     explicit TaskEntity(const string& task_info, bool& ret);
 
-    ~TaskEntity(); 
+    ~TaskEntity() {} 
 
     int64_t GetId() {
         return m_id;

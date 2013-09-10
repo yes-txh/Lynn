@@ -11,12 +11,38 @@
 using lynn::WriteLocker;
 using lynn::ReadLocker;
 
-/*VM::VM(const TaskInfo& info) {
-    // TODO why?
-    // can't define VM::VM in vm.cpp, but it works to define VM::VM in vm.h
-}*/
+// public
+int64_t VM::GetId() {
+    // ReadLocker locker(m_lock);
+    return m_id;
+}
 
-void VM::Hello() {
-    printf("Hello world\n");
+string VM::GetName() {
+    // ReadLocker locker(m_lock);
+    return m_name;
+}
+
+TaskInfo VM::GetTaskInfo() {
+    // ReadLocker locker(m_lock);
+    return m_info;
+}
+
+VMState::type VM::GetState() {
+    ReadLocker locker(m_lock);
+    return m_state;
+}
+
+TaskPtr VM::GetTaskPtr() {
+    return TaskPoolI::Instance()->GetTaskPtr(m_id);
+}
+
+void VM::SetState(VMState::type state) {
+    WriteLocker locker(m_lock);
+    m_state = state;
+}
+
+void VM::SetNameByString(string name) {
+    // WriteLocker locker(m_lock);
+    m_name = name;
 }
 

@@ -7,6 +7,8 @@
 *********************************/
 
 #include <iostream>
+#include <sys/stat.h>
+#include <sys/wait.h>
 
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
@@ -41,13 +43,11 @@ DECLARE_string(interface);
 DECLARE_string(img_dir);
 DECLARE_string(log_path);
 
-int main(int argc, char **argv) {
-    // is root?
-    if (geteuid() != 0) {
-        fprintf(stderr, "Executor: must be run as root, or sudo run it.\n");
-        exit(1);
-    }
+extern void* TaskProcessor(void* unused);
+extern void* VMProcessor(void* unused);
 
+// executor
+int ExecutorEntity(int argc, char **argv) {
     // config file
     if (argc > 1)
         google::ParseCommandLineFlags(&argc, &argv, true);
@@ -65,13 +65,53 @@ int main(int argc, char **argv) {
     LOG4CPLUS_DEBUG(logger, "This is the FIRST debug message");
     LOG4CPLUS_INFO(logger, "This is the FIRST info message");
     LOG4CPLUS_ERROR(logger, "This is the FIRST error message");
-   
+  
+    // check dir
+    if(access("/var/lib/libvirt/images", F_OK) == -1) {
+       if(mkdir("/var/lib/libvirt/images",0755) != 0){
+           LOG4CPLUS_ERROR(logger, "cannot create kvm images dir");
+           exit(-1);
+       }
+    }
+ 
+    // work thread
+    pthread_t task_t;
+    pthread_create(&task_t, NULL, TaskProcessor, NULL);
+
+    pthread_t vm_t;
+    pthread_create(&vm_t, NULL, VMProcessor, NULL);
+
     cout << "Executor is OK." << endl;
     // Listen for service 
-    //Rpc<ExecutorService, ExecutorProcessor>::Listen(
-    //    atoi(ConfigI::Instance()->Get("port").c_str()));
+    Rpc<ExecutorService, ExecutorProcessor>::Listen(FLAGS_port);
+  
+    cout << "executor end" << endl;
     //int port = 9997; 
     //Rpc<ExecutorService, ExecutorProcessor>::Listen(port);
 
     return 0;
+}
+
+int main(int argc, char **argv) {
+    // is root?
+    if (geteuid() != 0) {
+        fprintf(stderr, "Executor: must be run as root, or sudo run it.\n");
+        exit(1);
+    }
+
+    // monitor ExecutorEntity
+    //while(true) {
+        int32_t status;
+        int32_t pid = fork();
+        if (pid != 0) {
+            // parent process, start executorEntity when ExecutorEntity fail
+            if (waitpid(pid, &status, 0) > 0) {
+                // continue;
+            }
+        } else {
+            // child process
+            ExecutorEntity(argc, argv);
+        }
+    //}
+    return 0; 
 }

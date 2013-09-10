@@ -8,18 +8,18 @@
 
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
-#include <log4cplus/configurator.h>
-#include <log4cplus/fileappender.h>
-#include <log4cplus/consoleappender.h>
-#include <log4cplus/layout.h>
 
 #include <classad/classad.h>
 #include <classad/classad_distribution.h>
 
-#include "task_entity.h"
+#include "executor/task_entity.h"
+#include "executor/vm_pool.h"
 
+using log4cplus::Logger;
 using lynn::WriteLocker;
 using lynn::ReadLocker;
+
+static Logger logger = Logger::getInstance("executor");
 
 TaskEntity::TaskEntity(const string& task_info, bool& ret) {
     // classad init, string task_info --> ClassAd *ad_ptr
@@ -95,7 +95,8 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
         return;
     }
 
-    m_state = TaskEntityState::TASKENTITY_WAIT;
+    m_id = m_info.id;
+    m_state = TaskEntityState::TASKENTITY_WAITING;
     m_percentage = 0;
 }
 
@@ -131,12 +132,15 @@ bool TaskEntity::SetPercentage(const double percentage) {
 // TODO
 bool TaskEntity::Start() {
     WriteLocker locker(m_lock);
+    printf("Start Task Entity 123\n");
 
-    // TODO
-    // ...
+    // init vm
+    VMPtr ptr(new KVM(m_info));
+    // insert VMPtr into VMPool
+    VMPoolI::Instance()->Insert(ptr);
 
     // change executor state into running
-    m_state = TaskEntityState::TASKENTITY_RUN;
+    m_state = TaskEntityState::TASKENTITY_STARTING;
 
     return true;
 }
