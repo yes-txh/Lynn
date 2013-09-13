@@ -8,14 +8,14 @@
 #define SRC_COLLECTOR_MACHINE_POOL_H
 
 #include <map>
-#include "common/rwlock.h"
-#include "common/singleton.h"
+#include "common/clynn/rwlock.h"
+#include "common/clynn/singleton.h"
 
 #include "collector/machine.h"
 
 using std::string;
 using std::map;
-using lynn::RWLock;
+using clynn::RWLock;
 
 class MachinePool {
 public:

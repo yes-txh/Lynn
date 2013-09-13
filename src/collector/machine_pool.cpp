@@ -1,7 +1,7 @@
 #include "collector/machine_pool.h"
 
-using lynn::ReadLocker;
-using lynn::WriteLocker;
+using clynn::ReadLocker;
+using clynn::WriteLocker;
 
 void MachinePool::Insert(const MachinePtr& machine){
     string endpoint = machine->GetEndpoint();

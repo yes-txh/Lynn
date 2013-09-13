@@ -16,7 +16,7 @@
 #include <log4cplus/layout.h>
 
 #include "include/proxy.h"
-#include "common/rpc.h"
+#include "common/clynn/rpc.h"
 
 using std::string;
 using std::cout;

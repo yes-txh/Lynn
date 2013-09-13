@@ -9,28 +9,28 @@
 #include <string>
 #include <stdexcept>
 #include <string.h>
-#include "common/cond.h"
+#include "common/clynn/cond.h"
 
 using std::string;
 using std::runtime_error;
 
-lynn::Cond::Cond() {
+clynn::Cond::Cond() {
     CheckError("Cond::Cond", pthread_cond_init(&m_cond, NULL));
 }
 
-lynn::Cond::~Cond() {
+clynn::Cond::~Cond() {
     pthread_cond_destroy(&m_cond);
 }
 
-void lynn::Cond::Signal() {
+void clynn::Cond::Signal() {
     CheckError("Cond::Signal", pthread_cond_signal(&m_cond));
 }
 
-void lynn::Cond::Wait(Mutex& mutex) {
+void clynn::Cond::Wait(Mutex& mutex) {
     CheckError("Cond::Wait", pthread_cond_wait(&m_cond, &(mutex.m_lock)));
 }
 
-int lynn::Cond::Wait(Mutex& mutex, size_t timeout) {
+int clynn::Cond::Wait(Mutex& mutex, size_t timeout) {
     struct timespec time;
     time.tv_sec = timeout;
     time.tv_nsec = 0;
@@ -39,7 +39,7 @@ int lynn::Cond::Wait(Mutex& mutex, size_t timeout) {
     return ret;
 }
 
-void lynn::Cond::CheckError(const char* info, int code) {
+void clynn::Cond::CheckError(const char* info, int code) {
     if (code != 0) {
         string msg = info;
         msg += " error: ";

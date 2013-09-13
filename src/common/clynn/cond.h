@@ -1,19 +1,19 @@
 /********************************
- FileName: common/cond.h
+ FileName: common/clynn/cond.h
  Author:   
  Date:     2013-08-21
  Version:  0.1
  Description: pthread condition lock 
 *********************************/
 
-#ifndef SRC_COMMON_COND_H
-#define SRC_COMMON_COND_H
+#ifndef COMMON_COND_H
+#define COMMON_COND_H
 
 #include <pthread.h>
 
-#include "common/mutex.h"
+#include "common/clynn/mutex.h"
 
-namespace lynn {
+namespace clynn {
 
     class Cond {
         public:

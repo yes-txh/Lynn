@@ -1,13 +1,13 @@
 /********************************
- FileName: common/metux.h
+ FileName: common/clynn/metux.h
  Author:   
  Date:     2013-08-21
  Version:  0.1
  Description: metux, lock for multi thread
 *********************************/
 
-#ifndef SRC_COMMON_MUTEX_H
-#define SRC_COMMON_MUTEX_H
+#ifndef COMMON_MUTEX_H
+#define COMMON_MUTEX_H
 
 #include <pthread.h>
 #include <errno.h>
@@ -18,7 +18,7 @@
 using std::string;
 using std::runtime_error;
 
-namespace lynn {
+namespace clynn {
 
     class Mutex {
         public:
@@ -65,7 +65,7 @@ namespace lynn {
             }
 
         private:
-            lynn::Mutex* m_mutex;
+            clynn::Mutex* m_mutex;
     };
 }
 

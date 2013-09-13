@@ -1,13 +1,13 @@
 /********************************
- FileName: common/rpc.h
+ FileName: common/clynn/rpc.h
  Author:   
  Date:     2013-08-21
  Version:  0.1
  Description: rpc with thrift 
 *********************************/
 
-#ifndef SRC_COMMON_RPC_H
-#define SRC_COMMON_RPC_H
+#ifndef COMMON_RPC_H
+#define COMMON_RPC_H
 
 #include <concurrency/ThreadManager.h>
 #include <concurrency/PosixThreadFactory.h>
