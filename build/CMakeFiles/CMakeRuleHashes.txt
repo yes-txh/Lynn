@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-e9b568e4ff2f343dde4affdd0de80901 ../src/proxy/collector/gen-cpp/collector_constants.h
-9cbda991be464bf42a5a2d0236ccb021 ../src/proxy/executor/gen-cpp/executor_constants.h
-f6989af2f668b67837cab49f7b150267 ../src/proxy/scheduler/gen-cpp/scheduler_constants.h
