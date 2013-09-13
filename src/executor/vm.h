@@ -13,13 +13,13 @@
 #include <boost/shared_ptr.hpp>
 
 #include "include/proxy.h"
-#include "common/rwlock.h"
+#include "common/clynn/rwlock.h"
 #include "executor/type.h"
 #include "executor/task_entity_pool.h"
 
 using std::string;
 using boost::shared_ptr;
-using lynn::RWLock;
+using clynn::RWLock;
 
 class VM {
 public:

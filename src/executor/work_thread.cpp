@@ -10,7 +10,7 @@
 #include <stdlib.h>
 
 #include "include/proxy.h"
-#include "common/rpc.h"
+#include "common/clynn/rpc.h"
 #include "task_entity_pool.h"
 #include "vm_pool.h"
 

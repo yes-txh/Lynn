@@ -16,8 +16,8 @@
 #include "executor/vm_pool.h"
 
 using log4cplus::Logger;
-using lynn::WriteLocker;
-using lynn::ReadLocker;
+using clynn::WriteLocker;
+using clynn::ReadLocker;
 
 static Logger logger = Logger::getInstance("executor");
 

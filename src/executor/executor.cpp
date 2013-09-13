@@ -18,7 +18,7 @@
 #include <log4cplus/layout.h>
 #include <gflags/gflags.h>
 
-#include "common/rpc.h"
+#include "common/clynn/rpc.h"
 #include "executor/executor_service.h"
 
 using std::string;

@@ -14,8 +14,8 @@
 #include <tr1/functional>
 #include <sys/types.h>
 
-#include "common/singleton.h"
-#include "common/rwlock.h"
+#include "common/clynn/singleton.h"
+#include "common/clynn/rwlock.h"
 #include "executor/vm.h"
 #include "executor/kvm.h"
 
@@ -24,7 +24,7 @@ using std::queue;
 using std::tr1::function;
 using std::tr1::placeholders::_1;
 using std::tr1::placeholders::_2;
-using lynn::RWLock;
+using clynn::RWLock;
 
 class VMPool {
 public:

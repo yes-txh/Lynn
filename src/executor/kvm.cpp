@@ -33,8 +33,8 @@ using std::ofstream;
 using std::endl;
 using namespace rapidxml;
 using log4cplus::Logger;
-using lynn::WriteLocker;
-using lynn::ReadLocker;
+using clynn::WriteLocker;
+using clynn::ReadLocker;
 
 // gflag 
 // libvirt_dir = /var/lib/libvirt/images/

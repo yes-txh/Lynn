@@ -14,15 +14,15 @@
 #include <tr1/memory>
 #include <tr1/functional>
 
-#include "common/rwlock.h"
-#include "common/singleton.h"
+#include "common/clynn/rwlock.h"
+#include "common/clynn/singleton.h"
 #include "executor/task_entity.h"
 
 using std::map;
 using std::tr1::function;         // similar to a function pointer;
 using std::tr1::placeholders::_1; // 
 using std::tr1::placeholders::_2; 
-using lynn::RWLock;
+using clynn::RWLock;
 
 class TaskEntityPool {
 public:

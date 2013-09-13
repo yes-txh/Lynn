@@ -17,8 +17,8 @@
 
 using std::stringstream;
 using log4cplus::Logger;
-using lynn::ReadLocker;
-using lynn::WriteLocker;
+using clynn::ReadLocker;
+using clynn::WriteLocker;
 
 DECLARE_int32(port);
 DECLARE_string(collector_endpoint);

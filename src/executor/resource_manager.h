@@ -15,15 +15,15 @@
 #include <boost/shared_ptr.hpp>
 
 #include "include/proxy.h"
-#include "common/rpc.h"
-#include "common/singleton.h"
-#include "common/rwlock.h"
+#include "common/clynn/rpc.h"
+#include "common/clynn/singleton.h"
+#include "common/clynn/rwlock.h"
 
 using std::string;
 using std::map;
 using std::vector;
 using boost::shared_ptr;
-using lynn::RWLock;
+using clynn::RWLock;
 
 class ResourceManager {
 public:

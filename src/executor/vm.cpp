@@ -8,8 +8,8 @@
 
 #include "executor/vm.h"
 
-using lynn::WriteLocker;
-using lynn::ReadLocker;
+using clynn::WriteLocker;
+using clynn::ReadLocker;
 
 // public
 int64_t VM::GetId() {
