@@ -1,0 +1,134 @@
+标准 C 的 ctype 实现因为涉及到 locale，不够快，自己写的带判断的宏也不够快，查表最快。
+公共库提供了一个快速的实现，可以自己建立各种表
+https://tc-svn/setech/setech_twsedownload_rep/dl_common_proj/trunk/include/FastCType.hpp
+ 
+// 字符集合，用于快速判断一个字符是否在集合中。
+class CharSet
+{
+public:
+    // 默认为空集
+    CharSet();
+ 
+    // 用函数来构建集合
+    template <typename Pred>
+    explicit CharSet(const Pred& pred);
+ 
+    // 用字符串来构建集合，字符串中所有的字符都被插入集合
+    explicit CharSet(const char* str);
+    template <typename Pred>
+ 
+    // 插入一个函数过滤的结构
+    void insert(const Pred& pred);
+ 
+    // 插入字符串中的所有字符
+    void insert(const char* str);
+ 
+    // 从集合中删除符合条件的
+    template <typename Pred>
+    void remove(const Pred& pred);
+ 
+    // 从集合中删除字符串中存在的字符
+    void remove(const char* str);
+ 
+    // 查找是否在集合中
+    bool find(unsigned char c) const;
+    bool operator()(unsigned char c) const;
+ 
+    // 求并集合
+    CharSet& operator|=(const CharSet& rhs);
+    CharSet& operator|=(const char* rhs);
+ 
+    // 求交集
+    CharSet& operator&=(const CharSet& rhs);
+private:
+    // 实现：256 个位的位图
+    unsigned char m_bitmap[(UCHAR_MAX + 1 + CHAR_BIT - 1) / CHAR_BIT];
+};
+ 
+// 求两个字符集合的并集
+const CharSet operator|(const CharSet& lhs, const CharSet& rhs);
+const CharSet operator|(const CharSet& lhs, const char* rhs);
+ 
+// 求两个字符集合的交集
+const CharSet operator&(const CharSet& lhs, const CharSet& rhs)
+ 
+// 字符映射表，用于字符转换
+class CharMap
+{
+public:
+    // 原样映射
+    CharMap();
+ 
+    // 根据一个映射函数来做映射
+    template <typename Pred>
+    explicit CharMap(Pred pred);
+public:
+    // 返回对应的映射字符
+    unsigned char& operator[](unsigned char c);
+    const unsigned char& operator[](unsigned char c) const;
+    unsigned char operator()(unsigned char c) const;
+private:
+    // 实现：256 个字符的数组
+    unsigned char m_chars[UCHAR_MAX + 1];
+};
+ 
+// 获得对应 ctype 类似函数名的字符集合
+const CharSet& GetSpaceSet();
+const CharSet& GetAlphaSet();
+const CharSet& GetAlphaNumSet();
+const CharSet& GetAsciiSet();
+const CharSet& GetHexSet();
+const CharSet& GetDigitSet();
+const CharSet& GetUpperSet();
+const CharSet& GetLowerSet();
+const CharSet& GetPrintSet();
+ 
+// 获得大小写转换的映射表
+const CharMap& GetUpperMap();
+const CharMap& GetLowerMap();
+
+字符集合对象和字符映射对象都比较大，分别占用 32 和 256 个字节，所以要在初始化时创建，用引用来传递，才比较高效。
+Get 系列函数也是提前用引用来绑定到变量再用比较高效，如果每个字符都获得表一次，就没有优势了。
+class XxxParser
+{
+    XxxParser():
+        IsAlpha(GetAlphaSet()),
+        IsUpper(GetUpperSet()),
+        IsLower(GetLowerSet()),
+        IsDigit(GetDigitSet()),
+        IsAlphaNum(GetAlphaNumSet()),
+        IsPrint(GetPrintSet()),
+        IsSpace(GetSpaceSet()),
+        IsHex(GetHexSet())
+    {
+    }
+ 
+    void Match(...)
+    {
+        if (IsAlpha()) ...
+        char ch = ToUpper(*p);
+        ...
+    }
+ 
+private:
+    const CharSet&;
+    const CharSet&;
+    const CharSet&;
+    const CharSet&;
+    const CharSet&;
+    const CharSet&;
+    const CharSet&;
+    const CharSet&;
+};
+ 
+// 预先构建一些字符集合对象
+const CharSet UriParser::m_cs_reserved(";/?:@&=+$,");
+const CharSet UriParser::m_cs_mark("-_.!~*'()");
+const CharSet UriParser::m_cs_unreserved(GetAlphaNumSet() | m_cs_mark);
+const CharSet UriParser::m_cs_userinfo(m_cs_unreserved | ";:&=+$,");
+const CharSet UriParser::m_cs_uric_no_slash(m_cs_unreserved | ";?:@&=+$,");
+const CharSet UriParser::m_cs_rel_segment(m_cs_unreserved | ";@&=+$,");
+const CharSet UriParser::m_cs_scheme(GetAlphaNumSet() | "+-.");
+const CharSet UriParser::m_cs_reg_name(m_cs_unreserved | "$,;:@&=+");
+const CharSet UriParser::m_cs_pchar(m_cs_unreserved | ":@&=+$,");
+const CharSet UriParser::m_cs_uric(m_cs_reserved | m_cs_unreserved);

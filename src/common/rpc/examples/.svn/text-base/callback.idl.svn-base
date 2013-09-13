@@ -1,0 +1,5 @@
+interface Callback
+{
+	void OnCallback();
+}
+

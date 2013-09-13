@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/setech/setech_infrastructure_rep/!svn/ver/39799/Infra_proj/trunk/src/common/system/io
+END
+path.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/15091/Infra_proj/trunk/src/common/system/io/path.hpp
+END
+file_utility.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/36330/Infra_proj/trunk/src/common/system/io/file_utility.cpp
+END
+directory_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/39099/Infra_proj/trunk/src/common/system/io/directory_test.cpp
+END
+directory.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/39799/Infra_proj/trunk/src/common/system/io/directory.cpp
+END
+io_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/39099/Infra_proj/trunk/src/common/system/io/io_test.cpp
+END
+file_utility.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/36241/Infra_proj/trunk/src/common/system/io/file_utility.hpp
+END
+directory.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/15091/Infra_proj/trunk/src/common/system/io/directory.hpp
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/setech/setech_infrastructure_rep/!svn/ver/39191/Infra_proj/trunk/src/common/system/io/BUILD
+END
+file_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/39099/Infra_proj/trunk/src/common/system/io/file_test.cpp
+END
+file.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/39799/Infra_proj/trunk/src/common/system/io/file.cpp
+END
+test_unix.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/39191/Infra_proj/trunk/src/common/system/io/test_unix.txt
+END
+test_dos.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/39191/Infra_proj/trunk/src/common/system/io/test_dos.txt
+END
+textfile_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/39191/Infra_proj/trunk/src/common/system/io/textfile_test.cpp
+END
+textfile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/39191/Infra_proj/trunk/src/common/system/io/textfile.cpp
+END
+file.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/39099/Infra_proj/trunk/src/common/system/io/file.hpp
+END
+textfile.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/39191/Infra_proj/trunk/src/common/system/io/textfile.hpp
+END
+path_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/39099/Infra_proj/trunk/src/common/system/io/path_test.cpp
+END
+path.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/system/io/path.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/15091/Infra_proj/trunk/src/common/system/io/Makefile
+END

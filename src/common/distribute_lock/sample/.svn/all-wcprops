@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/46257/Infra_proj/trunk/src/common/distribute_lock/sample
+END
+client_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/46257/Infra_proj/trunk/src/common/distribute_lock/sample/client_test.cc
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/46257/Infra_proj/trunk/src/common/distribute_lock/sample/Makefile
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/murmur
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/32328/Infra_proj/trunk/src/common/crypto/hash/murmur/BUILD
+END
+MurmurHash2A.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/14455/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHash2A.cpp
+END
+MurmurHash3.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHash3.cpp
+END
+MurmurHashAligned2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/14455/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHashAligned2.cpp
+END
+MurmurHash3.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/19473/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHash3.h
+END
+MurmurHash2_64.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/14455/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHash2_64.cpp
+END
+MurmurHashNeutral2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/14455/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHashNeutral2.cpp
+END
+MurmurHash.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/14455/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHash.cpp
+END
+MurmurHash2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/14455/Infra_proj/trunk/src/common/crypto/hash/murmur/MurmurHash2.cpp
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/setech/setech_infrastructure_rep/!svn/ver/36886/Infra_proj/trunk/src/common/crypto/rsa2
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/setech/setech_infrastructure_rep/!svn/ver/32328/Infra_proj/trunk/src/common/crypto/rsa2/BUILD
+END
+rsa2.sln
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/12753/Infra_proj/trunk/src/common/crypto/rsa2/rsa2.sln
+END
+Makefile_test.mak
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/12969/Infra_proj/trunk/src/common/crypto/rsa2/Makefile_test.mak
+END
+rsa2.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/27404/Infra_proj/trunk/src/common/crypto/rsa2/rsa2.vcproj
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/33166/Infra_proj/trunk/src/common/crypto/rsa2/Makefile
+END
+rsa2.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/rsa2/rsa2.h
+END
+rsa2_global.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/20821/Infra_proj/trunk/src/common/crypto/rsa2/rsa2_global.h
+END

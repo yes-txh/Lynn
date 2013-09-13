@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/setech/setech_infrastructure_rep/!svn/ver/44897/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/setech/setech_infrastructure_rep/!svn/ver/37517/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/BUILD
+END
+test_obj.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/setech/setech_infrastructure_rep/!svn/ver/42381/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/test_obj.h
+END
+longconn_test_svr.sln
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/setech/setech_infrastructure_rep/!svn/ver/44897/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/longconn_test_svr.sln
+END
+longconn_test_svr.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/setech/setech_infrastructure_rep/!svn/ver/44897/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/longconn_test_svr.vcproj
+END
+main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/setech/setech_infrastructure_rep/!svn/ver/38606/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/main.cc
+END
+head_files.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/setech/setech_infrastructure_rep/!svn/ver/23340/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/head_files.h
+END
+longconn_test_svr.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/setech/setech_infrastructure_rep/!svn/ver/23340/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/longconn_test_svr.dsp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/setech/setech_infrastructure_rep/!svn/ver/30436/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/Makefile
+END
+test_obj.cc
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/setech/setech_infrastructure_rep/!svn/ver/44515/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test_svr/test_obj.cc
+END

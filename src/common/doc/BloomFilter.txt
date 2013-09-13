@@ -1,0 +1,46 @@
+BloomFilter
+BloomFilter 的原理，特点和用途参考一下下列文章，不再解释。
+http://zh.wikipedia.org/zh-cn/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8
+http://blog.csdn.net/jiaomeng/archive/2007/01/28/1496329.aspx 从哈希存储到Bloom Filter
+http://blog.csdn.net/jiaomeng/archive/2007/01/27/1495500.aspx Bloom Filter概念和原理
+http://blog.csdn.net/jiaomeng/archive/2007/02/05/1502910.aspx Partial Bloom Filter
+http://www.google.com.hk/ggblog/googlechinablog/2007/07/bloom-filter_7469.html 数学之美系列二十一 － 布隆过滤器（Bloom Filter）
+ 
+util/include/BloomFilter.hpp
+ 
+容量      误判率  内存占用
+一千万    0.001  17.19M
+一亿      0.001  171.9M
+ 
+BloomFilter
+构造函数
+BloomFilter(unsigned long long capacity, double false_positive_prob);
+capacity 是预计容量，false_positive_prob 是达到容量时误判率。例如：
+BloomFilter bm(10000*10000ULL, 0.0001);
+构造一个容量一亿，容纳一亿条数据后误判率万分之一的bloomfilter。
+ 
+向 bloom filter 插入值。
+void BloomFilter::Insert(const void* data, size_t size);
+void BloomFilter::Insert(const char* str);
+void BloomFilter::Insert(const string& str);
+ 
+检查是否可能包含某值。
+void BloomFilter::MayContain(const void* data, size_t size);
+void BloomFilter::MayContain(const char* str);
+void BloomFilter::MayContain(const string& str);
+ 
+BloomFilter 采用单个位图，32位 hash 函数下，但个位图限制为 4G bit(512M字节)，如果用 64 位 hash 函数，
+可以超过，仅受可分配内存限制。
+ 
+Partial Bloom Filter
+Partial Bloom Filter 把位图分为多个，每个 hash 函数只操作对应的位图，这样在使用 32 位 hash 函数的时候，总位图数
+也可以超越 4G 位。
+ 
+BloomFilter 默认使用 Murmur2Hash。
+ 
+BloomFilter 和 PartialBloomFilter 都是模板实例的 typedef，使用了 Murmur2Hasher hash 函数。
+ 
+typedef BasicBloomFilter<Murmur2Hasher> BloomFilter;
+typedef BasicPartialBloomFilter<Murmur2Hasher> PartialBloomFilter;
+ 
+BasicBloomFilter<Murmur2Hasher64> bm(100000, 0.0001);

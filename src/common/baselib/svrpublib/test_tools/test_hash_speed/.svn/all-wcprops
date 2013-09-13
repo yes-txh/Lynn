@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/setech/setech_infrastructure_rep/!svn/ver/46797/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_hash_speed
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/setech/setech_infrastructure_rep/!svn/ver/37518/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_hash_speed/BUILD
+END
+test_hash_speed.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/setech/setech_infrastructure_rep/!svn/ver/24003/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_hash_speed/test_hash_speed.vcproj
+END
+test_rawlog.sln
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_hash_speed/test_rawlog.sln
+END
+test_hash_speed.cc
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/setech/setech_infrastructure_rep/!svn/ver/46797/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_hash_speed/test_hash_speed.cc
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/setech/setech_infrastructure_rep/!svn/ver/33148/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_hash_speed/Makefile
+END

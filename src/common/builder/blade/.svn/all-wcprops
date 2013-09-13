@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/setech/setech_infrastructure_rep/!svn/ver/49513/Infra_proj/trunk/src/common/builder/blade
+END
+make2build
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/43917/Infra_proj/trunk/src/common/builder/blade/make2build
+END
+bladefunctions
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/49513/Infra_proj/trunk/src/common/builder/blade/bladefunctions
+END
+genlibbuild
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/43917/Infra_proj/trunk/src/common/builder/blade/genlibbuild
+END
+lsrc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/43917/Infra_proj/trunk/src/common/builder/blade/lsrc
+END
+install
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/37937/Infra_proj/trunk/src/common/builder/blade/install
+END
+blade
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/setech/setech_infrastructure_rep/!svn/ver/47815/Infra_proj/trunk/src/common/builder/blade/blade
+END
+blade.ppt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/40570/Infra_proj/trunk/src/common/builder/blade/blade.ppt
+END
+lsnobuild
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/35152/Infra_proj/trunk/src/common/builder/blade/lsnobuild
+END

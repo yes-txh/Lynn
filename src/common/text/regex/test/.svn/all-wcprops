@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/setech/setech_infrastructure_rep/!svn/ver/49516/Infra_proj/trunk/src/common/text/regex/test
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/35066/Infra_proj/trunk/src/common/text/regex/test/BUILD
+END
+pcredemo.c
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/32330/Infra_proj/trunk/src/common/text/regex/test/pcredemo.c
+END
+RunGrepTest
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/13321/Infra_proj/trunk/src/common/text/regex/test/RunGrepTest
+END
+check.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/13321/Infra_proj/trunk/src/common/text/regex/test/check.hpp
+END
+regex_scanner_unittest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/text/regex/test/regex_scanner_unittest.cpp
+END
+RunTest
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/13321/Infra_proj/trunk/src/common/text/regex/test/RunTest
+END
+pcre_printint.src
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/13321/Infra_proj/trunk/src/common/text/regex/test/pcre_printint.src
+END
+pcregrep.c
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/32330/Infra_proj/trunk/src/common/text/regex/test/pcregrep.c
+END
+RunTest.bat
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/13321/Infra_proj/trunk/src/common/text/regex/test/RunTest.bat
+END
+pcretest.c
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/text/regex/test/pcretest.c
+END
+regex_unittest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/49516/Infra_proj/trunk/src/common/text/regex/test/regex_unittest.cpp
+END
+perltest.pl
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/13321/Infra_proj/trunk/src/common/text/regex/test/perltest.pl
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/32330/Infra_proj/trunk/src/common/text/regex/test/Makefile
+END

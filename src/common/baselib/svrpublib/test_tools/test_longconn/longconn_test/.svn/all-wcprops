@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/setech/setech_infrastructure_rep/!svn/ver/44897/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test
+END
+longconn_svr_thread.cc
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/setech/setech_infrastructure_rep/!svn/ver/40661/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_svr_thread.cc
+END
+longconn_svr_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/setech/setech_infrastructure_rep/!svn/ver/40661/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_svr_thread.h
+END
+longconn_client_thread.cc
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/setech/setech_infrastructure_rep/!svn/ver/40661/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_client_thread.cc
+END
+test_svr_obj.cc
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/setech/setech_infrastructure_rep/!svn/ver/44502/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/test_svr_obj.cc
+END
+longconn_client_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/setech/setech_infrastructure_rep/!svn/ver/40661/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_client_thread.h
+END
+test_svr_obj.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/setech/setech_infrastructure_rep/!svn/ver/42381/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/test_svr_obj.h
+END
+test_client_obj.cc
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/setech/setech_infrastructure_rep/!svn/ver/42381/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/test_client_obj.cc
+END
+test_client_obj.h
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/setech/setech_infrastructure_rep/!svn/ver/42381/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/test_client_obj.h
+END
+longconn_test.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/setech/setech_infrastructure_rep/!svn/ver/23340/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_test.dsp
+END
+longconn_test.sln
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/setech/setech_infrastructure_rep/!svn/ver/44897/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_test.sln
+END
+main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/setech/setech_infrastructure_rep/!svn/ver/40661/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/main.cc
+END
+head_files.h
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/setech/setech_infrastructure_rep/!svn/ver/40661/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/head_files.h
+END
+BUILD_bak
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/setech/setech_infrastructure_rep/!svn/ver/42750/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/BUILD_bak
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/setech/setech_infrastructure_rep/!svn/ver/30424/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/Makefile
+END
+longconn_test.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/setech/setech_infrastructure_rep/!svn/ver/44897/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_longconn/longconn_test/longconn_test.vcproj
+END

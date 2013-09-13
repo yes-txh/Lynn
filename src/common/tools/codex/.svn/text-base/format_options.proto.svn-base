@@ -1,0 +1,11 @@
+// Copyright 2010 Tencent Inc.
+// Author: Yi Wang (yiwang@tencent.com)
+
+import "common/tools/codex/format_option.proto";
+
+package codex;
+
+// FormatOptionSequence describes a format string as a sequence of options.
+message FormatOptionSequence {
+  repeated FormatOption option = 1;
+}

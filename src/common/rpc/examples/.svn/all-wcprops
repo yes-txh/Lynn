@@ -1,0 +1,281 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/setech/setech_infrastructure_rep/!svn/ver/49645/Infra_proj/trunk/src/common/rpc/examples
+END
+multilisten.idl
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/multilisten.idl
+END
+Callback.Interface.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/12852/Infra_proj/trunk/src/common/rpc/examples/Callback.Interface.hpp
+END
+proto_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/proto_client.cpp
+END
+CallbackProxy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/CallbackProxy.hpp
+END
+echo_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/echo_server.cpp
+END
+CallbackDemoStub.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/CallbackDemoStub.hpp
+END
+test.idl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/test.idl
+END
+test_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/test_server.cpp
+END
+pointer_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/pointer_server.cpp
+END
+push.sh
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/21147/Infra_proj/trunk/src/common/rpc/examples/push.sh
+END
+nested_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/nested_server.cpp
+END
+CallbackDemoProxy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/CallbackDemoProxy.hpp
+END
+multilisten.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/multilisten.cpp
+END
+rpc_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/rpc_server.cpp
+END
+address.dat
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/19002/Infra_proj/trunk/src/common/rpc/examples/address.dat
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/BUILD
+END
+callback.idl
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/callback.idl
+END
+Echo.Interface.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/12852/Infra_proj/trunk/src/common/rpc/examples/Echo.Interface.hpp
+END
+callback_demo.idl
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/11856/Infra_proj/trunk/src/common/rpc/examples/callback_demo.idl
+END
+TestProxy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/TestProxy.hpp
+END
+proto.idl
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/proto.idl
+END
+proto_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/proto_server.cpp
+END
+callback_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/callback_client.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/Makefile
+END
+callback_stub.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/callback_stub.hpp
+END
+callback.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/callback.hpp
+END
+echo.idl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/echo.idl
+END
+CallbackDemo.Interface.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/12852/Infra_proj/trunk/src/common/rpc/examples/CallbackDemo.Interface.hpp
+END
+pointer.idl
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/19002/Infra_proj/trunk/src/common/rpc/examples/pointer.idl
+END
+nested.idl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/16494/Infra_proj/trunk/src/common/rpc/examples/nested.idl
+END
+echo_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/echo_client.cpp
+END
+test_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/test_client.cpp
+END
+pointer_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/pointer_client.cpp
+END
+nested_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/nested_client.cpp
+END
+echo_stub.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/echo_stub.hpp
+END
+addressbook.proto
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/19002/Infra_proj/trunk/src/common/rpc/examples/addressbook.proto
+END
+callback_server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/rpc/examples/callback_server.cpp
+END
+TestStub.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/TestStub.h
+END
+rpc_client.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/44453/Infra_proj/trunk/src/common/rpc/examples/rpc_client.cpp
+END
+Test.Interface.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/12852/Infra_proj/trunk/src/common/rpc/examples/Test.Interface.hpp
+END
+TestTtub.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/TestTtub.hpp
+END
+echo_proxy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/echo_proxy.hpp
+END
+Test.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/Test.hpp
+END
+TestProxy.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/9917/Infra_proj/trunk/src/common/rpc/examples/TestProxy.h
+END
+test_loopback.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/rpc/examples/test_loopback.cpp
+END
+LoopbackRpcChannel.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/49645/Infra_proj/trunk/src/common/rpc/examples/LoopbackRpcChannel.hpp
+END

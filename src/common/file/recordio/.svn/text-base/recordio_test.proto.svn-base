@@ -1,0 +1,9 @@
+package common.file;
+
+// It must include some "required" fields, to avoid accidentally we consider a
+// random string as a valid protocol buffer.
+message Record {
+  required uint32 int_value = 1;
+  required double double_value = 2;
+  optional string string_value = 3;
+}

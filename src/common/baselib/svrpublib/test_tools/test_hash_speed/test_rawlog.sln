@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "svrpublib", "..\..\svrpublib.vcproj", "{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_hash_speed", "test_hash_speed.vcproj", "{258CAA25-356C-43C9-A1A4-619FD64C527D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{772C2111-BBBF-49E6-B912-198A7F7A88E5} = {772C2111-BBBF-49E6-B912-198A7F7A88E5}
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1} = {50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libglog_static", "..\..\..\..\..\thirdparty\glog-0.3.1\vsprojects\libglog_static\libglog_static_vc8.vcproj", "{772C2111-BBBF-49E6-B912-198A7F7A88E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Debug|Win32.Build.0 = Debug|Win32
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Release|Win32.ActiveCfg = Release|Win32
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Release|Win32.Build.0 = Release|Win32
+		{258CAA25-356C-43C9-A1A4-619FD64C527D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{258CAA25-356C-43C9-A1A4-619FD64C527D}.Debug|Win32.Build.0 = Debug|Win32
+		{258CAA25-356C-43C9-A1A4-619FD64C527D}.Release|Win32.ActiveCfg = Release|Win32
+		{258CAA25-356C-43C9-A1A4-619FD64C527D}.Release|Win32.Build.0 = Release|Win32
+		{772C2111-BBBF-49E6-B912-198A7F7A88E5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{772C2111-BBBF-49E6-B912-198A7F7A88E5}.Debug|Win32.Build.0 = Debug|Win32
+		{772C2111-BBBF-49E6-B912-198A7F7A88E5}.Release|Win32.ActiveCfg = Release|Win32
+		{772C2111-BBBF-49E6-B912-198A7F7A88E5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

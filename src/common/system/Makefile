@@ -1,0 +1,98 @@
+ROOT = ../../..
+COMMON = ..
+THIRD_PARTY = $(COMMON)/../thirdparty
+
+project.includes = $(COMMON)/.. $(THIRD_PARTY)
+project.postbuild = libsystem_build_finished
+project.subdirs = . concurrency/atomic concurrency memory timer net debug cpu
+
+project.targets :=
+
+project.targets += libsystem.a
+libsystem.a.type = library
+libsystem.a.sources := \
+	$(filter-out %test.cc,\
+		$(filter-out %test.cpp,\
+			$(wildcard \
+				*.cpp \
+				time/*.cpp \
+				timer/*.cpp \
+				concurrency/*.cpp \
+				concurrency/*.cc \
+				cpu/*.cpp \
+				memory/*.cpp \
+				io/*.cpp \
+				net/*.cpp \
+			)\
+		) \
+	)
+libsystem.a.ldadd := \
+	-pthread -ldl \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/base/libbase.so \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/text/libwildcard.so
+
+# for m32
+project.targets += libsystem32.a
+libsystem32.a.type := library
+libsystem32.a.target_bits = 32
+libsystem32.a.sources := $(libsystem.a.sources)
+libsystem32.a.ldadd := \
+	-pthread -ldl \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/base/libbase.so \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/text/libwildcard.so
+
+project.targets += libsystem.so
+libsystem.so.type := shared
+libsystem.so.sources := $(libsystem.a.sources)
+libsystem.so.ldadd := \
+	-pthread -ldl \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/base/libbase.so \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/text/libwildcard.so
+
+project.targets += libsystem32.so
+libsystem32.so.type := shared
+libsystem32.so.target_bits := 32
+libsystem32.so.sources := $(libsystem.a.sources)
+libsystem32.so.ldadd := \
+	-pthread -ldl \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/base/libbase@target_bits@.so \
+	$(if $(SOSO_BUILD),@libroot@,$(COMMON)/..)/common/text/libwildcard@target_bits@.so
+
+ifeq ($(HOSTTYPE),x86_64)
+project.targets += libsystem64.so
+libsystem64.so.type := shared
+libsystem64.so.target_bits := 64
+libsystem64.so.sources := $(libsystem.a.sources)
+libsystem64.so.ldadd := $(libsystem32.so.ldadd)
+endif
+
+project.targets += stopwatch_test
+stopwatch_test.sources := time/stopwatch_test.cpp
+stopwatch_test.ldadd = \
+	-pthread \
+	$(if $(SOSO_BUILD),@libroot@/common/system/)libsystem.a \
+	$(THIRD_PARTY)/gtest/lib@64@/libgtest.a \
+	$(THIRD_PARTY)/gtest/lib@64@/libgtest_main.a
+
+project.targets += datetime_test
+#project.tests += datetime_test
+datetime_test.sources := time/datetime_test.cpp time/datetime.cpp
+datetime_test.ldadd := \
+	$(THIRD_PARTY)/gtest/lib@64@/libgtest.a \
+	$(THIRD_PARTY)/gtest/lib@64@/libgtest_main.a \
+	-pthread
+
+project.targets += dynamic_library_test
+project.tests += dynamic_library_test
+dynamic_library_test.sources := dynamic_library.cpp dynamic_library_test.cpp
+dynamic_library_test.ldadd := \
+	$(THIRD_PARTY)/gtest/lib@64@/libgtest.a \
+	$(THIRD_PARTY)/gtest/lib@64@/libgtest_main.a \
+	-pthread -ldl
+
+include $(COMMON)/builder/Generic.mak
+
+libsystem_build_finished:
+	mkdir -p $(ROOT)/output
+	-cp libsystem.a $(ROOT)/output/libsystem.a
+	-cp libsystem32.a $(ROOT)/output/libsystem32.a

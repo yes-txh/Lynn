@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/setech/setech_infrastructure_rep/!svn/ver/49522/Infra_proj/trunk/src/common/vcproject
+END
+testing.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/testing.vcproj
+END
+web.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/web.vcproj
+END
+file.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/file.vcproj
+END
+crypto.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/crypto.vcproj
+END
+log.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/log.vcproj
+END
+common_file_recordio_jna.vc2005.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/setech/setech_infrastructure_rep/!svn/ver/16915/Infra_proj/trunk/src/common/vcproject/common_file_recordio_jna.vc2005.vcproj
+END
+rpc.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/rpc.vcproj
+END
+system.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/42253/Infra_proj/trunk/src/common/vcproject/system.vcproj
+END
+text.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/text.vcproj
+END
+proto.vc2005.rule
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/22249/Infra_proj/trunk/src/common/vcproject/proto.vc2005.rule
+END
+encoding.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/encoding.vcproj
+END
+algorithm.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/algorithm.vcproj
+END
+common_unittest.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/21097/Infra_proj/trunk/src/common/vcproject/common_unittest.vcproj
+END
+collection.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/collection.vcproj
+END
+base_protocol.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/base_protocol.vcproj
+END
+compress.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/compress.vcproj
+END
+common.vc2005.sln
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/21367/Infra_proj/trunk/src/common/vcproject/common.vc2005.sln
+END
+netframe.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/39799/Infra_proj/trunk/src/common/vcproject/netframe.vcproj
+END
+common.vc2008.sln
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/39808/Infra_proj/trunk/src/common/vcproject/common.vc2008.sln
+END
+config.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/21096/Infra_proj/trunk/src/common/vcproject/config.vcproj
+END
+common_unittest.vc2005.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/21367/Infra_proj/trunk/src/common/vcproject/common_unittest.vc2005.vcproj
+END
+common.vc2005.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/49522/Infra_proj/trunk/src/common/vcproject/common.vc2005.vcproj
+END
+base.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/39799/Infra_proj/trunk/src/common/vcproject/base.vcproj
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/49645/Infra_proj/trunk/src/common/rpc/netframe_channel
+END
+netframe_channel.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/49645/Infra_proj/trunk/src/common/rpc/netframe_channel/netframe_channel.hpp
+END
+server_socket_handler.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/setech/setech_infrastructure_rep/!svn/ver/49555/Infra_proj/trunk/src/common/rpc/netframe_channel/server_socket_handler.hpp
+END
+session_manager.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/46722/Infra_proj/trunk/src/common/rpc/netframe_channel/session_manager.hpp
+END
+session.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/49555/Infra_proj/trunk/src/common/rpc/netframe_channel/session.cpp
+END
+client_socket_handler.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/setech/setech_infrastructure_rep/!svn/ver/29900/Infra_proj/trunk/src/common/rpc/netframe_channel/client_socket_handler.hpp
+END
+listen_socket_handler.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/setech/setech_infrastructure_rep/!svn/ver/49555/Infra_proj/trunk/src/common/rpc/netframe_channel/listen_socket_handler.hpp
+END
+session.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/49555/Infra_proj/trunk/src/common/rpc/netframe_channel/session.hpp
+END
+netframe_channel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/49555/Infra_proj/trunk/src/common/rpc/netframe_channel/netframe_channel.cpp
+END
+session_manager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/29456/Infra_proj/trunk/src/common/rpc/netframe_channel/session_manager.cpp
+END

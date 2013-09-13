@@ -1,0 +1,4 @@
+RPC_BEGIN_INTERFACE(Callback)
+RPC_METHOD_0(void, OnCallback, 1000)
+RPC_END_INTERFACE()
+

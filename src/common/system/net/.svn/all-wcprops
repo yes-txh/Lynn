@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/setech/setech_infrastructure_rep/!svn/ver/49131/Infra_proj/trunk/src/common/system/net
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/setech/setech_infrastructure_rep/!svn/ver/30343/Infra_proj/trunk/src/common/system/net/BUILD
+END
+OsSocket.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/system/net/OsSocket.h
+END
+get_ip_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/system/net/get_ip_test.cpp
+END
+socket_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/system/net/socket_test.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/setech/setech_infrastructure_rep/!svn/ver/25385/Infra_proj/trunk/src/common/system/net/Makefile
+END
+get_ip.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/20404/Infra_proj/trunk/src/common/system/net/get_ip.hpp
+END
+socket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/49131/Infra_proj/trunk/src/common/system/net/socket.hpp
+END

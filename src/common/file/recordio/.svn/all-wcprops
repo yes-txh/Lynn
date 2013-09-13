@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/setech/setech_infrastructure_rep/!svn/ver/49418/Infra_proj/trunk/src/common/file/recordio
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/BUILD
+END
+recordio_dump.cc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_dump.cc
+END
+recordio_jna_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_jna_test.cc
+END
+recordio_jna.cc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_jna.cc
+END
+master_file_list_old
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/master_file_list_old
+END
+recordio_jna.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_jna.h
+END
+recordio_extent_header.proto
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_extent_header.proto
+END
+recordio_test.proto
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_test.proto
+END
+recordio_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_test.cc
+END
+recordio.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/49418/Infra_proj/trunk/src/common/file/recordio/recordio.cc
+END
+recordio.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/Makefile
+END
+recordio_jna.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/48071/Infra_proj/trunk/src/common/file/recordio/recordio_jna.java
+END

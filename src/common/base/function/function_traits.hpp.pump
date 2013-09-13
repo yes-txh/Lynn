@@ -1,0 +1,190 @@
+$$ This is a pump file for generating file templates.  Pump is a python
+$$ script that is part of the Google Test suite of utilities.  Description
+$$ can be found here:
+$$ http://code.google.com/p/googletest/wiki/PumpManual
+
+$var MAX_ARITY = 8
+
+// Copyright (c) 2011, Tencent Inc.
+// All rights reserved.
+//
+// Author: CHEN Feng <phongchen@tencent.com>
+// Created: 05/09/11
+
+#ifndef COMMON_BASE_FUNCTION_FUNCTION_TRAITS_HPP
+#define COMMON_BASE_FUNCTION_FUNCTION_TRAITS_HPP
+#pragma once
+
+#include "common/base/type_traits.hpp"
+
+// GLOBAL_NOLINT(readability/casting)
+// GLOBAL_NOLINT(whitespace/parens)
+
+namespace base {
+
+// forward declaration Function
+template <typename Signature>
+class Function;
+
+namespace internal {
+
+// The method by which a function is invoked is determined by 3 different
+// dimensions:
+//
+//   1) The type of function (normal or method).
+//   2) The arity of the function.
+//   3) The number of bound parameters.
+//
+// The templates below handle the determination of each of these dimensions.
+// In brief:
+//
+//   FunctionTraits<> -- Provides a normalied signature, and other traits.
+//   InvokerN<> -- Provides a DoInvoke() function that actually executes
+//                 a calback.
+//   InvokerStorageN<> -- Provides storage for the bound parameters, and
+//                        typedefs to the above.
+//
+// More details about the design of each class is included in a comment closer
+// to their defition.
+
+// FunctionTraits<>
+//
+// The FunctionTraits<> template determines the type of function, and also
+// creates a NormalizedType used to select the InvokerN classes.  It turns out
+// that syntactically, you only really have 2 variations when invoking a
+// funciton pointer: normal, and method.  One is invoked func_ptr(arg1). The
+// other is invoked (*obj_->method_ptr(arg1)).
+//
+// However, in the type system, there are many more distinctions. In standard
+// C++, there's all variations of const, and volatile on the function pointer.
+// In Windows, there are additional calling conventions (eg., __stdcall,
+// __fastcall, etc.). FunctionTraits<> handles categorizing each of these into
+// a normalized signature.
+//
+// Having a NormalizedSignature signature, reduces the combinatoric
+// complexity of defintions for the InvokerN<> later.  Even though there are
+// only 2 syntactic variations on invoking a function, without normalizing the
+// signature, there would need to be one specialization of InvokerN for each
+// unique (function_type, bound_arg, unbound_args) tuple in order to match all
+// function signatures.
+//
+// By normalizing the function signature, we reduce function_type to exactly 2.
+
+template <typename Signature>
+struct FunctionTraits;
+
+$range ARITY 0..MAX_ARITY
+$for ARITY [[
+$range ARG 1..ARITY
+
+// Function: Arity $(ARITY).
+template <typename R[[]]
+$if ARITY > 0[[, ]] $for ARG , [[typename X$(ARG)]]>
+struct FunctionTraits<R (*)($for ARG , [[X$(ARG)]])>
+{
+    typedef R (*NormalizedSignature)($for ARG , [[X$(ARG)]]);
+    typedef TypeTraits::FalseType IsMethod;
+
+$if ARITY > 0 [[
+
+    // Target type for each bound parameter.
+
+$for ARG [[
+    typedef X$(ARG) B$(ARG);
+
+]]$$ for ARG
+]]$$ if ARITY > 0
+};
+
+// Method: Arity $(ARITY).
+template <typename R, typename T[[]]
+$if ARITY > 0[[, ]] $for ARG , [[typename X$(ARG)]]>
+struct FunctionTraits<R (T::*)($for ARG , [[X$(ARG)]])>
+{
+    typedef R (T::*NormalizedSignature)($for ARG , [[X$(ARG)]]);
+    typedef TypeTraits::TrueType IsMethod;
+
+    // Target type for each bound parameter.
+    typedef T B1;
+
+$for ARG [[
+    typedef X$(ARG) B$(ARG + 1);
+
+]]$$ for ARG
+};
+
+// Const Method: Arity $(ARITY).
+template <typename R, typename T[[]]
+$if ARITY > 0[[, ]] $for ARG , [[typename X$(ARG)]]>
+struct FunctionTraits<R (T::*)($for ARG , [[X$(ARG)]]) const>
+{
+    typedef R (T::*NormalizedSignature)($for ARG , [[X$(ARG)]]);
+    typedef TypeTraits::TrueType IsMethod;
+};
+
+#ifdef _WIN32
+// __stdcall Function: Arity $(ARITY).
+template <typename R[[]]
+$if ARITY > 0[[, ]] $for ARG , [[typename X$(ARG)]]>
+struct FunctionTraits<R (__stdcall *)($for ARG , [[X$(ARG)]])>
+{
+    typedef R (*NormalizedSignature)($for ARG , [[X$(ARG)]]);
+    typedef TypeTraits::FalseType IsMethod;
+
+$if ARITY > 0 [[
+
+    // Target type for each bound parameter.
+
+$for ARG [[
+    typedef X$(ARG) B$(ARG);
+
+]]$$ for ARG
+]]$$ if ARITY > 0
+};
+
+// __fastcall Function: Arity $(ARITY).
+template <typename R[[]]
+$if ARITY > 0[[, ]] $for ARG , [[typename X$(ARG)]]>
+struct FunctionTraits<R (__fastcall *)($for ARG , [[X$(ARG)]])>
+{
+    typedef R (*NormalizedSignature)($for ARG , [[X$(ARG)]]);
+    typedef TypeTraits::FalseType IsMethod;
+
+$if ARITY > 0 [[
+
+    // Target type for each bound parameter.
+
+$for ARG [[
+    typedef X$(ARG) B$(ARG);
+
+]]$$ for ARG
+]]$$ if ARITY > 0
+};
+
+#endif // _WIN32
+
+// Function Object: Arity $(ARITY).
+template <typename R[[]]
+$if ARITY > 0[[, ]] $for ARG , [[typename X$(ARG)]]>
+struct FunctionTraits<Function<R ($for ARG , [[X$(ARG)]])> >
+{
+    typedef R (*NormalizedSignature)($for ARG , [[X$(ARG)]]);
+    typedef TypeTraits::FalseType IsMethod;
+
+$if ARITY > 0 [[
+
+    // Target type for each bound parameter.
+
+$for ARG [[
+    typedef X$(ARG) B$(ARG);
+
+]]$$ for ARG
+]]$$ if ARITY > 0
+};
+
+]]  $$for ARITY
+
+}  // namespace internal
+}  // namespace base
+
+#endif // COMMON_BASE_FUNCTION_FUNCTION_TRAITS_HPP

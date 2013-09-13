@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize
+END
+base.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/base.hpp
+END
+stream.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/stream.hpp
+END
+xml_codec.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/xml_codec.hpp
+END
+binary_codec.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/binary_codec.hpp
+END
+serialize_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/serialize_test.cpp
+END
+type.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/type.hpp
+END
+stl.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/stl.hpp
+END
+json_codec.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/json_codec.hpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/14709/Infra_proj/trunk/src/common/base/serialize/Makefile
+END
+serialize.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/45349/Infra_proj/trunk/src/common/base/serialize/serialize.hpp
+END

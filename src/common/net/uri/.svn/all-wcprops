@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/setech/setech_infrastructure_rep/!svn/ver/46285/Infra_proj/trunk/src/common/net/uri
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/setech/setech_infrastructure_rep/!svn/ver/41945/Infra_proj/trunk/src/common/net/uri/BUILD
+END
+uri_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/41945/Infra_proj/trunk/src/common/net/uri/uri_test.cpp
+END
+uri.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/setech/setech_infrastructure_rep/!svn/ver/42333/Infra_proj/trunk/src/common/net/uri/uri.cpp
+END
+uris.txt
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/setech/setech_infrastructure_rep/!svn/ver/41665/Infra_proj/trunk/src/common/net/uri/uris.txt
+END
+uri.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/setech/setech_infrastructure_rep/!svn/ver/41945/Infra_proj/trunk/src/common/net/uri/uri.hpp
+END
+cgi_params.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/46285/Infra_proj/trunk/src/common/net/uri/cgi_params.cpp
+END
+baduris.txt
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/setech/setech_infrastructure_rep/!svn/ver/41665/Infra_proj/trunk/src/common/net/uri/baduris.txt
+END
+cgi_params_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/41672/Infra_proj/trunk/src/common/net/uri/cgi_params_test.cc
+END
+cgi_params.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/46285/Infra_proj/trunk/src/common/net/uri/cgi_params.hpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/setech/setech_infrastructure_rep/!svn/ver/46285/Infra_proj/trunk/src/common/net/uri/Makefile
+END

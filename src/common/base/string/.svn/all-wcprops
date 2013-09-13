@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/setech/setech_infrastructure_rep/!svn/ver/49518/Infra_proj/trunk/src/common/base/string
+END
+concat_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/46106/Infra_proj/trunk/src/common/base/string/concat_test.cpp
+END
+concat.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/42331/Infra_proj/trunk/src/common/base/string/concat.cpp
+END
+string_piece_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/48600/Infra_proj/trunk/src/common/base/string/string_piece_test.cpp
+END
+string_piece.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/39580/Infra_proj/trunk/src/common/base/string/string_piece.cpp
+END
+concat.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/42331/Infra_proj/trunk/src/common/base/string/concat.hpp
+END
+byte_set_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/39844/Infra_proj/trunk/src/common/base/string/byte_set_test.cpp
+END
+string_number_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/38286/Infra_proj/trunk/src/common/base/string/string_number_test.cpp
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/setech/setech_infrastructure_rep/!svn/ver/47852/Infra_proj/trunk/src/common/base/string/BUILD
+END
+string_number.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/42331/Infra_proj/trunk/src/common/base/string/string_number.cpp
+END
+string_piece.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/49518/Infra_proj/trunk/src/common/base/string/string_piece.hpp
+END
+string_algorithm.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/47852/Infra_proj/trunk/src/common/base/string/string_algorithm.hpp
+END
+byte_set.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/39844/Infra_proj/trunk/src/common/base/string/byte_set.hpp
+END
+string_number.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/42331/Infra_proj/trunk/src/common/base/string/string_number.hpp
+END
+algorithm_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/44443/Infra_proj/trunk/src/common/base/string/algorithm_test.cpp
+END
+algorithm.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/47852/Infra_proj/trunk/src/common/base/string/algorithm.cpp
+END
+format_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/38286/Infra_proj/trunk/src/common/base/string/format_test.cpp
+END
+concat_test.proto
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/41792/Infra_proj/trunk/src/common/base/string/concat_test.proto
+END
+format.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/38286/Infra_proj/trunk/src/common/base/string/format.cpp
+END
+string_ext.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/base/string/string_ext.h
+END
+algorithm.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/47852/Infra_proj/trunk/src/common/base/string/algorithm.hpp
+END
+concat.hpp.pump
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/39313/Infra_proj/trunk/src/common/base/string/concat.hpp.pump
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/44443/Infra_proj/trunk/src/common/base/string/Makefile
+END
+format.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/setech/setech_infrastructure_rep/!svn/ver/38286/Infra_proj/trunk/src/common/base/string/format.hpp
+END

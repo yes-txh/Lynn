@@ -1,0 +1,26 @@
+cpp_quote ("#include\"common/rpc/examples/addressbook.pb.h\"");
+
+module Demo
+{
+
+/// 测试出入参数类型为Procotol Buffer Message
+interface ProtobufTest
+{
+    /// 参数不做任何改动返回
+    [timeout(100)]
+    void Echo0(AddressBook& msg);
+
+    /// 返回源消息
+    [timeout(100)]
+    AddressBook Echo1(const AddressBook& msg);
+
+    /// 返回在第二个参数中
+    [timeout(100), amd]
+    void Echo2(const AddressBook& msg, [out] AddressBook& result);
+
+    /// 转为大写，出入参数为指针
+    void ToUpper([in, out] AddressBook* msg);
+
+}
+
+}

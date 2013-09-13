@@ -1,0 +1,31 @@
+module Demo
+{
+
+interface Echo
+{
+	/// 参数不做任何改动返回
+	[timeout(100)]
+	void Echo0(std::string& msg);
+
+	/// 返回源串
+	[timeout(100)]
+	std::string Echo1(const std::string& msg);
+
+	/// 返回指定长度的空串
+	[timeout(100)]
+	std::string Get(size_t size);
+
+	/// 发送字符串
+	[timeout(100)]
+	void Set(const std::string& msg);
+
+	/// 返回在第二个参数中
+	[timeout(100), amd]
+	void Echo2(const std::string& msg, [out] std::string& result);
+
+	/// 转为大写
+	[timeout(100)]
+	void ToUpper([in, out] std::string& msg);
+}
+
+}

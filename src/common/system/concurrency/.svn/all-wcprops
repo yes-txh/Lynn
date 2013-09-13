@@ -1,0 +1,377 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/49465/Infra_proj/trunk/src/common/system/concurrency
+END
+this_thread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/49011/Infra_proj/trunk/src/common/system/concurrency/this_thread.cpp
+END
+share_memory.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/share_memory.h
+END
+thread_pool.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/48770/Infra_proj/trunk/src/common/system/concurrency/thread_pool.cpp
+END
+thread_types.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/thread_types.hpp
+END
+mutex_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/42629/Infra_proj/trunk/src/common/system/concurrency/mutex_test.cpp
+END
+base_thread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/49462/Infra_proj/trunk/src/common/system/concurrency/base_thread.cpp
+END
+dynamic_shm_queue.cc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/dynamic_shm_queue.cc
+END
+system_error.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/47442/Infra_proj/trunk/src/common/system/concurrency/system_error.hpp
+END
+this_thread.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/44468/Infra_proj/trunk/src/common/system/concurrency/this_thread.hpp
+END
+named_pipe_unix.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/named_pipe_unix.cpp
+END
+dynamic_shm_queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/dynamic_shm_queue.h
+END
+static_shm_queue_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/static_shm_queue_test.cc
+END
+static_shm_queue.cc
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/static_shm_queue.cc
+END
+thread_pool.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/48770/Infra_proj/trunk/src/common/system/concurrency/thread_pool.hpp
+END
+thread_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/thread_test.cpp
+END
+base_thread.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/49462/Infra_proj/trunk/src/common/system/concurrency/base_thread.hpp
+END
+named_pipe_unix.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/named_pipe_unix.hpp
+END
+circle_queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/circle_queue.h
+END
+thread.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/thread.hpp
+END
+lite_rwlock_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/lite_rwlock_test.cpp
+END
+fixed_thread_pool_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/setech/setech_infrastructure_rep/!svn/ver/43421/Infra_proj/trunk/src/common/system/concurrency/fixed_thread_pool_test.cpp
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/48770/Infra_proj/trunk/src/common/system/concurrency/BUILD
+END
+fixed_thread_pool.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/43421/Infra_proj/trunk/src/common/system/concurrency/fixed_thread_pool.cpp
+END
+spinlock_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/spinlock_test.cpp
+END
+thread_group_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/42563/Infra_proj/trunk/src/common/system/concurrency/thread_group_test.cpp
+END
+thread_group.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/42496/Infra_proj/trunk/src/common/system/concurrency/thread_group.cpp
+END
+fixed_thread_pool.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/fixed_thread_pool.hpp
+END
+once.cc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/once.cc
+END
+thread_group.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/thread_group.hpp
+END
+once.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/once.hpp
+END
+condition_variable_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/condition_variable_test.cpp
+END
+condition_variable.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/47442/Infra_proj/trunk/src/common/system/concurrency/condition_variable.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/47478/Infra_proj/trunk/src/common/system/concurrency/Makefile
+END
+share_memory_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/share_memory_test.cc
+END
+share_memory.cc
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/share_memory.cc
+END
+thread_pool_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/48770/Infra_proj/trunk/src/common/system/concurrency/thread_pool_test.cpp
+END
+condition_variable.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/47442/Infra_proj/trunk/src/common/system/concurrency/condition_variable.hpp
+END
+named_pipe_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/named_pipe_test.cpp
+END
+rwlock_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/rwlock_test.cpp
+END
+blocking_queue.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/48454/Infra_proj/trunk/src/common/system/concurrency/blocking_queue.hpp
+END
+dynamic_shm_queue_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/dynamic_shm_queue_test.cc
+END
+mutex.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/mutex.cpp
+END
+named_pipe.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/named_pipe.hpp
+END
+rwlock.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/47442/Infra_proj/trunk/src/common/system/concurrency/rwlock.hpp
+END
+mutex.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/48124/Infra_proj/trunk/src/common/system/concurrency/mutex.hpp
+END
+circle_queue_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/circle_queue_test.cc
+END
+static_shm_queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/static_shm_queue.h
+END
+named_pipe_windows.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/named_pipe_windows.cpp
+END
+sync_event_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/48953/Infra_proj/trunk/src/common/system/concurrency/sync_event_test.cpp
+END
+sync_event.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/49465/Infra_proj/trunk/src/common/system/concurrency/sync_event.cpp
+END
+named_pipe_windows.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/42551/Infra_proj/trunk/src/common/system/concurrency/named_pipe_windows.hpp
+END
+scoped_locker.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/scoped_locker.hpp
+END
+sync_event.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/48953/Infra_proj/trunk/src/common/system/concurrency/sync_event.hpp
+END
+semaphore_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/semaphore_test.cpp
+END
+semaphore.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/45112/Infra_proj/trunk/src/common/system/concurrency/semaphore.cpp
+END
+lite_rwlock.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/45097/Infra_proj/trunk/src/common/system/concurrency/lite_rwlock.hpp
+END
+spinlock.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/47442/Infra_proj/trunk/src/common/system/concurrency/spinlock.hpp
+END
+semaphore.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/47442/Infra_proj/trunk/src/common/system/concurrency/semaphore.hpp
+END
+cond.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/cond.hpp
+END
+blocking_queue_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/setech/setech_infrastructure_rep/!svn/ver/45071/Infra_proj/trunk/src/common/system/concurrency/blocking_queue_test.cpp
+END
+thread_types.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/43421/Infra_proj/trunk/src/common/system/concurrency/thread_types.cpp
+END
+system_error.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/49433/Infra_proj/trunk/src/common/system/concurrency/system_error.cpp
+END

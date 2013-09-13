@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/setech/setech_infrastructure_rep/!svn/ver/46768/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/setech/setech_infrastructure_rep/!svn/ver/37514/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/BUILD
+END
+test_svrpublib.sln
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/test_svrpublib.sln
+END
+head_file.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/setech/setech_infrastructure_rep/!svn/ver/22708/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/head_file.h
+END
+test_svrpublib.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/setech/setech_infrastructure_rep/!svn/ver/24000/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/test_svrpublib.vcproj
+END
+test_thread.cc
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/setech/setech_infrastructure_rep/!svn/ver/46768/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/test_thread.cc
+END
+test_svrpublib.cc
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/setech/setech_infrastructure_rep/!svn/ver/31699/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/test_svrpublib.cc
+END
+test_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/setech/setech_infrastructure_rep/!svn/ver/23999/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/test_thread.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/setech/setech_infrastructure_rep/!svn/ver/33160/Infra_proj/trunk/src/common/baselib/svrpublib/test_tools/test_svrpublib/Makefile
+END

@@ -1,0 +1,7 @@
+cpp_quote("class Callback;");
+
+interface CallbackDemo
+{
+	void RegisterCallback([callback] Callback& cb);
+	void RequestCallback();
+}

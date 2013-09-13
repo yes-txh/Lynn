@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Checker>
+	  <!-- Attri checker -->
+		<AttriChecker enable="true">
+			<log>false</log>
+			<percent>1.0</percent>
+		</AttriChecker>
+
+		<!-- Inv checker -->
+		<InvChecker enable="true">
+			<log>true</log>
+			<percent>0.1</percent>
+			<MaxCheckPage>100000</MaxCheckPage>
+			<WordPercent>0.1</WordPercent>
+		</InvChecker>
+		
+	  <!-- Reverse Inv checker -->
+		<RevInvChecker enable="true">
+			<!--the percentage of checked inv index-->
+			<InvPercent>0.6</InvPercent>
+			<!--the percentage of checked doc of one word id-->
+			<DocPercent>0.5</DocPercent>
+		</RevInvChecker>
+
+		<!-- Abs checker -->
+	  <AbsChecker enable="true">
+			<log>false</log>
+			<percent>1.0</percent>
+		</AbsChecker>
+</Checker>

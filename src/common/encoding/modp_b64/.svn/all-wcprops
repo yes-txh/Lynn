@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/encoding/modp_b64
+END
+modp_b64.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/24414/Infra_proj/trunk/src/common/encoding/modp_b64/modp_b64.h
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/24834/Infra_proj/trunk/src/common/encoding/modp_b64/LICENSE
+END
+modp_b64_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/24414/Infra_proj/trunk/src/common/encoding/modp_b64/modp_b64_data.h
+END
+modp_b64.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/encoding/modp_b64/modp_b64.cpp
+END

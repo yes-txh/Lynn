@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/setech/setech_infrastructure_rep/!svn/ver/45706/Infra_proj/trunk/src/common/system/debug
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/45591/Infra_proj/trunk/src/common/system/debug/BUILD
+END
+hex_dump.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/45591/Infra_proj/trunk/src/common/system/debug/hex_dump.hpp
+END
+print_trace.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/40238/Infra_proj/trunk/src/common/system/debug/print_trace.hpp
+END
+hex_dump_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/45591/Infra_proj/trunk/src/common/system/debug/hex_dump_test.cpp
+END
+hex_dump.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/45591/Infra_proj/trunk/src/common/system/debug/hex_dump.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/40238/Infra_proj/trunk/src/common/system/debug/Makefile
+END
+print_trace_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/40238/Infra_proj/trunk/src/common/system/debug/print_trace_test.cc
+END

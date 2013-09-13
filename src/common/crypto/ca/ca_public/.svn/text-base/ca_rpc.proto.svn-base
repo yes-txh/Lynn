@@ -1,0 +1,38 @@
+// Copyright 2011, Tencent Inc.
+// Author: Chengyu Dong (moraindong@tencent.com)
+//
+// Defines proto_rpc services provided by CA (Certificate Authority) server.
+// Master server periodically fetches maximum quota information from CA server.
+
+package ca;
+
+// A piece of quota record contains chunks, files and directories count.
+// representing by each role user.
+message QuotaRecord {
+    // The role user.
+    required string role_name = 1;
+    // The chunks count.
+    optional uint32 chunks_count = 2;
+    // The files count.
+    optional uint32 files_count = 3;
+    // The directories count.
+    optional uint32 directories_count = 4;
+};
+
+message GetQuotaRequest {
+    // The unique cluster identifier.
+    optional string cluster_identifier = 1;
+    // If not set this optional item, the response will return all.
+    optional string role_name = 2;
+};
+
+message GetQuotaResponse {
+    // Error code returns to master.
+    required uint32 error_code = 1;
+    // The quota records.
+    repeated QuotaRecord quota_record = 2;
+};
+
+service CaServerRpcService {
+    rpc GetQuota(GetQuotaRequest) returns(GetQuotaResponse);
+};

@@ -1,0 +1,58 @@
+#!/bin/sh
+# some useful blade shell functions
+# usage:
+# source this file in your ~/.bashrc, for example:
+# test -s ~/bin/bladefunctions && . ~/bin/bladefunctions || true
+
+_find_project_root ()
+{
+    local dir
+    dir=$PWD;
+    while [ "$dir" != "/" ]; do
+        if [ -f "$dir/BLADE_ROOT" ]; then
+            echo "$dir"
+            return 0
+        fi;
+        dir=`dirname "$dir"`
+    done
+    return 1
+}
+
+# cd to build directory
+function cddst()
+{
+    local root
+    local relpath
+    if root=`_find_project_root`; then
+        if ! [[ "'$PWD'" =~ '/blade-bin|(build(32|64)_(debug|release))' ]]; then
+            if relpath=$(pwd | sed "s|^$root||"); then
+                cd -P $root/blade-bin/$relpath
+                return $?
+            fi
+        fi
+    fi
+    return 1
+}
+
+# cd to source directory
+function cdsrc()
+{
+    local root
+    local relpath
+    if root=`_find_project_root`; then
+        if [[ "'$PWD'" =~ '/blade-bin|(build(32|64)_(debug|release))' ]]; then
+            if relpath=$(pwd | sed -r -e "s%^$root/(blade-bin|(build(32|64)_(debug|release)))%%"); then
+                cd $root/$relpath
+                return $?
+            fi
+        fi
+    fi
+    return 1
+}
+
+function alt()
+{
+    if ! cdsrc; then cddst; fi
+}
+
+alias a=alt

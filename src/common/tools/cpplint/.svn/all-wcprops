@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/setech/setech_infrastructure_rep/!svn/ver/38665/Infra_proj/trunk/src/common/tools/cpplint
+END
+cpplint.py
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/23118/Infra_proj/trunk/src/common/tools/cpplint/cpplint.py
+END
+manual.doc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/38665/Infra_proj/trunk/src/common/tools/cpplint/manual.doc
+END
+run.sh
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/23118/Infra_proj/trunk/src/common/tools/cpplint/run.sh
+END

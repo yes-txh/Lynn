@@ -1,0 +1,437 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/setech/setech_infrastructure_rep/!svn/ver/49975/Infra_proj/trunk/src/common/baselib/svrpublib
+END
+base_q.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/45620/Infra_proj/trunk/src/common/baselib/svrpublib/base_q.h
+END
+parse_proc.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/49588/Infra_proj/trunk/src/common/baselib/svrpublib/parse_proc.h
+END
+key_value_parser.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/key_value_parser.h
+END
+timed_node_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/baselib/svrpublib/timed_node_list.h
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/47457/Infra_proj/trunk/src/common/baselib/svrpublib/BUILD
+END
+generate_cgi_parameter.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/setech/setech_infrastructure_rep/!svn/ver/28535/Infra_proj/trunk/src/common/baselib/svrpublib/generate_cgi_parameter.h
+END
+svrpublib_unittest.sln
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/25055/Infra_proj/trunk/src/common/baselib/svrpublib/svrpublib_unittest.sln
+END
+xfs_auto_build_version.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/setech/setech_infrastructure_rep/!svn/ver/49975/Infra_proj/trunk/src/common/baselib/svrpublib/xfs_auto_build_version.h
+END
+server_publib_namespace.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/server_publib_namespace.h
+END
+min_heap.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/min_heap.h
+END
+timed_node_list_t.inl
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/33573/Infra_proj/trunk/src/common/baselib/svrpublib/timed_node_list_t.inl
+END
+epoll_accept_read_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/setech/setech_infrastructure_rep/!svn/ver/46752/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_accept_read_test.cc
+END
+md5.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/30521/Infra_proj/trunk/src/common/baselib/svrpublib/md5.h
+END
+epoll_write.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_write.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/48017/Infra_proj/trunk/src/common/baselib/svrpublib/Makefile
+END
+auto_baselib.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/46789/Infra_proj/trunk/src/common/baselib/svrpublib/auto_baselib.h
+END
+base_protocol.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/46963/Infra_proj/trunk/src/common/baselib/svrpublib/base_protocol.h
+END
+Makefile_test.mak
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/48017/Infra_proj/trunk/src/common/baselib/svrpublib/Makefile_test.mak
+END
+get_revision_num.sh
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/49901/Infra_proj/trunk/src/common/baselib/svrpublib/get_revision_num.sh
+END
+timed_node_list_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/46752/Infra_proj/trunk/src/common/baselib/svrpublib/timed_node_list_test.cc
+END
+expandable_array.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/setech/setech_infrastructure_rep/!svn/ver/44502/Infra_proj/trunk/src/common/baselib/svrpublib/expandable_array.h
+END
+fake_epoll.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/fake_epoll.h
+END
+epoll_write_t.inl
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/setech/setech_infrastructure_rep/!svn/ver/44502/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_write_t.inl
+END
+base_protocol_t.inl
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/44502/Infra_proj/trunk/src/common/baselib/svrpublib/base_protocol_t.inl
+END
+http_content.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/44389/Infra_proj/trunk/src/common/baselib/svrpublib/http_content.h
+END
+general_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/46796/Infra_proj/trunk/src/common/baselib/svrpublib/general_util.h
+END
+svrpublib.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/48130/Infra_proj/trunk/src/common/baselib/svrpublib/svrpublib.vcproj
+END
+epoll_accept_read.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/44502/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_accept_read.h
+END
+lite_mempool.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/48130/Infra_proj/trunk/src/common/baselib/svrpublib/lite_mempool.h
+END
+utf8.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/utf8.h
+END
+simple_http.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/46571/Infra_proj/trunk/src/common/baselib/svrpublib/simple_http.h
+END
+epoll_lite.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/33573/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_lite.h
+END
+simple_http_proxy.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/44887/Infra_proj/trunk/src/common/baselib/svrpublib/simple_http_proxy.h
+END
+sha1.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/sha1.h
+END
+general_type_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/setech/setech_infrastructure_rep/!svn/ver/44518/Infra_proj/trunk/src/common/baselib/svrpublib/general_type_def.h
+END
+interface_longconn.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/47253/Infra_proj/trunk/src/common/baselib/svrpublib/interface_longconn.h
+END
+http_response.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/41569/Infra_proj/trunk/src/common/baselib/svrpublib/http_response.h
+END
+auto_update_svn_info.sh
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/46784/Infra_proj/trunk/src/common/baselib/svrpublib/auto_update_svn_info.sh
+END
+base_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/base_config.h
+END
+general_thread_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/45620/Infra_proj/trunk/src/common/baselib/svrpublib/general_thread_util.h
+END
+twse_type_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/twse_type_def.h
+END
+server_publib.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/setech/setech_infrastructure_rep/!svn/ver/48130/Infra_proj/trunk/src/common/baselib/svrpublib/server_publib.h
+END
+epoll_accept_read_t.inl
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/setech/setech_infrastructure_rep/!svn/ver/46334/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_accept_read_t.inl
+END
+sink_nodes_t.inl
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/27964/Infra_proj/trunk/src/common/baselib/svrpublib/sink_nodes_t.inl
+END
+min_heap_obj.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/min_heap_obj.h
+END
+log.inl
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/log.inl
+END
+errorcode_svrpublib.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/errorcode_svrpublib.h
+END
+data_queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/46130/Infra_proj/trunk/src/common/baselib/svrpublib/data_queue.h
+END
+parser_cgi_parameter.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/setech/setech_infrastructure_rep/!svn/ver/44887/Infra_proj/trunk/src/common/baselib/svrpublib/parser_cgi_parameter.h
+END
+log_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/46752/Infra_proj/trunk/src/common/baselib/svrpublib/log_test.cc
+END
+http_buff.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/48722/Infra_proj/trunk/src/common/baselib/svrpublib/http_buff.h
+END
+lite_mysql_wrapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/setech/setech_infrastructure_rep/!svn/ver/42814/Infra_proj/trunk/src/common/baselib/svrpublib/lite_mysql_wrapper.h
+END
+fast_crc.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/fast_crc.h
+END
+binary_log_unpack.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/43680/Infra_proj/trunk/src/common/baselib/svrpublib/binary_log_unpack.h
+END
+thread_mutex.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/48130/Infra_proj/trunk/src/common/baselib/svrpublib/thread_mutex.h
+END
+sink_nodes_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/setech/setech_infrastructure_rep/!svn/ver/46752/Infra_proj/trunk/src/common/baselib/svrpublib/sink_nodes_test.cc
+END
+general_sock.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/46571/Infra_proj/trunk/src/common/baselib/svrpublib/general_sock.h
+END
+vc_stdint.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/27901/Infra_proj/trunk/src/common/baselib/svrpublib/vc_stdint.h
+END
+general_head.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/48121/Infra_proj/trunk/src/common/baselib/svrpublib/general_head.h
+END
+url_codec.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/28535/Infra_proj/trunk/src/common/baselib/svrpublib/url_codec.h
+END
+wrapper_rwlock.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/setech/setech_infrastructure_rep/!svn/ver/48135/Infra_proj/trunk/src/common/baselib/svrpublib/wrapper_rwlock.h
+END
+default_xsl.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/46574/Infra_proj/trunk/src/common/baselib/svrpublib/default_xsl.h
+END
+long_conn.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/setech/setech_infrastructure_rep/!svn/ver/46088/Infra_proj/trunk/src/common/baselib/svrpublib/long_conn.h
+END
+svrpublib.sln
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/setech/setech_infrastructure_rep/!svn/ver/22599/Infra_proj/trunk/src/common/baselib/svrpublib/svrpublib.sln
+END
+sink_nodes_t.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/baselib/svrpublib/sink_nodes_t.h
+END
+log.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/46789/Infra_proj/trunk/src/common/baselib/svrpublib/log.h
+END
+epoll_write_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/setech/setech_infrastructure_rep/!svn/ver/46752/Infra_proj/trunk/src/common/baselib/svrpublib/epoll_write_test.cc
+END
+svrpublib_unittest.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/setech/setech_infrastructure_rep/!svn/ver/41569/Infra_proj/trunk/src/common/baselib/svrpublib/svrpublib_unittest.vcproj
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/setech/setech_infrastructure_rep/!svn/ver/22603/Infra_proj/trunk/src/common/baselib/svrpublib/readme.txt
+END
+port_event.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/41087/Infra_proj/trunk/src/common/baselib/svrpublib/port_event.h
+END
+binary_log.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/setech/setech_infrastructure_rep/!svn/ver/44502/Infra_proj/trunk/src/common/baselib/svrpublib/binary_log.h
+END
+base_protocol_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/setech/setech_infrastructure_rep/!svn/ver/46752/Infra_proj/trunk/src/common/baselib/svrpublib/base_protocol_test.cc
+END

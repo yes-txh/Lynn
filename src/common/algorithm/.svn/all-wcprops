@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/setech/setech_infrastructure_rep/!svn/ver/45350/Infra_proj/trunk/src/common/algorithm
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/setech/setech_infrastructure_rep/!svn/ver/36148/Infra_proj/trunk/src/common/algorithm/BUILD
+END
+integer.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/45350/Infra_proj/trunk/src/common/algorithm/integer.hpp
+END
+string.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/setech/setech_infrastructure_rep/!svn/ver/14075/Infra_proj/trunk/src/common/algorithm/string.hpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/setech/setech_infrastructure_rep/!svn/ver/14709/Infra_proj/trunk/src/common/algorithm/Makefile
+END
+integer_test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/36148/Infra_proj/trunk/src/common/algorithm/integer_test.cpp
+END

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SvrPubLib", "SvrPubLib.vcproj", "{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = SvrPubLib.vcproj
+		SccProjectName0 = SvrPubLib
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:ClearCase
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Debug|Win32.Build.0 = Debug|Win32
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Release|Win32.ActiveCfg = Release|Win32
+		{50EECDA9-53CB-45D4-A2EF-9CD90356BFB1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

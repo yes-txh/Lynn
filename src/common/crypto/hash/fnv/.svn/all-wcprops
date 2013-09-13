@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/fnv
+END
+BUILD
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/32328/Infra_proj/trunk/src/common/crypto/hash/fnv/BUILD
+END
+fnv.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/fnv/fnv.h
+END
+longlong.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/6531/Infra_proj/trunk/src/common/crypto/hash/fnv/longlong.h
+END
+hash_32.c
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/fnv/hash_32.c
+END
+hash_32a.c
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/fnv/hash_32a.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/setech/setech_infrastructure_rep/!svn/ver/6531/Infra_proj/trunk/src/common/crypto/hash/fnv/Makefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/setech/setech_infrastructure_rep/!svn/ver/6531/Infra_proj/trunk/src/common/crypto/hash/fnv/README
+END
+hash_64.c
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/fnv/hash_64.c
+END
+hash_64a.c
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/setech/setech_infrastructure_rep/!svn/ver/34957/Infra_proj/trunk/src/common/crypto/hash/fnv/hash_64a.c
+END

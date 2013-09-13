@@ -1,0 +1,33 @@
+util/include/MurmurHash .hpp
+ 
+Murmur2Hash 算法
+murmurhash 是2008年才发布的新的字符串 hash 算法，最大优势是快，可达 MD5 速度的 8-10 倍。
+ 
+32位hash函数
+uint32_t MurmurHash2(const void *data, size_t len, uint32_t seed);
+MurmurHash 算法第2版，第一版淘汰了。专门针对 IA32 架构优化。
+ 
+uint32_t MurmurHash2A(const void * data, size_t len, uint32_t seed);
+类似 MurmurHash2，支持增量 hash (内存块分多块送入去做hash，得到最后结果等同于拼接后的内存块)
+ 
+不允许非对齐访问的平台上进行人工对齐的实现，比 MurmurHash2 慢一些。
+uint32_t MurmurHashAligned2(const void * data, size_t len, uint32_t seed);
+ 
+uint32_t MurmurHashNeutral2(const void * data, size_t len, uint32_t seed);
+平台无关的实现，比 MurmurHash2 慢一倍。
+
+data 和 len 分别是数据的地址和长度，seed 是初始种子，通常传 0 即可。
+ 
+64位 hash 函数
+MurmurHash64 产生 64 位结果，分 A B 两种算法
+uint64_t MurmurHash64A ( const void * key, size_t len, uint64_t seed );
+64位整数，适合 64 位编译器，在32位编译器上因为64位整数是用32位拼接的，不如原生的64位速度快。
+在 64 位系统上实测速度是 MD5 的 10 倍，在 32 为系统上速度比 MurmurHash64B 慢 20%。
+ 
+uint64_t MurmurHash64B ( const void * key, size_t len, uint64_t seed );
+内部用32位，结果拼成64位，在32/64位上速度一样，适合 32 位编译器。在64位上速度比 MurmurHash64A 慢 20%。
+实测速度是 MD5 的 8 倍，跟 MD5 取 64 位冲突率接近，都是六千万条url出现了第一次碰撞。
+ 
+FVN hash 算法
+32位/64位版本，实测速度不如 murmur，冲突率接近。
+util/include/FvnHash.hpp

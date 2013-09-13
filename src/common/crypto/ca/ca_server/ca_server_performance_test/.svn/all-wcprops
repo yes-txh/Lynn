@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/setech/setech_infrastructure_rep/!svn/ver/38587/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test
+END
+ca_server_performance_test.sln
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/setech/setech_infrastructure_rep/!svn/ver/36125/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test/ca_server_performance_test.sln
+END
+ca_server_performance_test.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/setech/setech_infrastructure_rep/!svn/ver/36125/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test/ca_server_performance_test.vcproj
+END
+trans_data_thread.cc
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/setech/setech_infrastructure_rep/!svn/ver/36125/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test/trans_data_thread.cc
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/setech/setech_infrastructure_rep/!svn/ver/36125/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test/Makefile
+END
+ca_server_performance_test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/setech/setech_infrastructure_rep/!svn/ver/36125/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test/ca_server_performance_test.cc
+END
+trans_data_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/setech/setech_infrastructure_rep/!svn/ver/36125/Infra_proj/trunk/src/common/crypto/ca/ca_server/ca_server_performance_test/trans_data_thread.h
+END
