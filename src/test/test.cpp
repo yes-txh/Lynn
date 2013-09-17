@@ -1,14 +1,17 @@
-#include <gtest/gtest.h>
-#include "foo.h"
- 
-TEST(foo, max)
-{
-EXPECT_EQ(2, max(2,-1));
-EXPECT_EQ(3, max(2,3));
-}
+#include <iostream>
+#include <string>
+#include <vector>
+#include <boost/algorithm/string.hpp> 
+
+using namespace std;
  
 int main(int argc, char** argv)
 {
-::testing::InitGoogleTest(&argc, argv);
-return RUN_ALL_TESTS();
+    string s = "sss/ddd,  ggg  ";
+    vector<string> vStr;
+    boost::split(vStr, s, boost::is_any_of(",/"), boost::token_compress_on);
+    boost::trim(*(--vStr.end()));
+    cout << (*(--vStr.end()));
+    
+    return 0;
 }

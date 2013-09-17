@@ -16,10 +16,8 @@ int32_t CollectorService::RegistMachine(const string& machine_ad){
     if(machine_ptr->ParseAttr(machine_ad) != 0){
          return 1;
     }
-
     //TODO 
     //write into zookeeper
-
     MachinePoolI::Instance()->Insert(machine_ptr);
     return 0;
 }

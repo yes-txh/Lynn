@@ -39,13 +39,23 @@ ADD_CUSTOM_COMMAND (
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
+SET(CONF_FILE 
+    ../conf_manager/dynamic_configuration.cpp
+    ../conf_manager/zk_common.cpp
+    ../conf_manager/watcher.cpp
+    ../conf_manager/data_completion.cpp
+    ../conf_manager/global_zk.cpp
+   )
 
 SET(SRC 
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
+    ${CONF_FILE}
+    collector_conf.cpp
     machine.cpp
     machine_pool.cpp
+    config_manager.cpp 
     collector_service.cpp
     collector.cpp)
 
@@ -55,5 +65,7 @@ TARGET_LINK_LIBRARIES(collector thrift)
 TARGET_LINK_LIBRARIES(collector pthread)
 TARGET_LINK_LIBRARIES(collector log4cplus)
 TARGET_LINK_LIBRARIES(collector classad)
+TARGET_LINK_LIBRARIES(collector gflags)
+TARGET_LINK_LIBRARIES(collector zookeeper_mt)
 
 INSTALL(TARGETS collector RUNTIME DESTINATION bin)
