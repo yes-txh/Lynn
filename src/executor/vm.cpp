@@ -22,6 +22,10 @@ string VM::GetName() {
     return m_name;
 }
 
+VMType::type VM::GetVMType() {
+    return m_type;
+}
+
 TaskInfo VM::GetTaskInfo() {
     // ReadLocker locker(m_lock);
     return m_info;
@@ -34,6 +38,19 @@ VMState::type VM::GetState() {
 
 TaskPtr VM::GetTaskPtr() {
     return TaskPoolI::Instance()->GetTaskPtr(m_id);
+}
+
+bool VM::IsRun() {
+    return m_info.is_run;
+}
+
+string VM::GetApp() {
+    if (!IsRun())
+        return "is not run app";
+    string app = m_info.app_info.name;
+    if ("" == app)
+        return "no app name";
+    return app;
 }
 
 void VM::SetState(VMState::type state) {

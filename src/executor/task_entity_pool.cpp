@@ -65,28 +65,57 @@ bool TaskEntityPool::FindToDo(const int64_t id, TaskFunc func) {
 
 // travesal m_task_map by order, start the first waiting taskEntity
 // other taskentitys will be started periodically
-void TaskEntityPool::StartTaskEntity() {
+void TaskEntityPool::StartTask() {
     ReadLocker locker(m_lock);
     for (map<int64_t, TaskPtr>::iterator it = m_task_map.begin();
          it != m_task_map.end(); ++it) {
         if ((it->second)->GetState() == TaskEntityState::TASKENTITY_WAITING) {
-            (it->second)->Start();
-            return;
+            if (false == (it->second)->Start()) {
+                WriteLocker locker(m_lock);
+                // task failed
+                (it->second)->TaskFailed();
+                LOG4CPLUS_ERROR(logger, "Fails to start the task, id:" << (it->second)->GetId());
+            } else
+                return;
         }
     }
 }
 
 // bind a function, then invoke it with FindToDo
 // kill a taskEntity, and delete taskPtr from m_task_map
-bool TaskEntityPool::DeleteTaskEntity(const int64_t id) {
+bool TaskEntityPool::KillTaskById(const int64_t id) {
+    //TODO
+    PrintAll();
+    TaskPtr ptr = GetTaskPtr(id);
+
+    // no the task
+    if (!ptr) {
+        LOG4CPLUS_ERROR(logger, "Can't find the task, fails to kill task, id:" << id);
+        return false;
+    }
+     
+    // fails to kill task
+    if (!(ptr->Kill())) {
+        LOG4CPLUS_ERROR(logger, "Fails to kill task, id:" << id);
+        return false;
+    }
+
+    // delete task from pool(map)
+    Delete(id);
+    LOG4CPLUS_INFO(logger, "Kill task successfully, id:" << id);
+    PrintAll();
+    return true;
+}
+/*bool TaskEntityPool::DeleteTask(const int64_t id) {
     TaskFunc func = bind(&TaskEntity::Kill, _1);
+    TaskPtr ptr = GetTaskPtr(id);
     if (FindToDo(id, func)) {
         Delete(id);
         return true;
     } else {
         return false;
     }
-}
+}*/
 
 TaskPtr TaskEntityPool::GetTaskPtr(int64_t id) {
     ReadLocker locker(m_lock);

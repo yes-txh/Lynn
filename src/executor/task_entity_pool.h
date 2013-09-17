@@ -44,9 +44,9 @@ public:
     bool FindToDo(const int64_t id, TaskFunc func);
 
     // @brief: find a waiting taskentity, and start it
-    void StartTaskEntity();
+    void StartTask();
 
-    bool DeleteTaskEntity(const int64_t id);
+    bool KillTaskById(const int64_t id);
 
     TaskPtr GetTaskPtr(int64_t id);
 

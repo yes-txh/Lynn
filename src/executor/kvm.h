@@ -86,6 +86,9 @@ private:
     string m_xml;   // libvirt xml config
     int32_t m_vnc_port;
     string m_vnet;
+    HbVMInfo m_hb_vm_info;
+
+    // static
     static string m_xml_template;
     static virConnectPtr m_conn;
 

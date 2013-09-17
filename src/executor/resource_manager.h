@@ -30,12 +30,12 @@ public:
     // init, set static info 
     bool Init();
 
-    // HbMachineInfo GenerateHb();
-
     // get static register info
     string GetMachineInfo();
 
     string GetBridgeEndpoint();
+
+    string GenerateHb();
 
     void AllocateResource(double cpu, int32_t memory, int32_t disk);
   

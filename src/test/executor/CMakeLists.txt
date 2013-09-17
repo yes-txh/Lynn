@@ -65,5 +65,14 @@ ADD_EXECUTABLE(start-task ${START_TASK})
 TARGET_LINK_LIBRARIES(start-task thrift)
 TARGET_LINK_LIBRARIES(start-task classad)
 
+#### kill task ####
+SET (KILL_TASK
+   ${EXECUTOR_THRIFT_SOURCE}
+   kill_task.cpp)
+
+ADD_EXECUTABLE(kill-task ${KILL_TASK})
+TARGET_LINK_LIBRARIES(kill-task thrift)
+
 INSTALL(TARGETS ${TEST_EXECUTOR} RUNTIME DESTINATION test/executor)
 INSTALL(TARGETS start-task RUNTIME DESTINATION bin)
+INSTALL(TARGETS kill-task RUNTIME DESTINATION bin)

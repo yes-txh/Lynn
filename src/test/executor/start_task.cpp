@@ -7,14 +7,15 @@
 
 #include "common/clynn/rpc.h"
 #include "include/proxy.h"
+#include "include/classad_attr.h"
 
 using namespace std;
 
-static string usage = "./start_task task_id";
+static string usage = "./start_task task_id vnc_port";
 
 int main(int argc, char ** argv)
 {
-    if(argc != 2)
+    if(argc != 3)
     {
         cout << "Usage is wrong." << endl;
         cout << "Usage is: " << usage << endl;
@@ -28,24 +29,32 @@ int main(int argc, char ** argv)
         return -1;
     }
 
+    int32_t vnc_port = atoi(argv[2]);
+    if (vnc_port < 0)
+    {
+        cout << "Usage is wrong." << endl;
+        cout << "Usage is: " << usage << endl;
+        return -1;
+    }
+
     cout << "start task " << task_id << endl;
     string endpoint = "127.0.0.1:9997";
 
     // build task    
     ClassAd ad;
-    ad.InsertAttr("ID", task_id);
-    ad.InsertAttr("JOB_ID", 1);
-    ad.InsertAttr("IS_RUN", false);
-    ad.InsertAttr("VMTYPE", 1);
-    ad.InsertAttr("OS", "ubuntu");
-    ad.InsertAttr("MEMORY", 1024);
-    ad.InsertAttr("VCPU", 1);
-    ad.InsertAttr("IP", "192.168.0.2");
-    ad.InsertAttr("PORT", 9991);
-    ad.InsertAttr("IMG", "ubuntu.qco");
-    ad.InsertAttr("ISO", ".");
-    ad.InsertAttr("SIZE", 1);
-    ad.InsertAttr("VNC_PORT", 0);
+    ad.InsertAttr(ATTR_ID, task_id);
+    ad.InsertAttr(ATTR_JOB_ID, 1);
+    ad.InsertAttr(ATTR_VMTYPE, 1);
+    ad.InsertAttr(ATTR_IS_RUN, false);
+    ad.InsertAttr(ATTR_MEMORY, 1024);
+    ad.InsertAttr(ATTR_VCPU, 1);
+    ad.InsertAttr(ATTR_IP, "192.168.0.2");
+    ad.InsertAttr(ATTR_PORT, 9991);
+    ad.InsertAttr(ATTR_OS, "ubuntu");
+    ad.InsertAttr(ATTR_IMG, "ubuntu.qco");
+    ad.InsertAttr(ATTR_ISO, ".");
+    ad.InsertAttr(ATTR_SIZE, 1);
+    ad.InsertAttr(ATTR_VNC_PORT, vnc_port);
 
     // classad -> string
     ClassAdUnParser unparser;
