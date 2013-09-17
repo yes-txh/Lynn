@@ -5,7 +5,8 @@ enum TaskEntityState {
     TASKENTITY_NOTFOUND,
     TASKENTITY_WAITING,
     TASKENTITY_STARTING,
-    TASKENTITY_RUNNING,
+    TASKENTITY_STARTED,
+    TASKENTITY_STOPED,
     TASKENTITY_FINISHED,
     TASKENTITY_FAILED,
 }
@@ -29,5 +30,5 @@ service Executor {
     // string GetMachineInfo(), // register static info of Machine to Collector
     bool StartTask(1: string task_ad),
     bool StopTask(1: i32 task_id),
-    bool KillVM(1: i32 task_id ),
+    bool KillTask(1: i32 task_id ),
 }

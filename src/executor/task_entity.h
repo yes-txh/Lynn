@@ -30,6 +30,10 @@ public:
         return m_id;
     }
 
+    VMType::type GetVMType() {
+        return m_info.type;
+    }
+
     TaskEntityState::type GetState();
 
     double GetPercentage();
@@ -39,7 +43,15 @@ public:
     bool SetState(const TaskEntityState::type state);
 
     bool SetPercentage(const double percentage);
- 
+
+    // call back
+    void TaskStarted();
+
+    void TaskFinished();
+
+    void TaskFailed();
+
+    // core operation
     bool Start();
 
     bool Stop();

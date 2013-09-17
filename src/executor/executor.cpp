@@ -19,7 +19,8 @@
 #include <gflags/gflags.h>
 
 #include "common/clynn/rpc.h"
-#include "executor/executor_service.h"
+#include "executor/service.h"
+#include "executor/resource_manager.h"
 
 using std::string;
 using std::cout;
@@ -38,13 +39,13 @@ using log4cplus::helpers::SharedObjectPtr;
 DECLARE_int32(port);
 DECLARE_string(collector_endpoint);
 DECLARE_string(scheduler_endpoint);
-DECLARE_int32(heartbeat_interval);
-DECLARE_string(interface);
-DECLARE_string(img_dir);
+/*DECLARE_string(interface);
+DECLARE_string(img_dir);*/
 DECLARE_string(log_path);
 
 extern void* TaskProcessor(void* unused);
 extern void* VMProcessor(void* unused);
+extern void* HeartbeatProcessor(void* unused);
 
 // executor
 int ExecutorEntity(int argc, char **argv) {
@@ -69,17 +70,26 @@ int ExecutorEntity(int argc, char **argv) {
     // check dir
     if(access("/var/lib/libvirt/images", F_OK) == -1) {
        if(mkdir("/var/lib/libvirt/images",0755) != 0){
-           LOG4CPLUS_ERROR(logger, "cannot create kvm images dir");
+           LOG4CPLUS_ERROR(logger, "Can't create kvm images dir");
            exit(-1);
        }
     }
- 
+
+    // init resource_manager
+    if (!ResourceMgrI::Instance()->Init()) {
+        LOG4CPLUS_ERROR(logger, "Can't initialize resource manager.");
+        exit(-1);
+    }
+
     // work thread
     pthread_t task_t;
     pthread_create(&task_t, NULL, TaskProcessor, NULL);
 
     pthread_t vm_t;
     pthread_create(&vm_t, NULL, VMProcessor, NULL);
+
+    pthread_t hb_t;
+    pthread_create(&hb_t, NULL, HeartbeatProcessor, NULL);
 
     cout << "Executor is OK." << endl;
     // Listen for service 

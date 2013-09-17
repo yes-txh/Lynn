@@ -26,14 +26,14 @@ struct AppInfo {
     string name;
     // string os;
     // outside vm, hdfs
-    string src_path;     // source path
-    string job_out_dir; // result out dir
+    string app_src_path;  // source path
+    string app_out_dir;   // result out dir
 
     // inside vm
     string install_dir;  // install directory in VM
     string exe_path;     // execute path 
     string stop_path;    // stop
-    string exe_out_dir;
+    string out_dir;
 
     // string user;
 };
@@ -44,10 +44,9 @@ struct VMInfo {
     // resource
     int32_t memory;
     int32_t vcpu;
-
-    string os;
     string ip;
     int32_t port;
+    string os;
 
     // only for kvm 
     string img_template;
@@ -69,10 +68,12 @@ struct TaskInfo {
 
 struct HbVMInfo {
     int32_t id;  // task id, vm id
+    string name; 
+    VMType::type type;
     double cpu_usage;
-    double memroy_usage;
-    int64_t bytes_in;
-    int64_t bytes_out;
+    double memory_usage;
+    int32_t bytes_in;
+    int32_t bytes_out;
     VMState::type state;
     bool app_running;
 };
@@ -82,8 +83,8 @@ struct HbMachineInfo {
     int32_t port;
     double cpu_usage;
     double memory_usage;
-    int64_t bytes_in;
-    int64_t bytes_out;
+    int32_t bytes_in;
+    int32_t bytes_out;
     vector<HbVMInfo> hb_vminfo_list;
 };
 

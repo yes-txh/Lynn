@@ -37,11 +37,23 @@ public:
 
     string GetName();
 
+    VMType::type GetVMType();
+
     TaskInfo GetTaskInfo();
 
     VMState::type GetState();
 
-    TaskPtr GetTaskPtr();    
+    TaskPtr GetTaskPtr();
+
+    RWLock& GetLock() {
+        return m_lock;
+    }
+
+    // HbVMInfo GetHbVMInfo();
+
+    bool IsRun();
+
+    string GetApp();    
 
     void SetState(VMState::type state);
 
@@ -72,6 +84,7 @@ private:
     TaskInfo m_info;   // TODO
     VMState::type m_state;
     RWLock m_lock;
+    // HbVMInfo m_hb_vm_info;
     
     time_t m_start_time;
     int32_t m_timestamp;

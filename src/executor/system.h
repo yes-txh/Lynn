@@ -75,10 +75,10 @@ public:
     static string GetIP(const char* interface);
 
     // get net flow(size: Bytes)
-    static void GetNetFlowinBytes(const char* interface, int64_t& bytes_in, int64_t& bytes_out);
+    static void GetNetFlowinBytes(const char* interface, int32_t& bytes_in, int32_t& bytes_out);
 
     // get net flow(size: bits)
-    static void GetNetFlowinbits(const char* interface, int64_t& bits_in, int64_t& bits_out);
+    static void GetNetFlowinbits(const char* interface, int32_t& bits_in, int32_t& bits_out);
 
     // get static net bandwidth, mbits/s
     static int32_t GetBandWidth(const char* interface);

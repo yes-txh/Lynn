@@ -56,16 +56,16 @@ virConnectPtr KVM::m_conn = NULL;
 // virtual CreateEnv, include CreateVM and Install 
 int32_t KVM::CreateEnv() {
     if (CreateVM() != 0) {
-        LOG4CPLUS_ERROR(logger, "fails to create kvm");        
+        LOG4CPLUS_ERROR(logger, "Fails to create kvm, name:" << GetName() << ", id:" << GetId()); 
         return -1;
     }
 
     if (Install() != 0) {
-        LOG4CPLUS_ERROR(logger, "fails to install app into kvm");                        
+        LOG4CPLUS_ERROR(logger, "Fails to install app into kvm, name:" << GetName() << ", id:" << GetId() << ", app:" << GetApp());
         return -1;
     }
 
-    cout << "CreateEnv end" << endl;
+    LOG4CPLUS_INFO(logger, "Create kvm successfully, name:" << GetName() << ", id:" << GetId());
     return 0;
 }
 
@@ -79,10 +79,45 @@ bool KVM::Stop() {
 }
 
 bool KVM::Kill() {
+    if (!m_domain_ptr) {
+        LOG4CPLUS_INFO(logger, "Invalid domain pointer, Kill VM directly.");
+        // delete work dir
+        string cmd = "rm -r " + m_dir;
+        system(cmd.c_str());
+        return true;
+    }
+    if (virDomainDestroy(m_domain_ptr) != 0) {
+        virErrorPtr error = virGetLastError();
+        LOG4CPLUS_ERROR(logger, error->message);
+        LOG4CPLUS_ERROR(logger, "Can't kill kvm, name:" << GetName() << ", id:" << GetId());
+        return false;
+    }
+
+    // delete work dir
+    string cmd = "rm -r " + m_dir;
+    system(cmd.c_str());
     return true;
 }
 
 HbVMInfo KVM::GetHbVMInfo() {
+    VMState::type state = GetState();
+    // if state != VM_SERVICE_ONLINE then return "empty"
+    if (true || state != VMState::VM_SERVICE_ONLINE){
+       HbVMInfo empty;
+       empty.id = GetId();
+       empty.name = GetName();
+       empty.type = GetVMType();
+       empty.cpu_usage = 0;
+       empty.memory_usage = 0;
+       empty.bytes_in = 0;
+       empty.bytes_out = 0;
+       empty.state = state;
+       empty.app_running = false;
+       return empty;
+    }
+    // state == VM_SERVICE_ONLINE
+    ReadLocker locker(GetLock());
+    return m_hb_vm_info;
 }
 
 /// unique in KVM 
@@ -135,7 +170,7 @@ int32_t KVM::Init() {
     // mkdir work dir
     if (access(m_dir.c_str(), F_OK) == -1) {
         if (mkdir(m_dir.c_str(), 0755) != 0) {
-           LOG4CPLUS_ERROR(logger, "can't create vm work dir");
+           LOG4CPLUS_ERROR(logger, "Can't create kvm work dir");
            return -1;
         }
     }
@@ -144,7 +179,7 @@ int32_t KVM::Init() {
     if (NULL == m_conn) {
         m_conn = virConnectOpen("qemu:///system");
         if(NULL == m_conn) {
-            LOG4CPLUS_ERROR(logger, "fails to open connection to qemu:///system");
+            LOG4CPLUS_ERROR(logger, "Fails to open connection to qemu:///system");
             return -1;
         }
     }
@@ -154,7 +189,7 @@ int32_t KVM::Init() {
         // open libvirt xml template
         ifstream file(FLAGS_xml_template.c_str());
         if (!file) {
-            LOG4CPLUS_ERROR(logger, "can't read xml template file");
+            LOG4CPLUS_ERROR(logger, "Can't read xml template file");
             return -1;
         }
 
@@ -166,7 +201,6 @@ int32_t KVM::Init() {
 
     // set m_xml
     m_xml = m_xml_template;
-    cout << "in Init()" << endl;
 
     return 0;
 }
@@ -176,7 +210,7 @@ int32_t KVM::CopyImage() {
     // img is exist?
     string img_template = FLAGS_libvirt_dir + GetTaskInfo().vm_info.img_template;
     if (access(img_template.c_str(), F_OK) == -1) {
-        LOG4CPLUS_ERROR(logger, "template " << img_template << " dose not exits");
+        LOG4CPLUS_ERROR(logger, "Template " << img_template << " dose not exits");
         return -1;
     }
 
@@ -184,9 +218,8 @@ int32_t KVM::CopyImage() {
     string cmd = "cp " + img_template + " " + m_img;
     int32_t ret = system(cmd.c_str());
     ret = ret >> 8;
-    printf("ret: %d\n", ret);
     if (ret != 0) {
-        LOG4CPLUS_ERROR(logger, "can't copy image template");
+        LOG4CPLUS_ERROR(logger, "Can't copy image template");
         return -1;
     }
     return 0;
@@ -197,7 +230,7 @@ int32_t KVM::CloneImage() {
     // img is exist?
     string img_template = FLAGS_libvirt_dir + GetTaskInfo().vm_info.img_template;
     if (access(img_template.c_str(), F_OK) == -1) {
-        LOG4CPLUS_ERROR(logger, "template " << img_template << " dose not exits");
+        LOG4CPLUS_ERROR(logger, "Template " << img_template << " dose not exits");
         return -1;
     }
 
@@ -205,9 +238,8 @@ int32_t KVM::CloneImage() {
     string cmd = "qemu-img create -b " + img_template + " -f qcow2 " + m_img + " > /dev/null 2>&1";
     int32_t ret = system(cmd.c_str());
     ret = ret >> 8;
-    printf("ret: %d\n", ret);
     if (ret != 0) {
-        LOG4CPLUS_ERROR(logger, "can't clone image template");
+        LOG4CPLUS_ERROR(logger, "Can't clone image template");
         return -1;
     }
     return 0;
@@ -223,7 +255,7 @@ int32_t KVM::ConfigVirXML() {
     // name
     string::size_type pos = xml_conf.find("T_NAME");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_NAME in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_NAME in kvm xml template");
         return -1;
     }
     xml_conf.replace(pos, strlen("T_NAME"), GetName());
@@ -231,7 +263,7 @@ int32_t KVM::ConfigVirXML() {
     // memory
     pos = xml_conf.find("T_MEMORY");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_MEMORY in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_MEMORY in kvm xml template");
         return -1;
     }
 
@@ -244,7 +276,7 @@ int32_t KVM::ConfigVirXML() {
     // vcpu 
     pos = xml_conf.find("T_VCPU");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_VCPU in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_VCPU in kvm xml template");
         return -1;
     }
     ss.str("");
@@ -273,7 +305,7 @@ int32_t KVM::ConfigVirXML() {
     // boot
     pos =  xml_conf.find("T_BOOT");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_BOOT in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_BOOT in kvm xml template");
         return -1;
     }
     if (!GetTaskInfo().vm_info.iso_location.empty()) {
@@ -287,7 +319,7 @@ int32_t KVM::ConfigVirXML() {
     // img
     pos = xml_conf.find("T_IMG_LOCATION");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_IMG_LOCATION in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_IMG_LOCATION in kvm xml template");
         return -1;
     }
     xml_conf.replace(pos, strlen("T_IMG_LOCATION"), m_img);
@@ -295,7 +327,7 @@ int32_t KVM::ConfigVirXML() {
     // iso
     pos = xml_conf.find("T_ISO_LOCATION");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_ISO_LOCATION in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_ISO_LOCATION in kvm xml template");
         return -1;
     }
     xml_conf.replace(pos, strlen("T_ISO_LOCATION"), m_iso);
@@ -303,7 +335,7 @@ int32_t KVM::ConfigVirXML() {
     // vnc port
     pos =  xml_conf.find("T_VNC_PORT");
     if (pos == string::npos) {
-        LOG4CPLUS_ERROR(logger, "error in finding T_VNC_PORT in kvm xml template");
+        LOG4CPLUS_ERROR(logger, "Error in finding T_VNC_PORT in kvm xml template");
         return -1;
     }
     ss.str("");
@@ -322,35 +354,30 @@ int32_t KVM::CreateVM() {
     TaskPtr task_ptr = GetTaskPtr();
     int64_t task_id = GetId();
  
-    cout << 1 << endl;    
     // TaskPtr task_ptr = TaskPoolI::Instance()->GetTaskPtr(task_id);
     // can't find the task, taskptr = NULL
     if (!task_ptr) {
-        LOG4CPLUS_ERROR(logger, "can't find task " << task_id);
-        task_ptr->SetStates(TaskEntityState::TASKENTITY_FAILED, 0.0);
+        LOG4CPLUS_ERROR(logger, "Can't find task " << task_id);
+        task_ptr->TaskFailed();
         return -1;
     }
 
-    cout << 2 << endl;
     // init, set name img iso, mk work dir, cp libvirt xml
     if (Init() != 0) {
-        LOG4CPLUS_ERROR(logger, "can't create init vm");
-        cout << 2.5 << endl;
-        task_ptr->SetStates(TaskEntityState::TASKENTITY_FAILED, 0.0);
+        LOG4CPLUS_ERROR(logger, "Can't create init vm");
+        task_ptr->TaskFailed();        
         return -1;
     }
     task_ptr->SetStates(TaskEntityState::TASKENTITY_STARTING, 5.0);
 
-    cout << 3 << endl;
     // clone img
     if (CloneImage() != 0) {
-        LOG4CPLUS_ERROR(logger, "can't clone image");
-        task_ptr->SetStates(TaskEntityState::TASKENTITY_FAILED, 0.0);
+        LOG4CPLUS_ERROR(logger, "Can't clone image");
+        task_ptr->TaskFailed();
         return -1;
     }
     task_ptr->SetStates(TaskEntityState::TASKENTITY_STARTING, 25.0);
 
-    cout << 4 << endl;
     // config iso, include ip, app
     ofstream conf_file(m_conf.c_str());
     conf_file << "[vm_agent]" << endl;
@@ -367,34 +394,30 @@ int32_t KVM::CreateVM() {
     int32_t ret = system(cmd.c_str());
     ret = ret >> 8;
     if (ret != 0) {
-        LOG4CPLUS_ERROR(logger, "can't create conf iso file");
-        task_ptr->SetStates(TaskEntityState::TASKENTITY_FAILED, 0.0);
+        LOG4CPLUS_ERROR(logger, "Can't create conf iso file");
+        task_ptr->TaskFailed();
         return -1;
     }
     task_ptr->SetStates(TaskEntityState::TASKENTITY_STARTING, 30.0);
 
-    cout << 5 << endl;
     // libvirt template XML
     if (ConfigVirXML() != 0) {
-        LOG4CPLUS_ERROR(logger, "can't customize kvm xml");
-        task_ptr->SetStates(TaskEntityState::TASKENTITY_FAILED, 0.0);
+        LOG4CPLUS_ERROR(logger, "Can't customize kvm xml");
+        task_ptr->TaskFailed();
         return -1;
     }
     task_ptr->SetStates(TaskEntityState::TASKENTITY_STARTING, 35.0);
-    cout << m_xml << endl;  
  
-    cout << 6 << endl; 
     // create vm
     m_domain_ptr = virDomainCreateXML(m_conn, m_xml.c_str(), 0);
     if (!m_domain_ptr) {
         virErrorPtr error = virGetLastError();
-        LOG4CPLUS_ERROR(logger, error->message);
-        task_ptr->SetStates(TaskEntityState::TASKENTITY_FAILED, 0.0);
+        LOG4CPLUS_ERROR(logger, "Can't create kvm by libvirt xml," << error->message);
+        task_ptr->TaskFailed();
         return -1;
     }
     task_ptr->SetStates(TaskEntityState::TASKENTITY_STARTING, 40.0);
    
-    cout << 7 << endl; 
     return 0;    
 }
 

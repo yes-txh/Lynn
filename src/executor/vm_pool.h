@@ -11,6 +11,7 @@
 
 #include <map>
 #include <queue>
+#include <vector>
 #include <tr1/functional>
 #include <sys/types.h>
 
@@ -21,6 +22,7 @@
 
 using std::map;
 using std::queue;
+using std::vector;
 using std::tr1::function;
 using std::tr1::placeholders::_1;
 using std::tr1::placeholders::_2;
@@ -43,20 +45,26 @@ public:
     // insert VMPtr into queue
     void InsertIntoQueue(const VMPtr& ptr);
 
-    // delete VMPtr from map and queue
-    // void Delete(const int64_t id);
- 
     // delete VMPtr from map
     void DeleteFromPool(const int64_t id);
 
-    // delete VMPtr from queue
-    // void DeleteFromQueue(const int64_t id);
+    // find vm by task id
+    bool FindByTaskId(const int64_t id);
 
     // @brief: find a waiting VM, and start it
     int32_t StartVM();
 
+    // @brief: stop vm by task id 
+    bool StopVMByTaskId(const int64_t task_id);
+
+    // @brief: kill vm by task id
+    bool KillVMByTaskId(const int64_t task_id);
+
     // get VMPtr from 
     VMPtr GetVMPtr(int64_t id);
+   
+    // get all HbVMInfo
+    vector<HbVMInfo> GetAllHbVMInfo();
 
 private:
     RWLock m_lock;

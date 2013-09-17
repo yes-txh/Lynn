@@ -354,7 +354,7 @@ string System::GetIP(const char* interface) {
 }
 
 // get bytes_in and bytes_out of a interface
-void System::GetNetFlowinBytes(const char* interface, int64_t& bytes_in, int64_t& bytes_out) {
+void System::GetNetFlowinBytes(const char* interface, int32_t& bytes_in, int32_t& bytes_out) {
     // cleared 0
     bytes_in = bytes_out = 0;
 
@@ -390,7 +390,7 @@ void System::GetNetFlowinBytes(const char* interface, int64_t& bytes_in, int64_t
     fclose(fp);
 }
 
-void System::GetNetFlowinbits(const char* interface, int64_t& bits_in, int64_t& bits_out) {
+void System::GetNetFlowinbits(const char* interface, int32_t& bits_in, int32_t& bits_out) {
     // cleared 0
     bits_in = bits_out = 0;
 

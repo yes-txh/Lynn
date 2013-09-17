@@ -57,7 +57,7 @@ SET(SRC
     vm_pool.cpp
     resource_manager.cpp
     work_thread.cpp
-    executor_service.cpp
+    service.cpp
     executor.cpp)
 
 ADD_EXECUTABLE(executor ${SRC})

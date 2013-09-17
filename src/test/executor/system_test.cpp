@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
    
     // net flow
     string interface = "eth0";
-    int64_t in, out;
+    int32_t in, out;
     System::GetNetFlowinBytes(interface.c_str(), in ,out);
     printf("IN: %ld, OUT: %ld\n", in , out);
     System::GetNetFlowinbits(interface.c_str(), in ,out);
