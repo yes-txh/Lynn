@@ -7,12 +7,13 @@ using log4cplus::Logger;
 
 static Logger logger = Logger::getInstance("collector");
 
-bool DynamicConfiguration::Init(const std::string& module) {
+bool DynamicConfiguration::Init(const std::string& module, const std::string& zk_server) {
     if (module != "collector" && module != "scheduler") {
         LOG4CPLUS_ERROR(logger, "you give a wrong  module when call init");
         return false;
     }
-    if (m_zk.Init(FLAGS_cluster_name) < 0) {
+
+    if (m_zk.Init(module, zk_server) < 0) {
         LOG4CPLUS_ERROR(logger, "Can't connect to zk");
         return false;
     }

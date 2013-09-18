@@ -34,13 +34,7 @@ using log4cplus::Layout;
 using log4cplus::PatternLayout;
 using log4cplus::helpers::SharedObjectPtr;
 
-int main(int argc, char **argv)
-{
-    if(argc > 1) {
-        google::ParseCommandLineFlags(&argc, &argv, true);
-    } else {
-        google::ReadFromFlagsFile("../conf/collector.conf", argv[0], true);
-    }
+int main(int argc, char **argv){
     SharedObjectPtr<Appender> append(new FileAppender("collector.log"));
     append->setName(LOG4CPLUS_TEXT("append for collector"));
     auto_ptr<Layout> layout(new PatternLayout(LOG4CPLUS_TEXT("%d{%m/%d/%y %H:%M:%S} %p %l:%m %n")));
@@ -48,7 +42,27 @@ int main(int argc, char **argv)
     Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("collector"));
     logger.addAppender(append);
     logger.setLogLevel(log4cplus::INFO_LOG_LEVEL);
+
+    if(argc > 1) {
+        if(!(google::ParseCommandLineFlags(&argc, &argv, true))) {
+            LOG4CPLUS_ERROR(logger, "Error happens when parsing flags from command line");
+            return EXIT_FAILURE;
+        }
+    } else {
+        if(!(google::ReadFromFlagsFile("../conf/collector.conf", argv[0], true))) {  
+            LOG4CPLUS_ERROR(logger, "Error happens when parsing flags from file");
+            return EXIT_FAILURE;
+        }
+    }
+
+    if(!GetCollectorConf()) {
+        LOG4CPLUS_ERROR(logger, "Error happens when getting configuration items from zk");
+        return EXIT_FAILURE;
+    }
+
     LOG4CPLUS_INFO(logger, argv[0] << "daemon begin");
+
+    
     COLLECTORCONFIG::Instance()->Init();
     return 0;
 }

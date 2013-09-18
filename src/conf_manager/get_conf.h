@@ -8,7 +8,9 @@ class ZookeeperForModule {
     public:
         ZookeeperForModule();
         ~ZookeeperForModule();
-        int Init(std::string cluster_name, std::string module);    
+        int Init(std::string cluster_name, std::string module, std::string zk_server);   
+
+        int GetAllNodeOfModule(std::map<std::string, std::string> *result); 
         std::string m_zk_server;
         std::string m_zk_prefix;
     private:

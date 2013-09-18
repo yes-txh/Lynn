@@ -4,7 +4,6 @@
 #include <boost/algorithm/string.hpp>
 
 #include "conf_manager/zk_common.h"
-#include "conf_manager/global_zk.h"
 
 using log4cplus::Logger;
 
@@ -59,7 +58,8 @@ zhandle_t* ZookeeperCommon::createClient(const char *hp, watchctx_t *ctx) {
 
     ctx->zh = zk;
     ctx->WaitForConnected(zk);
-    zoo_add_auth(zk, "digest", "borg:secret", 11, 0, 0);
+    //TODO
+    //zoo_add_auth(zk, "digest", "borg:secret", 11, 0, 0);
 
     return zk;
 }
@@ -88,7 +88,10 @@ ZookeeperCommon::ZookeeperCommon() {
 }
 
 // dtor of ZookeeperCommon
-ZookeeperCommon::~ZookeeperCommon() {
+ZookeeperCommon::~ZookeeperCommon() { 
+   if(NULL != m_zk) {
+       zookeeper_close(m_zk);
+   }
 }
 
 /*
@@ -98,20 +101,12 @@ ZookeeperCommon::~ZookeeperCommon() {
  * @ret: the zk node string.
  */
 int ZookeeperCommon::Init(const std::string& cluster_name, const std::string& hostports) {
-    GlobalZKInfo globalzkinfo;
-    ClusterInfo cluster;
-    int rt = globalzkinfo.GetIDCFromCluster(cluster_name, cluster);
-    if (rt < 0) {
-        LOG4CPLUS_ERROR(logger, "zk service will quit, can't find cluster info for this cluster: " << cluster_name );
-        return -1;
-    }
-    // get all info about cluster
-    m_cluster_name = cluster.cluster_name;
-    m_zk_prefix = cluster.zk_prefix;
+    m_cluster_name = cluster_name;
+    m_zk_prefix = "/lynn/" + cluster_name;
     if (!hostports.empty()) {
         m_hostports = hostports;
     } else {
-        m_hostports = cluster.zk_servers;
+        m_hostports = "127.0.0.1:2181";
     }
 
     // create connection with zk

@@ -41,7 +41,7 @@ class ZookeeperCommon {
      * @cluster_name: the name of this cluster.
      * @ret: the zk node string.
      */
-    int Init(const std::string& cluster_name, const std::string& hostports = "");
+    int Init(const std::string& cluster_name, const std::string& hostports);
 
     /*
      * @brief:get the zk_prefix of this cluster 

@@ -19,6 +19,11 @@ struct IntFlag {
     int flag_name;
 };
 
+/// get all configuation items from zookeeper
+// TODO: move it into class CollectorConf
+bool GetCollectorConf();
+
+
 class CollectorConf {
 public:
     CollectorConf() {}
