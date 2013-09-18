@@ -42,6 +42,8 @@ DECLARE_string(scheduler_endpoint);
 /*DECLARE_string(interface);
 DECLARE_string(img_dir);*/
 DECLARE_string(log_path);
+DECLARE_string(libvirt_dir);
+DECLARE_string(lxc_dir);
 
 extern void* TaskProcessor(void* unused);
 extern void* VMProcessor(void* unused);
@@ -54,6 +56,7 @@ int ExecutorEntity(int argc, char **argv) {
         google::ParseCommandLineFlags(&argc, &argv, true);
     else
         google::ReadFromFlagsFile("../conf/executor.conf", argv[0], true);
+
 
     // initilize log log4cplus
     SharedObjectPtr<Appender> append(new FileAppender(FLAGS_log_path + "/executor.log"));
@@ -68,9 +71,17 @@ int ExecutorEntity(int argc, char **argv) {
     LOG4CPLUS_ERROR(logger, "This is the FIRST error message");
   
     // check dir
-    if(access("/var/lib/libvirt/images", F_OK) == -1) {
-       if(mkdir("/var/lib/libvirt/images",0755) != 0){
-           LOG4CPLUS_ERROR(logger, "Can't create kvm images dir");
+    if(access(FLAGS_libvirt_dir.c_str(), F_OK) == -1) {
+       if(mkdir(FLAGS_libvirt_dir.c_str(),0755) != 0){
+           LOG4CPLUS_ERROR(logger, "Can't create libvirt(kvm) work dir: " << FLAGS_libvirt_dir);
+           exit(-1);
+       }
+    }
+
+    // check dir
+    if(access(FLAGS_lxc_dir.c_str(), F_OK) == -1) {
+       if(mkdir(FLAGS_lxc_dir.c_str(),0755) != 0){
+           LOG4CPLUS_ERROR(logger, "Can't create lxc work dir: " << FLAGS_lxc_dir);
            exit(-1);
        }
     }

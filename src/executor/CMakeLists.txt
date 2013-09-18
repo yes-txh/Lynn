@@ -53,7 +53,7 @@ SET(SRC
     task_entity_pool.cpp
     vm.cpp
     kvm.cpp
-    # lxc.cpp
+    lxc.cpp
     vm_pool.cpp
     resource_manager.cpp
     work_thread.cpp

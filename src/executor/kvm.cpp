@@ -55,7 +55,7 @@ virConnectPtr KVM::m_conn = NULL;
 /// virtual function, from V
 // virtual CreateEnv, include CreateVM and Install 
 int32_t KVM::CreateEnv() {
-    if (CreateVM() != 0) {
+    if (CreateKVM() != 0) {
         LOG4CPLUS_ERROR(logger, "Fails to create kvm, name:" << GetName() << ", id:" << GetId()); 
         return -1;
     }
@@ -167,10 +167,15 @@ int32_t KVM::Init() {
     m_iso = m_dir + "kvm_" + ss.str() + ".iso";
     m_conf = m_dir + "CONF";
 
+    // check total libvirt work directory
+    if (chdir(FLAGS_libvirt_dir.c_str()) < 0) {
+        LOG4CPLUS_ERROR(logger, "No libvirt work directory:" << FLAGS_libvirt_dir);
+        return -1;
+    }
     // mkdir work dir
     if (access(m_dir.c_str(), F_OK) == -1) {
         if (mkdir(m_dir.c_str(), 0755) != 0) {
-           LOG4CPLUS_ERROR(logger, "Can't create kvm work dir");
+           LOG4CPLUS_ERROR(logger, "Can't create kvm work dir:" << m_dir);
            return -1;
         }
     }
@@ -349,7 +354,7 @@ int32_t KVM::ConfigVirXML() {
 }
 
 // create libvirt kvm
-int32_t KVM::CreateVM() {
+int32_t KVM::CreateKVM() {
     // task is exist?
     TaskPtr task_ptr = GetTaskPtr();
     int64_t task_id = GetId();
