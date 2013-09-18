@@ -106,7 +106,7 @@ int ZookeeperCommon::Init(const std::string& cluster_name, const std::string& ho
     if (!hostports.empty()) {
         m_hostports = hostports;
     } else {
-        m_hostports = "127.0.0.1:2181";
+        m_hostports = FLAGS_zk_server;
     }
 
     // create connection with zk

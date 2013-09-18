@@ -13,14 +13,14 @@ ZookeeperForModule::ZookeeperForModule() {
 ZookeeperForModule::~ZookeeperForModule() {
 }
 
-int ZookeeperForModule::Init(std::string cluster_name, std::string module, std::string zk_server) {
+int ZookeeperForModule::Init(std::string cluster_name, std::string module) {
     if (module != "collector" && module != "scheduler" ) {
         LOG4CPLUS_ERROR(logger, "get an error module when call init");
         return -1;
     }
 
     m_module = module;
-    if (m_zk.Init(cluster_name, zk_server) < 0) {
+    if (m_zk.Init(cluster_name) < 0) {
         return -1;
     }
 

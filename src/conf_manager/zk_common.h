@@ -6,7 +6,10 @@
 #include <vector>
 #include <list>
 #include <zookeeper/zookeeper.h>
+#include <gflags/gflags.h>
 #include "conf_manager/watcher.h"
+
+DECLARE_string(zk_server);
 
 class ZookeeperCommon {
  public:
@@ -41,7 +44,7 @@ class ZookeeperCommon {
      * @cluster_name: the name of this cluster.
      * @ret: the zk node string.
      */
-    int Init(const std::string& cluster_name, const std::string& hostports);
+    int Init(const std::string& cluster_name, const std::string& hostports = "");
 
     /*
      * @brief:get the zk_prefix of this cluster 

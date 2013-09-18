@@ -23,7 +23,7 @@ bool GetCollectorConf() {
 
     ZookeeperForModule zk_for_collector;
 
-    int rt = zk_for_collector.Init(FLAGS_cluster_name, "collector", FLAGS_zk_server);
+    int rt = zk_for_collector.Init(FLAGS_cluster_name, "collector");
     if(rt < 0) {
         LOG4CPLUS_ERROR(logger, "failed to connect zk.");
         return false;
@@ -37,5 +37,5 @@ bool GetCollectorConf() {
 }
 
 bool CollectorConf::Init() {
-    return m_dynamic_config.Init("collecotr", FLAGS_zk_server);
+    return m_dynamic_config.Init("collecotr");
 }
