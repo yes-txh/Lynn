@@ -45,6 +45,7 @@ SET(CONF_FILE
     ../conf_manager/watcher.cpp
     ../conf_manager/data_completion.cpp
     ../conf_manager/global_zk.cpp
+    ../conf_manager/get_conf.cpp
    )
 
 SET(SRC 

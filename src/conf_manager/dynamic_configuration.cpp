@@ -16,5 +16,6 @@ bool DynamicConfiguration::Init(const std::string& module) {
         LOG4CPLUS_ERROR(logger, "Can't connect to zk");
         return false;
     }
+    
     return true;
 }

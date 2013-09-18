@@ -9,6 +9,16 @@
 
 using std::string;
 
+struct StringFlag {
+    const string zk_name;
+    string flag_name;
+};
+
+struct IntFlag {
+    const string zk_name;
+    int flag_name;
+};
+
 class CollectorConf {
 public:
     CollectorConf() {}

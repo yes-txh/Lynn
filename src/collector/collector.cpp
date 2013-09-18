@@ -49,8 +49,6 @@ int main(int argc, char **argv)
     logger.addAppender(append);
     logger.setLogLevel(log4cplus::INFO_LOG_LEVEL);
     LOG4CPLUS_INFO(logger, argv[0] << "daemon begin");
-
     COLLECTORCONFIG::Instance()->Init();
-
     return 0;
 }
