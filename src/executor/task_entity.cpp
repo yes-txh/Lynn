@@ -30,70 +30,83 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
 
     // task overview
     if (!ad_ptr->EvaluateAttrNumber(ATTR_ID, m_info.id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_ID << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrNumber(ATTR_JOB_ID, m_info.job_id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_JOB_ID << " error.");
         ret = false;
         return;
     }
 
     int32_t type = -1;
     if (!ad_ptr->EvaluateAttrNumber(ATTR_VMTYPE, type)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_VMTYPE << " error.");
         ret = false;
         return;
     }
     m_info.type = VMType::type(type);
 
     if (!ad_ptr->EvaluateAttrBool(ATTR_IS_RUN, m_info.is_run)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_IS_RUN << " error.");
         ret = false;
         return;
     }
 
     // task vm_info
     if (!ad_ptr->EvaluateAttrNumber(ATTR_MEMORY, m_info.vm_info.memory)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_MEMORY << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrNumber(ATTR_VCPU, m_info.vm_info.vcpu)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_VCPU << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_IP, m_info.vm_info.ip)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_IP << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrNumber(ATTR_PORT, m_info.vm_info.port)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_PORT << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_OS, m_info.vm_info.os)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_OS << " error.");
         ret = false;
         return;
     }
 
     // only for kvm 
     if (!ad_ptr->EvaluateAttrString(ATTR_IMG, m_info.vm_info.img_template)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_IMG << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_ISO, m_info.vm_info.iso_location)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_ISO << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrNumber(ATTR_SIZE, m_info.vm_info.size)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_SIZE << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrNumber(ATTR_VNC_PORT, m_info.vm_info.vnc_port)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_VNC_PORT << " error.");
         ret = false;
         return;
     }
@@ -109,38 +122,45 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
 
     // task, app_info
     if (!ad_ptr->EvaluateAttrString(ATTR_APP_NAME, m_info.app_info.name)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_APP_NAME << " error.");
         ret = false;
         return;
     }
 
     // task, app_info, outside vm
     if (!ad_ptr->EvaluateAttrString(ATTR_APP_SRC_PATH, m_info.app_info.app_src_path)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_APP_SRC_PATH << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_APP_OUT_DIR, m_info.app_info.app_out_dir)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_APP_OUT_DIR << " error.");
         ret = false;
         return;
     }
 
     // task ,app_info, inside vm
     if (!ad_ptr->EvaluateAttrString(ATTR_INSTALL_DIR, m_info.app_info.install_dir)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_INSTALL_DIR << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_EXE_PATH, m_info.app_info.exe_path)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_EXE_PATH << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_STOP_PATH, m_info.app_info.stop_path)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_STOP_PATH << " error.");
         ret = false;
         return;
     }
 
     if (!ad_ptr->EvaluateAttrString(ATTR_OUT_DIR, m_info.app_info.out_dir)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_OUT_DIR << " error.");
         ret = false;
         return;
     }
@@ -184,18 +204,21 @@ void TaskEntity::TaskStarted() {
     WriteLocker locker(m_lock);
     m_state = TaskEntityState::TASKENTITY_STARTED;
     m_percentage = 100.0;
+    LOG4CPLUS_INFO(logger, "Task has started, id:" << m_id);
 }
 
 void TaskEntity::TaskFinished() {
     WriteLocker locker(m_lock);
     m_state = TaskEntityState::TASKENTITY_FINISHED;
     m_percentage = 100.0;
+    LOG4CPLUS_INFO(logger, "Task has finished, id:" << m_id);
 }
 
 void TaskEntity::TaskFailed() {
     WriteLocker locker(m_lock);
     m_state = TaskEntityState::TASKENTITY_FAILED;
     m_percentage = 0.0;
+    LOG4CPLUS_INFO(logger, "Task has failed, id:" << m_id );
 }
 
 // TODO
@@ -210,9 +233,9 @@ bool TaskEntity::Start() {
         VMPoolI::Instance()->Insert(ptr);
     } else if (GetVMType() == VMType::VM_LXC) {
         // init vm
-        //VMPtr ptr(new KVM(m_info));
+        // VMPtr ptr(new LXC(m_info));
         // insert VMPtr into VMPool
-        //VMPoolI::Instance()->Insert(ptr);
+        // VMPoolI::Instance()->Insert(ptr);
     } else {
         LOG4CPLUS_ERROR(logger, "Fails to start task, id:" << m_id << ", because have no the VMType " << m_info.type);
         return false;
