@@ -1,0 +1,28 @@
+13/09/22 17:25:58 DEBUG [/home/wm/work/git/Lynn/src/executor/executor.cpp:71]: This is the FIRST debug message 
+13/09/22 17:25:58 INFO [/home/wm/work/git/Lynn/src/executor/executor.cpp:72]: This is the FIRST info message 
+13/09/22 17:25:58 ERROR [/home/wm/work/git/Lynn/src/executor/executor.cpp:73]: This is the FIRST error message 
+13/09/22 17:25:58 INFO [/home/wm/work/git/Lynn/src/executor/executor.cpp:95]: current dir:/home/wm/work/git/Lynn/bin 
+13/09/22 17:25:58 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:26:07 INFO [/home/wm/work/git/Lynn/src/executor/service.cpp:41]: Insert task into TaskPool, job_id:1, task_id:1 
+13/09/22 17:26:07 INFO [/home/wm/work/git/Lynn/src/executor/task_entity.cpp:233]: Begin to start the task, job_id:1, task_id:1 
+13/09/22 17:26:07 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:85]: Begin to start the VM, job_id:1, task_id:1 
+13/09/22 17:26:08 INFO [/home/wm/work/git/Lynn/src/executor/kvm.cpp:69]: Create kvm successfully, name:_kvm_1_1, job_id:1, task_id:1 
+13/09/22 17:26:08 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:90]: Create environment successfully for VM, name:_kvm_1_1, job_id:1, task_id:1 
+13/09/22 17:26:08 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:99]: Execute successfully for VM, name:_kvm_1_1, job_id:1, task_id:1 
+13/09/22 17:26:12 INFO [/home/wm/work/git/Lynn/src/executor/service.cpp:41]: Insert task into TaskPool, job_id:1, task_id:2 
+13/09/22 17:26:12 INFO [/home/wm/work/git/Lynn/src/executor/task_entity.cpp:233]: Begin to start the task, job_id:1, task_id:2 
+13/09/22 17:26:12 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:85]: Begin to start the VM, job_id:1, task_id:2 
+13/09/22 17:26:12 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:90]: Create environment successfully for VM, name:count_lxc_1_2, job_id:1, task_id:2 
+13/09/22 17:26:13 INFO [/home/wm/work/git/Lynn/src/executor/task_entity.cpp:208]: Task has started, job_id:1, task_id:2 
+13/09/22 17:26:13 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:99]: Execute successfully for VM, name:count_lxc_1_2, job_id:1, task_id:2 
+13/09/22 17:26:13 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:26:28 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:26:43 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:26:54 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:127]: Kill VM successfully, job_id:1, task_id:1 
+13/09/22 17:26:54 INFO [/home/wm/work/git/Lynn/src/executor/task_entity_pool.cpp:105]: Kill task successfully, job_id:1, task_id:1 
+13/09/22 17:26:55 INFO [/home/wm/work/git/Lynn/src/executor/vm_pool.cpp:127]: Kill VM successfully, job_id:1, task_id:2 
+13/09/22 17:26:55 INFO [/home/wm/work/git/Lynn/src/executor/task_entity_pool.cpp:105]: Kill task successfully, job_id:1, task_id:2 
+13/09/22 17:26:58 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:27:13 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:27:28 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 
+13/09/22 17:27:43 ERROR [/home/wm/work/git/Lynn/src/executor/work_thread.cpp:61]: send heartbeat error: connect() failed: Connection refused 

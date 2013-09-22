@@ -7,6 +7,12 @@
 *********************************/
 
 #include <iostream>
+#include <sstream>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <string.h>
+
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/time.h>
@@ -43,12 +49,14 @@ DECLARE_string(lxc_template);
 
 static Logger logger = Logger::getInstance("executor");
 
+string LXC::m_conf_template = "";
+
 /// @brief: public function
 // virtual function, from VM
 // virtual CreateEnv, include ..
 int32_t LXC::CreateEnv() {
     if (Init() != 0) {
-        LOG4CPLUS_ERROR(logger, "Fails to init lxc, name:" << GetName() << ", id:" << GetId());
+        LOG4CPLUS_ERROR(logger, "Fails to init lxc, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id);
         return -1;
     }
     return 0;
@@ -56,6 +64,10 @@ int32_t LXC::CreateEnv() {
 
 // execute the task, run the app
 bool LXC::Execute() {
+    if (CreateLXC() != 0) {
+        LOG4CPLUS_ERROR(logger, "Fails to execute lxc, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id);
+        return false;
+    }
     return true;
 }
 
@@ -81,10 +93,12 @@ pid_t LXC::GetPid() {
 /// @brief: private function
 // set name
 void LXC::SetName() {
-    // app_name + "_lxc_" + task_id
-    stringstream ss;
-    ss << GetId();
-    string name = GetTaskInfo().app_info.name + "_lxc_" + ss.str();
+    // app_name + "_lxc_" + job_id + "_" + task_id
+    TaskID id = GetID();
+    stringstream ss_job, ss_task;
+    ss_job << id.job_id;
+    ss_task << id.task_id;
+    string name = GetTaskInfo().app_info.name + "_lxc_" + ss_job.str() + "_" + ss_task.str();
     SetNameByString(name);
 }
 
@@ -92,17 +106,20 @@ void LXC::SetName() {
 int32_t LXC::Init() {
     // set name, img, iso
     SetName();
-    stringstream ss;
-    ss << GetId();
     m_dir = FLAGS_lxc_dir + "/" + GetName() + "/";
+    m_conf_bak = m_dir + "lxc_bak.conf";
     m_conf_path = m_dir + "lxc.conf";
+
+    if ("" == m_conf_template) {
+        m_conf_template = FLAGS_lxc_template;
+    }
 
     TaskPtr task_ptr = GetTaskPtr(); 
 
     // check total work directory
     if (chdir(FLAGS_lxc_dir.c_str()) < 0) {
         LOG4CPLUS_ERROR(logger, "No lxc work directory:" << FLAGS_lxc_dir);
-        // task_ptr->TaskFailed();
+        task_ptr->TaskFailed();
         return -1;
     }
 
@@ -110,24 +127,40 @@ int32_t LXC::Init() {
     if (access(m_dir.c_str(), F_OK) == -1) {
         if (mkdir(m_dir.c_str(), 0755) != 0) {
            LOG4CPLUS_ERROR(logger, "Can't create lxc work dir:" << m_dir);
+           task_ptr->TaskFailed();
            return -1;
         }
     }
 
     // cp default lxc.conf to m_dir
-    string cmd = "cp " + FLAGS_lxc_template + " " + m_conf_path;
-    int32_t ret = system(cmd.c_str());
-    ret = ret >> 8;
-    if (ret != 0) {
-        LOG4CPLUS_ERROR(logger, "Can't copy default lxc.conf");
+    string cmd1 = "cp " + m_conf_template + " " + m_conf_bak;
+    int32_t ret1 = system(cmd1.c_str());
+    ret1 = ret1 >> 8;
+    if (ret1 != 0) {
+        LOG4CPLUS_ERROR(logger, "Can't copy default lxc.conf for " << m_conf_bak);
+        LOG4CPLUS_ERROR(logger, "cmd1:" << cmd1);
+        task_ptr->TaskFailed();
+        return -1;
+    }
+
+    string cmd2 = "cp " + m_conf_template + " " + m_conf_path;
+    int32_t ret2 = system(cmd2.c_str());
+    ret2 = ret2 >> 8;
+    if (ret1 != 0) {
+        LOG4CPLUS_ERROR(logger, "Can't copy default lxc.conf for " << m_conf_path);
+        LOG4CPLUS_ERROR(logger, "cmd2:" << cmd2);
+        task_ptr->TaskFailed();
         return -1;
     }
  
     // change work directory
     if (chdir(m_dir.c_str()) < 0) {
         LOG4CPLUS_ERROR(logger, "Can't change work directory into " << m_dir);
+        task_ptr->TaskFailed();
         return -1;
     }
+
+    task_ptr->SetStates(TaskEntityState::TASKENTITY_STARTING, 50.0);
 
     return 0;
 }
@@ -138,9 +171,9 @@ int32_t LXC::CreateLXC() {
     if (0 == m_pid) {
         // child pid
         // close all the fd inherited from parent
-        // CloseInheritedFD();
+        CloseInheritedFD();
         // TODO log
-        // RedirectLog();
+        RedirectLog();
 
         // TODO how config ip addr with api
         /***** lxc API *****
@@ -150,7 +183,7 @@ int32_t LXC::CreateLXC() {
         // free(conf);
         *******************/
         if (GetTaskInfo().vm_info.ip != "") {
-            // SetIPConf();
+            SetIPConf();
         } 
 
         // lxc-create
@@ -163,7 +196,7 @@ int32_t LXC::CreateLXC() {
         }
 
         // lxc-execute
-        string cmd2 = "lxc-execute -n " + GetName() 
+        string cmd2 = "lxc-execute -n " + GetName() + " "
                     + GetTaskInfo().app_info.exe_path;
         int32_t ret2 = system(cmd2.c_str());
         ret2 = ret2 >> 8;
@@ -181,6 +214,30 @@ int32_t LXC::CreateLXC() {
     }
     return 0;
 } 
+
+// Set IP Conf with lxc.conf
+int32_t LXC::SetIPConf() {
+    ifstream in(m_conf_bak.c_str());
+    ofstream out(m_conf_path.c_str());
+    string tmp;
+    while (getline(in, tmp, '\n')) {
+        int index_ipv4 = tmp.find("ipv4");
+        if (index_ipv4 > 0 && index_ipv4 < 500)
+        {
+            out << tmp.substr(tmp.find('#') + 2, tmp.find('='));
+            out << GetTaskInfo().vm_info.ip << endl;
+            /*LOG(ERROR) << tmp.substr(tmp.find('#') + 2, tmp.find('='));
+            LOG(ERROR) << m_info.lxc_ip;*/
+        }
+        else
+            out << tmp.substr(tmp.find('#') + 2, strlen(tmp.c_str()) - 2)
+                << endl;
+            // LOG(ERROR) << tmp.substr(tmp.find('#') + 2, strlen(tmp.c_str()) - 2);
+    }
+    in.close();
+    out.close();
+    return 0;
+}
 
 // close inherited(ji cheng)
 // must in child process
@@ -235,4 +292,3 @@ int32_t LXC::RedirectLog() {
     // dup2(1, 2);
     close(fd);
 }
-

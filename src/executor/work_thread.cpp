@@ -27,10 +27,8 @@ DECLARE_int32(hb_interval);
 static Logger logger = Logger::getInstance("executor");
 
 // thread, start task
-void* TaskProcessor(void* unused)
-{
-    while (true)
-    {
+void* TaskProcessor(void* unused) {
+    while (true) {
         // at one time, only start task that first found
         TaskPoolI::Instance()->StartTask();
         usleep(1000*100);
@@ -39,10 +37,8 @@ void* TaskProcessor(void* unused)
 }
 
 // thread, start vm
-void* VMProcessor(void* unused)
-{
-    while (true)
-    {
+void* VMProcessor(void* unused) { 
+    while (true) {
         // at one time, only start vm that first found
         VMPoolI::Instance()->StartVM();
         usleep(1000*100);

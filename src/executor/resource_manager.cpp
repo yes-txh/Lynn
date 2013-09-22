@@ -139,7 +139,8 @@ string ResourceManager::GenerateHb() {
     for (vector<HbVMInfo>::iterator it = vm_list.begin(); 
          it != vm_list.end(); ++it) {
        cout << "--VM:" << endl;
-       cout << "----id: " << it->id << endl;
+       cout << "----job_id: " << (it->id).job_id << endl;
+       cout << "----task_id: " << (it->id).task_id << endl;
        cout << "----name: " << it->name << endl;
        cout << "----type: " << it->type << endl;
        cout << "----state: " << it->state << endl;

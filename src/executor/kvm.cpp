@@ -56,16 +56,17 @@ virConnectPtr KVM::m_conn = NULL;
 // virtual CreateEnv, include CreateVM and Install 
 int32_t KVM::CreateEnv() {
     if (CreateKVM() != 0) {
-        LOG4CPLUS_ERROR(logger, "Fails to create kvm, name:" << GetName() << ", id:" << GetId()); 
+        LOG4CPLUS_ERROR(logger, "Fails to create kvm, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id); 
         return -1;
     }
 
     if (Install() != 0) {
-        LOG4CPLUS_ERROR(logger, "Fails to install app into kvm, name:" << GetName() << ", id:" << GetId() << ", app:" << GetApp());
+        LOG4CPLUS_ERROR(logger, "Fails to install app into kvm, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id 
+                        << ", app:" << GetApp());
         return -1;
     }
 
-    LOG4CPLUS_INFO(logger, "Create kvm successfully, name:" << GetName() << ", id:" << GetId());
+    LOG4CPLUS_INFO(logger, "Create kvm successfully, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id);
     return 0;
 }
 
@@ -86,10 +87,11 @@ bool KVM::Kill() {
         system(cmd.c_str());
         return true;
     }
+
     if (virDomainDestroy(m_domain_ptr) != 0) {
         virErrorPtr error = virGetLastError();
         LOG4CPLUS_ERROR(logger, error->message);
-        LOG4CPLUS_ERROR(logger, "Can't kill kvm, name:" << GetName() << ", id:" << GetId());
+        LOG4CPLUS_ERROR(logger, "Can't kill kvm, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id);
         return false;
     }
 
@@ -104,7 +106,7 @@ HbVMInfo KVM::GetHbVMInfo() {
     // if state != VM_SERVICE_ONLINE then return "empty"
     if (true || state != VMState::VM_SERVICE_ONLINE){
        HbVMInfo empty;
-       empty.id = GetId();
+       empty.id = GetID();
        empty.name = GetName();
        empty.type = GetVMType();
        empty.cpu_usage = 0;
@@ -149,10 +151,12 @@ void KVM::SetVNet(string vnet) {
 /// @brief: private function
 // set name
 void KVM::SetName() {
-    // app_name + "_kvm_" + task_id
-    stringstream ss;
-    ss << GetId();
-    string name = GetTaskInfo().app_info.name + "_kvm_" + ss.str();
+    // app_name + "_kvm_" + job_id + "_" + task_id
+    TaskID id = GetID();
+    stringstream ss_job, ss_task;
+    ss_job << id.job_id;
+    ss_task << id.task_id;
+    string name = GetTaskInfo().app_info.name + "_kvm_" + ss_job.str() + "_" + ss_task.str();
     SetNameByString(name);
 }
 
@@ -160,11 +164,14 @@ void KVM::SetName() {
 int32_t KVM::Init() {
     // set name, img, iso
     SetName();
-    stringstream ss;
-    ss << GetId();
+    TaskID id = GetID();
+    stringstream ss_job, ss_task;
+    ss_job << id.job_id;
+    ss_task << id.task_id;
+
     m_dir = FLAGS_libvirt_dir + "/" + GetName() + "/";
-    m_img = m_dir + "kvm_" + ss.str() + ".img";
-    m_iso = m_dir + "kvm_" + ss.str() + ".iso";
+    m_img = m_dir + "kvm_" + ss_job.str() + "_" + ss_task.str() + ".img";
+    m_iso = m_dir + "kvm_" + ss_job.str() + "_" + ss_task.str() + ".iso";
     m_conf = m_dir + "CONF";
 
     // check total libvirt work directory
@@ -194,7 +201,7 @@ int32_t KVM::Init() {
         // open libvirt xml template
         ifstream file(FLAGS_xml_template.c_str());
         if (!file) {
-            LOG4CPLUS_ERROR(logger, "Can't read xml template file");
+            LOG4CPLUS_ERROR(logger, "Can't read xml template file: " << FLAGS_xml_template);
             return -1;
         }
 
@@ -356,13 +363,13 @@ int32_t KVM::ConfigVirXML() {
 // create libvirt kvm
 int32_t KVM::CreateKVM() {
     // task is exist?
+    TaskID id = GetID();
     TaskPtr task_ptr = GetTaskPtr();
-    int64_t task_id = GetId();
- 
+    // TODO 
     // TaskPtr task_ptr = TaskPoolI::Instance()->GetTaskPtr(task_id);
     // can't find the task, taskptr = NULL
     if (!task_ptr) {
-        LOG4CPLUS_ERROR(logger, "Can't find task " << task_id);
+        LOG4CPLUS_ERROR(logger, "Can't find task, job_id:" << id.job_id << ", task_id" << id.task_id);
         task_ptr->TaskFailed();
         return -1;
     }
@@ -386,7 +393,9 @@ int32_t KVM::CreateKVM() {
     // config iso, include ip, app
     ofstream conf_file(m_conf.c_str());
     conf_file << "[vm_agent]" << endl;
-    conf_file << "vm_id = " << GetId() << endl;
+    conf_file << "job_id = " << GetID().job_id << endl;
+    conf_file << "task_id = " << GetID().task_id << endl;
+    conf_file << "name = " << GetName() << endl;
     conf_file << "os = " << GetTaskInfo().vm_info.os << endl;
     conf_file << "ip = " << GetTaskInfo().vm_info.ip << endl;
     conf_file << "port = " << GetTaskInfo().vm_info.port << endl;

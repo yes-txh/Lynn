@@ -33,7 +33,7 @@ public:
 
     ~VM() {}
 
-    int64_t GetId();
+    TaskID GetID();
 
     string GetName();
 
@@ -78,7 +78,7 @@ private:
     virtual void SetName() = 0;
 
 private:
-    int64_t m_id;
+    TaskID m_id;
     string m_name;     // vm name, maybe kvm name or lxc name
     VMType::type m_type; // VM_KVM or VM_LXC
     TaskInfo m_info;   // TODO

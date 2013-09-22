@@ -47,22 +47,22 @@ public:
     void InsertIntoQueue(const VMPtr& ptr);
 
     // delete VMPtr from map
-    void DeleteFromPool(const int64_t id);
+    void DeleteFromPool(const TaskID id);
 
-    // find vm by task id
-    bool FindByTaskId(const int64_t id);
+    // find vm by job_id and task_id
+    bool FindByTaskID(const TaskID id);
 
     // @brief: find a waiting VM, and start it
     int32_t StartVM();
 
-    // @brief: stop vm by task id 
-    bool StopVMByTaskId(const int64_t task_id);
+    // @brief: stop vm by job_id and task_id 
+    bool StopVMByTaskID(const TaskID id);
 
-    // @brief: kill vm by task id
-    bool KillVMByTaskId(const int64_t task_id);
+    // @brief: kill vm by job_id and task_id
+    bool KillVMByTaskID(const TaskID id);
 
     // get VMPtr from 
-    VMPtr GetVMPtr(int64_t id);
+    VMPtr GetVMPtr(const TaskID id);
    
     // get all HbVMInfo
     vector<HbVMInfo> GetAllHbVMInfo();
@@ -70,7 +70,7 @@ public:
 private:
     RWLock m_lock;
     // task_id, VMPtr
-    map<int64_t, VMPtr> m_vm_map;
+    map<TaskID, VMPtr> m_vm_map;
     // to be processed queue
     queue<VMPtr> m_queue;
 };

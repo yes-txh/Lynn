@@ -19,9 +19,9 @@ public:
 
     bool StartTask(const string& info);
 
-    bool StopTask(const int32_t task_id);
+    bool StopTask(const int32_t job_id, const int32_t task_id);
 
-    bool KillTask(const int32_t task_id);
+    bool KillTask(const int32_t job_id, const int32_t task_id);
 
     void SendVMHeartbeat(const string& heartbeat_ad);
 

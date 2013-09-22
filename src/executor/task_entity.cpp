@@ -29,14 +29,14 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
     ret = true;
 
     // task overview
-    if (!ad_ptr->EvaluateAttrNumber(ATTR_ID, m_info.id)) {
-        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_ID << " error.");
+    if (!ad_ptr->EvaluateAttrNumber(ATTR_JOB_ID, m_info.id.job_id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_JOB_ID << " error.");
         ret = false;
         return;
     }
 
-    if (!ad_ptr->EvaluateAttrNumber(ATTR_JOB_ID, m_info.job_id)) {
-        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_JOB_ID << " error.");
+    if (!ad_ptr->EvaluateAttrNumber(ATTR_TASK_ID, m_info.id.task_id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_TASK_ID << " error.");
         ret = false;
         return;
     }
@@ -48,6 +48,7 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
         return;
     }
     m_info.type = VMType::type(type);
+    printf("VMType: %d\n", m_info.type);
 
     if (!ad_ptr->EvaluateAttrBool(ATTR_IS_RUN, m_info.is_run)) {
         LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_IS_RUN << " error.");
@@ -204,27 +205,32 @@ void TaskEntity::TaskStarted() {
     WriteLocker locker(m_lock);
     m_state = TaskEntityState::TASKENTITY_STARTED;
     m_percentage = 100.0;
-    LOG4CPLUS_INFO(logger, "Task has started, id:" << m_id);
+    LOG4CPLUS_INFO(logger, "Task has started, job_id:" << m_id.job_id << ", task_id:" << m_id.task_id);
 }
 
 void TaskEntity::TaskFinished() {
     WriteLocker locker(m_lock);
     m_state = TaskEntityState::TASKENTITY_FINISHED;
     m_percentage = 100.0;
-    LOG4CPLUS_INFO(logger, "Task has finished, id:" << m_id);
+    LOG4CPLUS_INFO(logger, "Task has finished, job_id:" << m_id.job_id << ", task_id:" << m_id.task_id);
 }
 
 void TaskEntity::TaskFailed() {
     WriteLocker locker(m_lock);
+    // Kill VM from VMPool
+    /*if (!VMPoolI::Instance()->KillVMByTaskID(m_id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to kill task, job_id:" << m_id.job_id << ", task_id" << m_id.task_id);
+    }*/
+
     m_state = TaskEntityState::TASKENTITY_FAILED;
     m_percentage = 0.0;
-    LOG4CPLUS_INFO(logger, "Task has failed, id:" << m_id );
+    LOG4CPLUS_INFO(logger, "Task has failed, job_id:" << m_id.job_id << ", task_id:" << m_id.task_id);
 }
 
 // TODO
 bool TaskEntity::Start() {
     WriteLocker locker(m_lock);
-    LOG4CPLUS_INFO(logger, "Begin to start the task, id:" << m_id);
+    LOG4CPLUS_INFO(logger, "Begin to start the task, job_id:" << m_id.job_id << ", task_id:" << m_id.task_id);
 
     if (GetVMType() == VMType::VM_KVM) {
         // init vm
@@ -233,11 +239,13 @@ bool TaskEntity::Start() {
         VMPoolI::Instance()->Insert(ptr);
     } else if (GetVMType() == VMType::VM_LXC) {
         // init vm
-        // VMPtr ptr(new LXC(m_info));
+        VMPtr ptr(new LXC(m_info));
         // insert VMPtr into VMPool
-        // VMPoolI::Instance()->Insert(ptr);
+        VMPoolI::Instance()->Insert(ptr);
     } else {
-        LOG4CPLUS_ERROR(logger, "Fails to start task, id:" << m_id << ", because have no the VMType " << m_info.type);
+        LOG4CPLUS_ERROR(logger, "Fails to start task, job_id:" << m_id.job_id << ", task_id:" << m_id.task_id 
+                        << ", because have no the VMType " << m_info.type);
+        m_state = TaskEntityState::TASKENTITY_FAILED;
         return false;
     }
 
@@ -253,8 +261,8 @@ bool TaskEntity::Stop() {
 
 bool TaskEntity::Kill() {
     WriteLocker locker(m_lock);
-    if (!VMPoolI::Instance()->KillVMByTaskId(m_id)) {
-        LOG4CPLUS_ERROR(logger, "Fails to kill task, id:" << m_id);
+    if (!VMPoolI::Instance()->KillVMByTaskID(m_id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to kill task, job_id:" << m_id.job_id << ", task_id" << m_id.task_id);
         return false;
     }
     m_state = TaskEntityState::TASKENTITY_FINISHED;

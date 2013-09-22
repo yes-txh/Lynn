@@ -21,6 +21,21 @@
 using std::string;
 using std::vector;
 
+// TaskID: job id + task id
+struct TaskID {
+    int32_t job_id;
+    int32_t task_id;
+    
+    // overwrite comparison operators
+    bool operator <(const TaskID& other) const  {
+       if (job_id < other.job_id)
+           return true;
+       else if (job_id == other.job_id)  //如果类型相同，按比例尺升序排序
+           return task_id < other.task_id;
+       return false;
+   }
+};
+
 // app
 struct AppInfo {
     string name;
@@ -56,8 +71,7 @@ struct VMInfo {
 };
 
 struct TaskInfo {
-    int32_t id;
-    int32_t job_id;
+    TaskID id;
     // vm resource
     VMType::type type;
     VMInfo vm_info;
@@ -67,7 +81,7 @@ struct TaskInfo {
 };
 
 struct HbVMInfo {
-    int32_t id;  // task id, vm id
+    TaskID id;  // job_id + task_id, vm id
     string name; 
     VMType::type type;
     double cpu_usage;

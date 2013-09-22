@@ -26,7 +26,7 @@ public:
 
     ~TaskEntity() {} 
 
-    int64_t GetId() {
+    TaskID GetID() {
         return m_id;
     }
 
@@ -59,7 +59,7 @@ public:
     bool Kill();
 
 private:
-    int64_t m_id;
+    TaskID m_id;
     TaskInfo m_info;               // from executor/type.h
     TaskEntityState::type m_state; // from proxy/executor/executor.thrift
     RWLock m_lock;
