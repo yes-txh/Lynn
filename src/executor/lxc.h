@@ -51,23 +51,26 @@ private:
 
     int32_t CreateLXC();
 
+    // @brief: set ip addr with conf
+    int32_t SetIPConf();
+
     // @brief: close all the fd inherited from parent according to /proc/pid/fd
     int32_t CloseInheritedFD();
 
     // @brief: re-direct log to work directory
     int32_t RedirectLog();
     
-    // @brief: set ip addr with conf
-    int32_t SetIPConf();
-
     // @brief: set container resource limit
     void SetResourceLimit(); 
 
 private:
     pid_t m_pid;    // 进程号
     string m_dir;   // work dir
+    string m_conf_bak;  // lxc.conf path
     string m_conf_path; // lxc.conf path
     HbVMInfo m_hb_vm_info;
+
+    static string m_conf_template;
 
     // report resource, is first?
     bool m_first;

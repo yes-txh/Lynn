@@ -11,41 +11,68 @@
 
 using namespace std;
 
-static string usage = "./start_task task_id vnc_port";
+static string usage = "./start_task job_id task_id vnc_port vm_type";
 
-int main(int argc, char ** argv)
-{
-    if(argc != 3)
-    {
-        cout << "Usage is wrong." << endl;
-        cout << "Usage is: " << usage << endl;
-        return -1;
-    }
-    int32_t task_id = atoi(argv[1]);
-    if (task_id <= 0)
-    {    
+int main(int argc, char ** argv) {
+    if(argc != 5) {
         cout << "Usage is wrong." << endl;
         cout << "Usage is: " << usage << endl;
         return -1;
     }
 
-    int32_t vnc_port = atoi(argv[2]);
-    if (vnc_port < 0)
-    {
+    // job id
+    int32_t job_id = atoi(argv[1]);
+    if (job_id <= 0) {
         cout << "Usage is wrong." << endl;
         cout << "Usage is: " << usage << endl;
         return -1;
     }
 
-    cout << "start task " << task_id << endl;
+    // task id
+    int32_t task_id = atoi(argv[2]);
+    if (task_id <= 0) {    
+        cout << "Usage is wrong." << endl;
+        cout << "Usage is: " << usage << endl;
+        return -1;
+    }
+
+    // vnc port
+    int32_t vnc_port = atoi(argv[3]);
+    if (vnc_port < 0) {
+        cout << "Usage is wrong." << endl;
+        cout << "Usage is: " << usage << endl;
+        return -1;
+    }
+
+    // vm type
+    string vm_type = argv[4];
+    int32_t vm_t = 0;
+    bool is_run = false;
+    if ("" == vm_type) {
+        cout << "Usage is wrong." << endl;
+        cout << "Usage is: " << usage << endl;
+        return -1;
+    } else if ("KVM" == vm_type) {
+        vm_t = 1;
+        is_run = false; 
+    } else if ("LXC" == vm_type) {
+        vm_t = 2;
+        is_run = true;
+    } else {
+        cout << "No the VM Type '" << vm_type << "'." << endl;
+    }
+    
+    cout << "start task, job_id:" << job_id << ", task_id:" << task_id << endl;
     string endpoint = "127.0.0.1:9997";
 
     // build task    
     ClassAd ad;
-    ad.InsertAttr(ATTR_ID, task_id);
-    ad.InsertAttr(ATTR_JOB_ID, 1);
-    ad.InsertAttr(ATTR_VMTYPE, 1);
-    ad.InsertAttr(ATTR_IS_RUN, false);
+    // overview
+    ad.InsertAttr(ATTR_JOB_ID, job_id);
+    ad.InsertAttr(ATTR_TASK_ID, task_id);
+    ad.InsertAttr(ATTR_VMTYPE, vm_t);
+    ad.InsertAttr(ATTR_IS_RUN, is_run);
+    // vm info
     ad.InsertAttr(ATTR_MEMORY, 1024);
     ad.InsertAttr(ATTR_VCPU, 1);
     ad.InsertAttr(ATTR_IP, "192.168.0.2");
@@ -55,13 +82,20 @@ int main(int argc, char ** argv)
     ad.InsertAttr(ATTR_ISO, ".");
     ad.InsertAttr(ATTR_SIZE, 1);
     ad.InsertAttr(ATTR_VNC_PORT, vnc_port);
+    // app info
+    ad.InsertAttr(ATTR_APP_NAME, "count");
+    ad.InsertAttr(ATTR_APP_SRC_PATH, "/");
+    ad.InsertAttr(ATTR_APP_OUT_DIR, "/");
+    ad.InsertAttr(ATTR_INSTALL_DIR, "/");
+    ad.InsertAttr(ATTR_EXE_PATH, "/usr/local/bin/a");
+    ad.InsertAttr(ATTR_STOP_PATH, "/");
+    ad.InsertAttr(ATTR_OUT_DIR, "/");
 
     // classad -> string
     ClassAdUnParser unparser;
     string str_ad;
     // Serialization, convert ClassAd into string str_ad
     unparser.Unparse(str_ad, &ad);
-
 
     // build a task
     /*TaskInfo task_info;

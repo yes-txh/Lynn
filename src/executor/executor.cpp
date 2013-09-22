@@ -43,7 +43,9 @@ DECLARE_string(scheduler_endpoint);
 DECLARE_string(img_dir);*/
 DECLARE_string(log_path);
 DECLARE_string(libvirt_dir);
+DECLARE_string(xml_template);
 DECLARE_string(lxc_dir);
+DECLARE_string(lxc_template);
 
 extern void* TaskProcessor(void* unused);
 extern void* VMProcessor(void* unused);
@@ -70,7 +72,7 @@ int ExecutorEntity(int argc, char **argv) {
     LOG4CPLUS_INFO(logger, "This is the FIRST info message");
     LOG4CPLUS_ERROR(logger, "This is the FIRST error message");
   
-    // check dir
+    // check libvirt work dir
     if(access(FLAGS_libvirt_dir.c_str(), F_OK) == -1) {
        if(mkdir(FLAGS_libvirt_dir.c_str(),0755) != 0){
            LOG4CPLUS_ERROR(logger, "Can't create libvirt(kvm) work dir: " << FLAGS_libvirt_dir);
@@ -78,13 +80,25 @@ int ExecutorEntity(int argc, char **argv) {
        }
     }
 
-    // check dir
+    // check lxc work dir
     if(access(FLAGS_lxc_dir.c_str(), F_OK) == -1) {
        if(mkdir(FLAGS_lxc_dir.c_str(),0755) != 0){
            LOG4CPLUS_ERROR(logger, "Can't create lxc work dir: " << FLAGS_lxc_dir);
            exit(-1);
        }
     }
+   
+    // TODO
+    // get current dir
+    char c_dir[100];
+    if (getcwd(c_dir, sizeof(c_dir)-1) != NULL) {
+        LOG4CPLUS_INFO(logger, "current dir:" << c_dir);
+    } else {
+        LOG4CPLUS_ERROR(logger, "Fails to get current dir.");
+    }
+    string separator = "/";
+    FLAGS_xml_template = c_dir + separator + FLAGS_xml_template;
+    FLAGS_lxc_template = c_dir + separator + FLAGS_lxc_template;
 
     // init resource_manager
     if (!ResourceMgrI::Instance()->Init()) {
@@ -99,6 +113,7 @@ int ExecutorEntity(int argc, char **argv) {
     pthread_t vm_t;
     pthread_create(&vm_t, NULL, VMProcessor, NULL);
 
+    // TODO
     pthread_t hb_t;
     pthread_create(&hb_t, NULL, HeartbeatProcessor, NULL);
 

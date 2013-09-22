@@ -12,7 +12,7 @@ using clynn::WriteLocker;
 using clynn::ReadLocker;
 
 // public
-int64_t VM::GetId() {
+TaskID VM::GetID() {
     // ReadLocker locker(m_lock);
     return m_id;
 }

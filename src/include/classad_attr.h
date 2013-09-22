@@ -13,8 +13,8 @@ using std::string;
 
 /// @brief: TaskInfo
 // task info overview
-static const string ATTR_ID = "ID";
 static const string ATTR_JOB_ID = "JOB_ID";
+static const string ATTR_TASK_ID = "TASK_ID";
 static const string ATTR_VMTYPE = "VMTYPE";
 static const string ATTR_IS_RUN = "IS_RUN";
 

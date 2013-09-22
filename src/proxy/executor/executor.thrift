@@ -29,6 +29,6 @@ service Executor {
     void SendVMHeartbeat(1: string heartbeat_ad),
     // string GetMachineInfo(), // register static info of Machine to Collector
     bool StartTask(1: string task_ad),
-    bool StopTask(1: i32 task_id),
-    bool KillTask(1: i32 task_id ),
+    bool StopTask(1: i32 job_id, 2: i32 task_id),
+    bool KillTask(1: i32 job_id, 2: i32 task_id),
 }

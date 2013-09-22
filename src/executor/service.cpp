@@ -11,6 +11,7 @@
 
 #include "executor/task_entity_pool.h"
 #include "executor/service.h"
+#include "executor/type.h"
 
 using log4cplus::Logger;
 
@@ -30,27 +31,30 @@ bool ExecutorService::StartTask(const string& info) {
         return false;
     }
 
-    if (TaskPoolI::Instance()->Find(ptr))
-    {
-        LOG4CPLUS_ERROR(logger, "The task had exist in the executor, id:" << ptr->GetId());
+    if (TaskPoolI::Instance()->Find(ptr)) {
+        LOG4CPLUS_ERROR(logger, "The task had exist in the executor, job_id:" << ptr->GetID().job_id << ", task_id:" << ptr->GetID().task_id);
         TaskPoolI::Instance()->PrintAll();
         return false;
-    }
-    else
-    {
+    } else {
         TaskPoolI::Instance()->Insert(ptr);
         TaskPoolI::Instance()->PrintAll();
-        LOG4CPLUS_INFO(logger, "Insert task into TaskPool, id:" << ptr->GetId());
+        LOG4CPLUS_INFO(logger, "Insert task into TaskPool, job_id:" << ptr->GetID().job_id << ", task_id:" << ptr->GetID().task_id);
         return true;
     }
 }
 
-bool ExecutorService::StopTask(const int32_t task_id) {
-    // return TaskPoolI::Instance()->StopTask(task_id);
+bool ExecutorService::StopTask(const int32_t job_id, const int32_t task_id) {
+    // TaskID id;
+    // id.job_id = job_id;
+    // id.task_id = task_id;
+    // return TaskPoolI::Instance()->StopTask(id);
 }
 
-bool ExecutorService::KillTask(const int32_t task_id) {
-    return TaskPoolI::Instance()->KillTaskById(task_id);
+bool ExecutorService::KillTask(const int32_t job_id, const int32_t task_id) {
+    TaskID id;
+    id.job_id = job_id;
+    id.task_id = task_id;    
+    return TaskPoolI::Instance()->KillTaskByID(id);
 }
 
 void ExecutorService::SendVMHeartbeat(const string& heartbeat_ad) {

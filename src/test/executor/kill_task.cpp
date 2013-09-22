@@ -11,25 +11,32 @@
 
 using namespace std;
 
-static string usage = "./kill_task task_id";
+static string usage = "./kill_task job_id task_id";
 
-int main(int argc, char ** argv)
-{
-    if(argc != 2)
-    {
-        cout << "Usage is wrong." << endl;
-        cout << "Usage is: " << usage << endl;
-        return -1;
-    }
-    int64_t task_id = atol(argv[1]);
-    if (task_id <= 0)
-    {    
+int main(int argc, char ** argv) {
+    if(argc != 3) {
         cout << "Usage is wrong." << endl;
         cout << "Usage is: " << usage << endl;
         return -1;
     }
 
-    cout << "kill task " << task_id << endl;
+    // job id 
+    int32_t job_id = atoi(argv[1]);
+    if (job_id <= 0) {
+        cout << "Usage is wrong." << endl;
+        cout << "Usage is: " << usage << endl;
+        return -1;
+    }
+
+    // task id 
+    int32_t task_id = atoi(argv[2]);
+    if (task_id <= 0) {    
+        cout << "Usage is wrong." << endl;
+        cout << "Usage is: " << usage << endl;
+        return -1;
+    }
+
+    cout << "kill task, job_id:" << job_id << ", task_id:"<< task_id << endl;
     string endpoint = "127.0.0.1:9997";
 
 
@@ -45,7 +52,7 @@ int main(int argc, char ** argv)
     try {
         Proxy<ExecutorClient> proxy = Rpc<ExecutorClient, ExecutorClient>::GetProxy(endpoint);
         proxy().Helloworld();
-        proxy().KillTask(task_id);
+        proxy().KillTask(job_id, task_id);
     } catch (TException &tx) {
         cout<<"error"<<endl;
         return -1;

@@ -39,20 +39,20 @@ public:
     void Insert(const TaskPtr& ptr);
 
     // @brief: delete a taskentity from map
-    void Delete(const int64_t id);
+    void Delete(const TaskID id);
 
-    bool FindToDo(const int64_t id, TaskFunc func);
+    bool FindToDo(const TaskID id, TaskFunc func);
 
     // @brief: find a waiting taskentity, and start it
     void StartTask();
 
-    bool KillTaskById(const int64_t id);
+    bool KillTaskByID(const TaskID id);
 
-    TaskPtr GetTaskPtr(int64_t id);
+    TaskPtr GetTaskPtr(const TaskID id);
 
 private:
-    // <taskid, executor pointer>
-    map<int64_t, TaskPtr> m_task_map;
+    // <TaskID(job_id, task_id), executor pointer>
+    map<TaskID, TaskPtr> m_task_map;
     RWLock m_lock;
 };
 
