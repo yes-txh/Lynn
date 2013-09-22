@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <netdb.h>
 #include <string>
+#include <string.h>
 #include <errno.h>
 #include <stdio.h>
 
@@ -69,6 +70,12 @@ int get_ip(const char* interface, char * ip)
 string GetIP(const char* interface) {
     char ip[16] = {0};
     get_ip(interface,ip);
+    return ip;
+}
+
+string GetIP(const string& interface) {
+    char ip[16] = {0};
+    get_ip(interface.c_str(),ip);
     return ip;
 }
 
