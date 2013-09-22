@@ -1,1 +1,0 @@
-/usr/bin/c++   -g -Wall -DTHREADED -Wno-deprecated -DHAVE_NETINET_IN_H -O1    CMakeFiles/kill-task.dir/__/__/proxy/executor/gen-cpp/executor_constants.cpp.o CMakeFiles/kill-task.dir/__/__/proxy/executor/gen-cpp/executor_types.cpp.o CMakeFiles/kill-task.dir/__/__/proxy/executor/gen-cpp/Executor.cpp.o CMakeFiles/kill-task.dir/kill_task.cpp.o  -o kill-task -rdynamic -lthrift 

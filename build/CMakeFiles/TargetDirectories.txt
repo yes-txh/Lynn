@@ -1,7 +1,0 @@
-/home/wm/work/git/Lynn/build/src/collector/CMakeFiles/collector.dir
-/home/wm/work/git/Lynn/build/src/executor/CMakeFiles/executor.dir
-/home/wm/work/git/Lynn/build/src/test/executor/CMakeFiles/kill-task.dir
-/home/wm/work/git/Lynn/build/src/scheduler/CMakeFiles/scheduler.dir
-/home/wm/work/git/Lynn/build/src/test/executor/CMakeFiles/start-task.dir
-/home/wm/work/git/Lynn/build/src/test/executor/CMakeFiles/system_test.dir
-/home/wm/work/git/Lynn/build/src/test/CMakeFiles/test.dir

@@ -1,7 +1,0 @@
-/home/wm/work/git/Lynn/bin/scheduler
-/home/wm/work/git/Lynn/bin/collector
-/home/wm/work/git/Lynn/bin/executor
-/home/wm/work/git/Lynn/bin/test
-/home/wm/work/git/Lynn/test/executor/system_test
-/home/wm/work/git/Lynn/bin/start-task
-/home/wm/work/git/Lynn/bin/kill-task
