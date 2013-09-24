@@ -67,6 +67,9 @@ public:
     // get all HbVMInfo
     vector<HbVMInfo> GetAllHbVMInfo();
 
+    // process HbKVM
+    bool ProcessHbVMInfo(const VM_HbVMInfo& hb_vm_info);
+
 private:
     RWLock m_lock;
     // task_id, VMPtr

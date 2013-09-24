@@ -26,11 +26,11 @@ public:
 
     ~TaskEntity() {} 
 
-    TaskID GetID() {
+    TaskID GetID() const {
         return m_id;
     }
 
-    VMType::type GetVMType() {
+    VMType::type GetVMType() const {
         return m_info.type;
     }
 

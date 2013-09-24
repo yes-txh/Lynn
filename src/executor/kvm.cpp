@@ -60,11 +60,11 @@ int32_t KVM::CreateEnv() {
         return -1;
     }
 
-    if (Install() != 0) {
+    /*if (Install() != 0) {
         LOG4CPLUS_ERROR(logger, "Fails to install app into kvm, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id 
-                        << ", app:" << GetApp());
+                        << ", app:" << GetAppName());
         return -1;
-    }
+    }*/
 
     LOG4CPLUS_INFO(logger, "Create kvm successfully, name:" << GetName() << ", job_id:" << GetID().job_id << ", task_id:" << GetID().task_id);
     return 0;
@@ -122,8 +122,37 @@ HbVMInfo KVM::GetHbVMInfo() {
     return m_hb_vm_info;
 }
 
+VMState::type KVM::GetState() {
+    ReadLocker locker(GetLock());
+    // heartbeat is available
+    if ((m_timestamp != -1) && (time(NULL) - m_timestamp < m_time_to_death)) {
+        return m_hb_vm_info.state;
+    }
+    
+    // time out, heartbeat is not available
+    int state;
+    virDomainGetState(m_domain_ptr, &state, 0, 0);
+    if(state == VIR_DOMAIN_RUNNING) {
+        // vm is running, get state with libvirt
+        return VMState::VM_ONLINE;
+    }
+
+    return VMState::VM_OFFLINE;
+}
+
+void KVM::SetHbVMInfo(const VM_HbVMInfo& hb_vm_info) {
+    WriteLocker locker(GetLock());
+    m_hb_vm_info.cpu_usage = hb_vm_info.cpu_usage;
+    m_hb_vm_info.memory_usage = hb_vm_info.memory_usage;
+    m_hb_vm_info.bytes_in = hb_vm_info.bytes_in; 
+    m_hb_vm_info.bytes_out = hb_vm_info.bytes_out;
+    m_hb_vm_info.state = hb_vm_info.state;
+    m_hb_vm_info.app_running = hb_vm_info.app_running;
+    m_timestamp = time(NULL);
+}
+
 /// unique in KVM 
-virDomainPtr KVM::GetDomainPtr() {
+virDomainPtr KVM::GetDomainPtr() const {
     return m_domain_ptr;
 }
 
@@ -131,7 +160,7 @@ virDomainPtr KVM::GetDomainPtr() {
 //    m_domain_ptr = ptr;
 //}
 
-int32_t KVM::GetVNCPort() {
+int32_t KVM::GetVNCPort() const {
     return m_vnc_port;
 }
 
@@ -139,7 +168,7 @@ int32_t KVM::GetVNCPort() {
 //    m_vnc_port = port;
 //}
 
-string KVM::GetVNet() {
+string KVM::GetVNet() const {
     return m_vnet;
 }
 
@@ -160,20 +189,31 @@ void KVM::SetName() {
     SetNameByString(name);
 }
 
-// set name img iso, mk work dir, build libvirt connection, read xml_template into m_xml
+// init heartbeat
+void KVM::InitHeartbeat() {
+    m_hb_vm_info.id = GetID();
+    m_hb_vm_info.name = GetName();
+    m_hb_vm_info.type = GetVMType();
+}
+
+// set name heartbeat img iso, mk work dir, build libvirt connection, read xml_template into m_xml
 int32_t KVM::Init() {
-    // set name, img, iso
+    // set name
     SetName();
+    // init hb
+    InitHeartbeat();
+
+    // set dir, img, iso
     TaskID id = GetID();
     stringstream ss_job, ss_task;
     ss_job << id.job_id;
     ss_task << id.task_id;
-
     m_dir = FLAGS_libvirt_dir + "/" + GetName() + "/";
     m_img = m_dir + "kvm_" + ss_job.str() + "_" + ss_task.str() + ".img";
     m_iso = m_dir + "kvm_" + ss_job.str() + "_" + ss_task.str() + ".iso";
     m_conf = m_dir + "CONF";
 
+     
     // check total libvirt work directory
     if (chdir(FLAGS_libvirt_dir.c_str()) < 0) {
         LOG4CPLUS_ERROR(logger, "No libvirt work directory:" << FLAGS_libvirt_dir);
@@ -496,7 +536,11 @@ int32_t KVM::SetVNetByXML() {
 
 
 // install app into kvm
-int32_t KVM::Install() {
+int32_t KVM::InstallApp() {
+    return 0;
+}
+
+int32_t KVM::StartApp() {
     return 0;
 }
 
@@ -513,7 +557,7 @@ int32_t KVM::Install() {
     return stat;
 }*/
 
-double KVM::GetCpuUsage() {
+/* double KVM::GetCpuUsage() {
     double usage = 0.0;
     double cur_cpu = 0.0, cur_total = 0.0;
     virDomainInfo vir_info;
@@ -553,7 +597,7 @@ double KVM::GetCpuUsage() {
 
     return usage;
     
-}
+} */
 
 //TODO
 double KVM::GetMemoryUsage() {

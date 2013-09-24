@@ -38,6 +38,7 @@ struct TaskID {
 
 // app
 struct AppInfo {
+    int32_t id;
     string name;
     // string os;
     // outside vm, hdfs
@@ -49,8 +50,6 @@ struct AppInfo {
     string exe_path;     // execute path 
     string stop_path;    // stop
     string out_dir;
-
-    // string user;
 };
 
 // resource vm

@@ -107,17 +107,6 @@ bool TaskEntityPool::KillTaskByID(const TaskID id) {
     return true;
 }
 
-/*bool TaskEntityPool::DeleteTask(const int64_t id) {
-    TaskFunc func = bind(&TaskEntity::Kill, _1);
-    TaskPtr ptr = GetTaskPtr(id);
-    if (FindToDo(id, func)) {
-        Delete(id);
-        return true;
-    } else {
-        return false;
-    }
-}*/
-
 TaskPtr TaskEntityPool::GetTaskPtr(const TaskID id) {
     ReadLocker locker(m_lock);
     map<TaskID, TaskPtr>::iterator it = m_task_map.find(id);

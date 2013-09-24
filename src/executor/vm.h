@@ -28,20 +28,19 @@ public:
         m_id = info.id;
         m_info = info;
         m_type = info.type;
-        m_state = VMState::VM_OFFLINE;
     }
 
     ~VM() {}
 
-    TaskID GetID();
+    TaskID GetID() const;
 
-    string GetName();
+    string GetName() const;
 
-    VMType::type GetVMType();
+    VMType::type GetVMType() const;
 
-    TaskInfo GetTaskInfo();
+    TaskInfo GetTaskInfo() const;
 
-    VMState::type GetState();
+    // VMState::type GetState();
 
     TaskPtr GetTaskPtr();
 
@@ -51,9 +50,9 @@ public:
 
     // HbVMInfo GetHbVMInfo();
 
-    bool IsRun();
+    bool IsRun() const;
 
-    string GetApp();    
+    string GetAppName() const;
 
     void SetState(VMState::type state);
 
@@ -72,6 +71,8 @@ public:
 
     virtual HbVMInfo GetHbVMInfo() = 0; // get heartbeart
 
+    virtual void SetHbVMInfo(const VM_HbVMInfo& hb_vm_info) = 0; // in vm send hb
+
     // general
 
 private:
@@ -82,13 +83,14 @@ private:
     string m_name;     // vm name, maybe kvm name or lxc name
     VMType::type m_type; // VM_KVM or VM_LXC
     TaskInfo m_info;   // TODO
-    VMState::type m_state;
+    // VMState::type m_state;
     RWLock m_lock;
+
+    // hb and state
     // HbVMInfo m_hb_vm_info;
-    
-    time_t m_start_time;
-    int32_t m_timestamp;
-    int32_t m_time_to_death;
+    // time_t m_start_time;
+    // int32_t m_timestamp;
+    // int32_t m_time_to_death;
 };
 
 typedef shared_ptr<VM> VMPtr;

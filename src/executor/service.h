@@ -23,7 +23,7 @@ public:
 
     bool KillTask(const int32_t job_id, const int32_t task_id);
 
-    void SendVMHeartbeat(const string& heartbeat_ad);
+    bool SendVMHeartbeat(const VM_HbVMInfo& hb_vm_info);
 
     // void GetMachineInfo(string& info);
 };

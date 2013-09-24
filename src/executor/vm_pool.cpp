@@ -94,13 +94,13 @@ int32_t VMPool::StartVM() {
     }
 
     // execute 
-    if (ptr->Execute()) {
+    /*if (ptr->Execute()) {
         // success execute
         LOG4CPLUS_INFO(logger, "Execute successfully for VM, name:" << ptr->GetName() << ", job_id:" << id.job_id << ", task_id:" << id.task_id);
     } else {
         LOG4CPLUS_INFO(logger, "Fail to execute for VM, name:" << ptr->GetName() << ", job_id:" << id.job_id << ", task_id:" << id.task_id);
         return -1;
-    }
+    }*/
 
     return 0;
 }
@@ -146,9 +146,36 @@ vector<HbVMInfo> VMPool::GetAllHbVMInfo() {
     for (map<TaskID, VMPtr>::iterator it = m_vm_map.begin();
         it != m_vm_map.end(); ++it) {
         // TODO
-        // if((it->second)->GetState() != VMState::VM_OFFLINE){
+        // if vm is down, then not send the heartbeat
+        //if((it->second)->GetState() != VMState::VM_OFFLINE){
             vm_list.push_back((it->second)->GetHbVMInfo());
-        // }
+        //}
     }
     return vm_list;
+}
+
+bool VMPool::ProcessHbVMInfo(const VM_HbVMInfo& hb_vm_info) {
+    WriteLocker locker(m_lock);
+    // find the VMPtr
+    TaskID id;
+    id.job_id = hb_vm_info.job_id;
+    id.task_id = hb_vm_info.task_id;
+    map<TaskID, VMPtr>::iterator it = m_vm_map.find(id);
+    // can't find the VMPtr
+    if (it == m_vm_map.end()) {
+        LOG4CPLUS_ERROR(logger, "Can't find the VM, job_id:" << id.job_id << ", task_id:" << id.task_id);
+        return false;
+    }
+    // get VMPtr 
+    VMPtr vm_ptr = it->second;
+    if (!vm_ptr) {
+        LOG4CPLUS_ERROR(logger, "VMPtr is NULL, job_id:" << id.job_id << ", task_id:" << id.task_id); 
+        return false;
+    }
+
+    // hb_vm_info include cpu, mem and flow
+    // TODO: flow can be got with libvirt
+    
+    vm_ptr->SetHbVMInfo(hb_vm_info);
+    return true; 
 }

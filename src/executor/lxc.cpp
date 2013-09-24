@@ -85,6 +85,9 @@ HbVMInfo LXC::GetHbVMInfo() {
     return info;
 }
 
+void LXC::SetHbVMInfo(const VM_HbVMInfo& hb_vm_info) {
+}
+
 /// @brief: unique in KVM
 pid_t LXC::GetPid() {
     return m_pid;

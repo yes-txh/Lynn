@@ -11,15 +11,17 @@
 
 #include <libvirt/libvirt.h>
 #include <libvirt/virterror.h>
+#include <gflags/gflags.h>
 #include "executor/vm.h"
+
+DECLARE_int32(vm_hb_interval);
 
 class KVM : public VM {
 public:
     explicit KVM(const TaskInfo& info) : VM(info) {
         m_domain_ptr = NULL;
-        m_first = true;
-        m_prev_cpu = 0.0;
-        m_prev_total = 0.0;
+        m_timestamp = -1;
+        m_time_to_death = 6 * FLAGS_vm_hb_interval; 
     }
 
     ~KVM() {
@@ -45,22 +47,30 @@ public:
 
     HbVMInfo GetHbVMInfo();    //get heartbeart
 
+    void SetHbVMInfo(const VM_HbVMInfo& hb_vm_info);
+
     // unique in KVM 
-    virDomainPtr GetDomainPtr();
+    virDomainPtr GetDomainPtr() const;
 
     //void SetDomainPtr(virDomainPtr ptr);
 
-    int32_t GetVNCPort();
+    int32_t GetVNCPort() const;
 
     //void SetVNCPort(int32_t port);
 
-    string GetVNet();
+    string GetVNet() const;
 
     void SetVNet(string vnet);
 
 private:
     // virtual function, from VM
     void SetName();
+
+    // Init Heartbeat
+    void InitHeartbeat();    
+
+    // Judge State
+    VMState::type GetState(); 
  
     // set Member Variable 
     int32_t Init();
@@ -77,7 +87,9 @@ private:
 
     int32_t SetVNetByXML();
 
-    int32_t Install();
+    int32_t InstallApp();
+
+    int32_t StartApp();
 
     // get hb
     double GetCpuUsage();
@@ -93,16 +105,22 @@ private:
     string m_xml;   // libvirt xml config content
     int32_t m_vnc_port;
     string m_vnet;
+   
+    // Heartbeat and state
     HbVMInfo m_hb_vm_info;
+    // time_t m_start_time;
+    int32_t m_timestamp;
+    int32_t m_time_to_death;
 
     // static
     static string m_xml_template; // libvirt xml config template content
     static virConnectPtr m_conn;  // libvirt qemu connect
 
     // report resource, is first?
-    bool m_first;
-    double m_prev_cpu;
-    double m_prev_total;
+    // bool m_first;
+    // double m_prev_cpu;
+    // double m_prev_total;
+
 };
 
 #endif

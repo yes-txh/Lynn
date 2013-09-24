@@ -31,6 +31,7 @@ static const string ATTR_SIZE = "SIZE";
 static const string ATTR_VNC_PORT = "VNC_PORT";
 
 // task appinfo
+static const string ATTR_APP_ID = "APP_ID";
 static const string ATTR_APP_NAME = "APP_NAME";
 // -- outside vm, hdfs
 static const string ATTR_APP_SRC_PATH = "SRC_PATH";

@@ -9,9 +9,10 @@
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 
-#include "executor/task_entity_pool.h"
-#include "executor/service.h"
 #include "executor/type.h"
+#include "executor/task_entity_pool.h"
+#include "executor/vm_pool.h"
+#include "executor/service.h"
 
 using log4cplus::Logger;
 
@@ -57,7 +58,8 @@ bool ExecutorService::KillTask(const int32_t job_id, const int32_t task_id) {
     return TaskPoolI::Instance()->KillTaskByID(id);
 }
 
-void ExecutorService::SendVMHeartbeat(const string& heartbeat_ad) {
+bool ExecutorService::SendVMHeartbeat(const VM_HbVMInfo& hb_vm_info) {
+    return VMPoolI::Instance()->ProcessHbVMInfo(hb_vm_info);
 }
 
 //void ExecutorService::GetMachineInfo(string& info) {

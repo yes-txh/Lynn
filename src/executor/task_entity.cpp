@@ -122,6 +122,12 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
     }
 
     // task, app_info
+    if (!ad_ptr->EvaluateAttrNumber(ATTR_APP_ID, m_info.app_info.id)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_APP_ID << " error.");
+        ret = false;
+        return;
+    }
+
     if (!ad_ptr->EvaluateAttrString(ATTR_APP_NAME, m_info.app_info.name)) {
         LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_APP_NAME << " error.");
         ret = false;

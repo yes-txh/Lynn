@@ -20,6 +20,7 @@
 
 #include "common/clynn/rpc.h"
 #include "executor/service.h"
+#include "executor/dispatcher.h"
 #include "executor/resource_manager.h"
 
 using std::string;
@@ -117,11 +118,27 @@ int ExecutorEntity(int argc, char **argv) {
     pthread_t hb_t;
     pthread_create(&hb_t, NULL, HeartbeatProcessor, NULL);
 
+    /* event dispatcher */
+    // state event
+    Handler* state_event_handler = new Handler;
+    state_event_handler->Start();
+    EventDispatcherI::Instance()->Register(EventType::STATE_EVENT, state_event_handler);
+
+    // action event
+    Handler* action_event_handler = new Handler;
+    action_event_handler->Start();
+    EventDispatcherI::Instance()->Register(EventType::ACTION_EVENT, action_event_handler);
+
+    TaskID id;
+    id.job_id = 1;
+    id.task_id = 1;
+    EventPtr event(new KilledEvent(id, true));
+    EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
+
     cout << "Executor is OK." << endl;
+
     // Listen for service 
     Rpc<ExecutorService, ExecutorProcessor>::Listen(FLAGS_port);
-  
-    cout << "executor end" << endl;
     //int port = 9997; 
     //Rpc<ExecutorService, ExecutorProcessor>::Listen(port);
 
@@ -136,18 +153,18 @@ int main(int argc, char **argv) {
     }
 
     // monitor ExecutorEntity
-    //while(true) {
+    while(true) {
         int32_t status;
         int32_t pid = fork();
         if (pid != 0) {
             // parent process, start executorEntity when ExecutorEntity fail
             if (waitpid(pid, &status, 0) > 0) {
-                // continue;
+                continue;
             }
         } else {
             // child process
             ExecutorEntity(argc, argv);
         }
-    //}
+    }
     return 0; 
 }

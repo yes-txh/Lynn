@@ -40,6 +40,8 @@ public:
 
     HbVMInfo GetHbVMInfo();    //get heartbeart
 
+    void SetHbVMInfo(const VM_HbVMInfo& hb_vm_info);
+
     pid_t GetPid();
 
 private:

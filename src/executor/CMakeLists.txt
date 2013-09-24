@@ -37,13 +37,30 @@ ADD_CUSTOM_COMMAND (
     OUTPUT ${EXECUTOR_THRIFT_SOURCE}
     COMMAND thrift --gen cpp -r -o ${CMAKE_SOURCE_DIR}/src/proxy/executor
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
+    COMMAND thrift --gen py -r -o ${CMAKE_SOURCE_DIR}/src/proxy/executor
+    ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
-#SET(COMMON_SOURCE
-#    ../proxy/collector_wrapper.cpp)
+SET(VMWORKER_THRIFT_SOURCE
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_constants.h
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_constants.cpp
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_types.h
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_types.cpp
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/VMWorker.h
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/VMWorker.cpp)
+ADD_CUSTOM_COMMAND (
+    OUTPUT ${VMWORKER_THRIFT_SOURCE}
+    COMMAND thrift --gen cpp -r -o ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker
+    ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker/vm_worker.thrift
+)
+
+
+SET(COMMON_SOURCE
+    ../common/clynn/cond.cpp
+    ../common/clynn/thread.cpp)
 
 SET(SRC 
-    # ${COMMON_SOURCE}
+    ${COMMON_SOURCE}
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
@@ -56,6 +73,9 @@ SET(SRC
     lxc.cpp
     vm_pool.cpp
     resource_manager.cpp
+    event.cpp
+    handler.cpp
+    dispatcher.cpp
     work_thread.cpp
     service.cpp
     executor.cpp)

@@ -12,39 +12,36 @@ using clynn::WriteLocker;
 using clynn::ReadLocker;
 
 // public
-TaskID VM::GetID() {
-    // ReadLocker locker(m_lock);
+TaskID VM::GetID() const {
     return m_id;
 }
 
-string VM::GetName() {
-    // ReadLocker locker(m_lock);
+string VM::GetName() const {
     return m_name;
 }
 
-VMType::type VM::GetVMType() {
+VMType::type VM::GetVMType() const {
     return m_type;
 }
 
-TaskInfo VM::GetTaskInfo() {
-    // ReadLocker locker(m_lock);
+TaskInfo VM::GetTaskInfo() const {
     return m_info;
 }
 
-VMState::type VM::GetState() {
-    ReadLocker locker(m_lock);
-    return m_state;
-}
+//VMState::type VM::GetState() {
+//    ReadLocker locker(m_lock);
+//    return m_state;
+//}
 
 TaskPtr VM::GetTaskPtr() {
     return TaskPoolI::Instance()->GetTaskPtr(m_id);
 }
 
-bool VM::IsRun() {
+bool VM::IsRun() const {
     return m_info.is_run;
 }
 
-string VM::GetApp() {
+string VM::GetAppName() const {
     if (!IsRun())
         return "is not run app";
     string app = m_info.app_info.name;
@@ -53,10 +50,10 @@ string VM::GetApp() {
     return app;
 }
 
-void VM::SetState(VMState::type state) {
-    WriteLocker locker(m_lock);
-    m_state = state;
-}
+//void VM::SetState(VMState::type state) {
+//    WriteLocker locker(m_lock);
+//    m_state = state;
+//}
 
 void VM::SetNameByString(string name) {
     // WriteLocker locker(m_lock);
