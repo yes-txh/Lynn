@@ -160,6 +160,13 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
         return;
     }
 
+    if (!ad_ptr->EvaluateAttrString(ATTR_ARGUMENT, m_info.app_info.argument)) {
+        LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_ARGUMENT << " error.");
+        ret = false;
+        return;
+    }
+
+
     if (!ad_ptr->EvaluateAttrString(ATTR_STOP_PATH, m_info.app_info.stop_path)) {
         LOG4CPLUS_ERROR(logger, "Fails to init task entity, because parse " << ATTR_STOP_PATH << " error.");
         ret = false;
@@ -223,11 +230,6 @@ void TaskEntity::TaskFinished() {
 
 void TaskEntity::TaskFailed() {
     WriteLocker locker(m_lock);
-    // Kill VM from VMPool
-    /*if (!VMPoolI::Instance()->KillVMByTaskID(m_id)) {
-        LOG4CPLUS_ERROR(logger, "Fails to kill task, job_id:" << m_id.job_id << ", task_id" << m_id.task_id);
-    }*/
-
     m_state = TaskEntityState::TASKENTITY_FAILED;
     m_percentage = 0.0;
     LOG4CPLUS_INFO(logger, "Task has failed, job_id:" << m_id.job_id << ", task_id:" << m_id.task_id);

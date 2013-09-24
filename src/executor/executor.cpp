@@ -129,11 +129,11 @@ int ExecutorEntity(int argc, char **argv) {
     action_event_handler->Start();
     EventDispatcherI::Instance()->Register(EventType::ACTION_EVENT, action_event_handler);
 
-    TaskID id;
+    /*TaskID id;
     id.job_id = 1;
     id.task_id = 1;
     EventPtr event(new KilledEvent(id, true));
-    EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
+    EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);*/
 
     cout << "Executor is OK." << endl;
 

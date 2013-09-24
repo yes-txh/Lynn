@@ -39,6 +39,19 @@ ADD_CUSTOM_COMMAND (
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
+SET(VMWORKER_THRIFT_SOURCE
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_constants.h
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_constants.cpp
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_types.h
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/vm_worker_types.cpp
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/VMWorker.h
+    ${THRIFT_SOURCE_PREFIX}/vm_worker/gen-cpp/VMWorker.cpp)
+ADD_CUSTOM_COMMAND (
+    OUTPUT ${VMWORKER_THRIFT_SOURCE}
+    COMMAND thrift --gen cpp -r -o ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker
+    ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker/vm_worker.thrift
+)
+
 #SET(COMMON_SOURCE
 #    ../proxy/collector_wrapper.cpp)
 
@@ -47,6 +60,7 @@ SET(SRC
     ${SCHEDULER_THRIFT_SOURCE}
     ${COLLECTOR_THRIFT_SOURCE}
     ${EXECUTOR_THRIFT_SOURCE}
+    ${VMWORKER_THRIFT_SOURCE}
     scheduler_service.cpp
     scheduler.cpp)
 

@@ -31,6 +31,9 @@ public:
     // virtual function, from VM
     int32_t CreateEnv(); // create LXC
 
+    // TODO
+    int32_t InstallApp() { return 0; }
+
     // @brief: fork process and run the task
     bool Execute();
 

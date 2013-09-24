@@ -21,7 +21,9 @@ public:
     explicit KVM(const TaskInfo& info) : VM(info) {
         m_domain_ptr = NULL;
         m_timestamp = -1;
-        m_time_to_death = 6 * FLAGS_vm_hb_interval; 
+        m_time_to_death = 6 * FLAGS_vm_hb_interval;
+        m_created = false;
+        m_installed = false;
     }
 
     ~KVM() {
@@ -37,7 +39,9 @@ public:
     }
 
     // virtual function, from VM
-    int32_t CreateEnv(); // create kvm and install
+    int32_t CreateEnv(); // create kvm, and install? TODO
+
+    int32_t InstallApp();
 
     bool Execute();  // execute the task, run the app
 
@@ -51,6 +55,8 @@ public:
 
     // unique in KVM 
     virDomainPtr GetDomainPtr() const;
+
+    string GetEndpoint() const;
 
     //void SetDomainPtr(virDomainPtr ptr);
 
@@ -87,7 +93,7 @@ private:
 
     int32_t SetVNetByXML();
 
-    int32_t InstallApp();
+    // int32_t InstallApp();
 
     int32_t StartApp();
 
@@ -111,6 +117,9 @@ private:
     // time_t m_start_time;
     int32_t m_timestamp;
     int32_t m_time_to_death;
+
+    bool m_created;
+    bool m_installed;
 
     // static
     static string m_xml_template; // libvirt xml config template content

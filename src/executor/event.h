@@ -54,12 +54,6 @@ private:
     bool m_state;
 };
 
-class KilledEvent : public StateEvent {
-public:
-    KilledEvent(TaskID id, bool state) : StateEvent(id, state) {}
-    bool Handle();
-};
-
 class ActionEvent : public Event {
 public:
     explicit ActionEvent(TaskID id) : Event(EventType::ACTION_EVENT), m_id(id) {}
@@ -77,6 +71,12 @@ public:
     KillActionEvent(TaskID id) : ActionEvent(id) {}
     bool Handle();
 };
+
+class InstallAppEvent : public ActionEvent {
+public:
+    InstallAppEvent(TaskID id) : ActionEvent(id) {}
+    bool Handle();
+}; 
 
 typedef shared_ptr<Event> EventPtr;
 typedef BlockQueue<EventPtr> EventQueue;

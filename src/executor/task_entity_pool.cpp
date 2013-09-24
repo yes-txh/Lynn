@@ -86,8 +86,9 @@ void TaskEntityPool::StartTask() {
 bool TaskEntityPool::KillTaskByID(const TaskID id) {
     //TODO
     PrintAll();
-    TaskPtr ptr = GetTaskPtr(id);
 
+    // get task
+    TaskPtr ptr = GetTaskPtr(id);
     // no the task
     if (!ptr) {
         LOG4CPLUS_ERROR(logger, "Can't find the task, fails to kill task, job_id:" << id.job_id << ", task_id:" << id.task_id);
@@ -101,8 +102,8 @@ bool TaskEntityPool::KillTaskByID(const TaskID id) {
     }
 
     // delete task from pool(map)
-    Delete(id);
-    LOG4CPLUS_INFO(logger, "Kill task successfully, job_id:" << id.job_id << ", task_id:" << id.task_id);
+    // Delete(id);
+    // LOG4CPLUS_INFO(logger, "Kill task successfully, job_id:" << id.job_id << ", task_id:" << id.task_id);
     PrintAll();
     return true;
 }

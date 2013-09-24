@@ -15,4 +15,6 @@
 
 #include "proxy/executor/gen-cpp/Executor.h"
 
+#include "proxy/vm_worker/gen-cpp/VMWorker.h"
+
 #endif

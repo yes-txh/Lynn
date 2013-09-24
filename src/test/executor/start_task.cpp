@@ -83,11 +83,13 @@ int main(int argc, char ** argv) {
     ad.InsertAttr(ATTR_SIZE, 1);
     ad.InsertAttr(ATTR_VNC_PORT, vnc_port);
     // app info
+    ad.InsertAttr(ATTR_APP_ID, 1);
     ad.InsertAttr(ATTR_APP_NAME, "count");
     ad.InsertAttr(ATTR_APP_SRC_PATH, "/");
     ad.InsertAttr(ATTR_APP_OUT_DIR, "/");
     ad.InsertAttr(ATTR_INSTALL_DIR, "/");
     ad.InsertAttr(ATTR_EXE_PATH, "/usr/local/bin/a");
+    ad.InsertAttr(ATTR_ARGUMENT, "");
     ad.InsertAttr(ATTR_STOP_PATH, "/");
     ad.InsertAttr(ATTR_OUT_DIR, "/");
 

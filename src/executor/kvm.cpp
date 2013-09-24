@@ -14,17 +14,20 @@
 #include <sys/types.h>
 #include <sys/time.h>
 
-#include "common/rapidxml/rapidxml.hpp"
-#include "common/rapidxml/rapidxml_utils.hpp"
-#include "common/rapidxml/rapidxml_print.hpp"
-
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <gflags/gflags.h>
 
+#include "common/rapidxml/rapidxml.hpp"
+#include "common/rapidxml/rapidxml_utils.hpp"
+#include "common/rapidxml/rapidxml_print.hpp"
+#include "common/clynn/rpc.h"
+
+#include "include/proxy.h"
 #include "executor/kvm.h"
 #include "executor/task_entity_pool.h"
 #include "executor/resource_manager.h"
+#include "executor/dispatcher.h"
 
 using std::cout;
 using std::stringstream;
@@ -70,8 +73,57 @@ int32_t KVM::CreateEnv() {
     return 0;
 }
 
+// install app into kvm
+int32_t KVM::InstallApp() {
+    printf("KVM::InstallApp\n");
+    VM_AppInfo info1;
+    AppInfo info2;
+    info1.id = info2.id;
+    info1.name = info2.name;
+    info1.app_source = info2.app_src_path;
+    info1.app_out_dir = info2.app_out_dir;
+    info1.install_dir = info2.install_dir;
+    info1.exe = info2.exe_path;
+    info1.argument = info2.argument;
+    info1.out_dir = info2.out_dir;
+    info1.run_type = "a";
+    info1.interval = 1;
+    printf("1\n");
+
+    try {
+        printf("2\n");
+        Proxy<VMWorkerClient> proxy = Rpc<VMWorkerClient, VMWorkerClient>::GetProxy(GetEndpoint());
+        proxy().InstallApp(info1);
+        printf("3\n");
+    } catch (TException &tx) {
+        LOG4CPLUS_ERROR(logger, "Install App error: " << tx.what());
+        printf("4\n");
+    }
+    return 0;
+}
+
 // execute the task, run the app
 bool KVM::Execute() {
+    printf("KVM::StartApp\n");
+    VM_AppInfo info1;
+    AppInfo info2;
+    info1.id = info2.id;
+    info1.name = info2.name;
+    info1.app_source = info2.app_src_path;
+    info1.app_out_dir = info2.app_out_dir;
+    info1.install_dir = info2.install_dir;
+    info1.exe = info2.exe_path;
+    info1.argument = info2.argument;
+    info1.out_dir = info2.out_dir;
+    info1.run_type = "a";
+    info1.interval = 1;
+
+    try {
+           Proxy<VMWorkerClient> proxy = Rpc<VMWorkerClient, VMWorkerClient>::GetProxy(GetEndpoint());
+           proxy().StartApp(info1);
+       } catch (TException &tx) {
+           LOG4CPLUS_ERROR(logger, "Start App error: " << tx.what());
+       }
     return true;
 }
 
@@ -103,6 +155,17 @@ bool KVM::Kill() {
 
 HbVMInfo KVM::GetHbVMInfo() {
     VMState::type state = GetState();
+
+    // TODO test
+    if (!m_created) {
+        m_created = true;
+        m_installed = false;
+        // new KillActionEvent
+        EventPtr event(new InstallAppEvent(GetID()));
+        // Push event into Queue
+        EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
+    }
+     
     // if state != VM_SERVICE_ONLINE then return "empty"
     if (true || state != VMState::VM_SERVICE_ONLINE){
        HbVMInfo empty;
@@ -149,11 +212,30 @@ void KVM::SetHbVMInfo(const VM_HbVMInfo& hb_vm_info) {
     m_hb_vm_info.state = hb_vm_info.state;
     m_hb_vm_info.app_running = hb_vm_info.app_running;
     m_timestamp = time(NULL);
+
+    if (!m_created) {
+        m_created = true;
+        // new KillActionEvent
+        EventPtr event(new InstallAppEvent(GetID()));
+        // Push event into Queue
+        EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event); 
+    }
+    
+    /* if (!m_installed) {
+        m_installed = true;
+    } */
 }
 
 /// unique in KVM 
 virDomainPtr KVM::GetDomainPtr() const {
     return m_domain_ptr;
+}
+
+string KVM::GetEndpoint() const {
+    TaskInfo info = GetTaskInfo();
+    stringstream ss;
+    ss << GetTaskInfo().vm_info.port;
+    return info.vm_info.ip + ":" + ss.str();
 }
 
 //void KVM::SetDomainPtr(virDomainPtr ptr) {
@@ -531,12 +613,6 @@ int32_t KVM::SetVNetByXML() {
     // set vnet
     SetVNet(attr->value());
     free(xml);
-    return 0;
-}
-
-
-// install app into kvm
-int32_t KVM::InstallApp() {
     return 0;
 }
 

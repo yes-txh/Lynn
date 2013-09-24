@@ -47,7 +47,8 @@ struct AppInfo {
 
     // inside vm
     string install_dir;  // install directory in VM
-    string exe_path;     // execute path 
+    string exe_path;     // execute path
+    string argument; 
     string stop_path;    // stop
     string out_dir;
 };

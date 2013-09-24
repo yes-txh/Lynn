@@ -12,6 +12,7 @@
 #include "executor/type.h"
 #include "executor/task_entity_pool.h"
 #include "executor/vm_pool.h"
+#include "executor/dispatcher.h"
 #include "executor/service.h"
 
 using log4cplus::Logger;
@@ -54,8 +55,13 @@ bool ExecutorService::StopTask(const int32_t job_id, const int32_t task_id) {
 bool ExecutorService::KillTask(const int32_t job_id, const int32_t task_id) {
     TaskID id;
     id.job_id = job_id;
-    id.task_id = task_id;    
-    return TaskPoolI::Instance()->KillTaskByID(id);
+    id.task_id = task_id;
+    // new KillActionEvent
+    EventPtr event(new KillActionEvent(id));
+    // Push event into Queue
+    EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
+    return true;
+    // return TaskPoolI::Instance()->KillTaskByID(id);
 }
 
 bool ExecutorService::SendVMHeartbeat(const VM_HbVMInfo& hb_vm_info) {

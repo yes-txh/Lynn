@@ -63,6 +63,8 @@ public:
 
     virtual int32_t CreateEnv() = 0; // create enviroment, kvm or lxc
 
+    virtual int32_t InstallApp() = 0;    
+
     virtual bool Execute() = 0;  // execute the task, run the app
 
     virtual bool Stop() = 0;
