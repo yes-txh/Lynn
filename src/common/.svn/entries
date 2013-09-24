@@ -1,134 +1,0 @@
-10
-
-dir
-50027
-https://tc-scm.tencent.com/setech/setech_infrastructure_rep/Infra_proj/trunk/src/common
-https://tc-scm.tencent.com/setech/setech_infrastructure_rep
-
-
-
-2011-07-15T08:32:45.644789Z
-49975
-wookin
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-a6a6ae7a-4cab-2a4d-aca5-e4c2f47b7092
-
-file
-dir
-
-crypto
-dir
-
-log
-dir
-
-system
-dir
-
-text
-dir
-
-rpc
-dir
-
-net
-dir
-
-algorithm
-dir
-
-encoding
-dir
-
-builder
-dir
-
-distribute_lock
-dir
-
-compress
-dir
-
-collection
-dir
-
-base_protocol
-dir
-
-vcproject
-dir
-
-tools
-dir
-
-netframe
-dir
-
-baselib
-dir
-
-database
-dir
-
-doc
-dir
-
-config
-dir
-
-base
-dir
-
-google
-dir
-
-web
-dir
-
-Makefile
-file
-
-
-
-
-2011-06-27T12:39:06.000000Z
-496d12046f153ef11f200010d703f4f8
-2011-06-23T10:29:09.220074Z
-47478
-phongchen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-257
-
