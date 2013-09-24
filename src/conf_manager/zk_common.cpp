@@ -103,6 +103,7 @@ ZookeeperCommon::~ZookeeperCommon() {
 int ZookeeperCommon::Init(const std::string& cluster_name, const std::string& hostports) {
     m_cluster_name = cluster_name;
     m_zk_prefix = "/lynn/" + cluster_name;
+
     if (!hostports.empty()) {
         m_hostports = hostports;
     } else {
