@@ -20,6 +20,7 @@
 #include "common/clynn/rpc.h"
 
 #include "collector/config_manager.h"
+#include "collector/collector_engine.h"
 
 using std::string;
 using std::cout;
@@ -61,8 +62,10 @@ int main(int argc, char **argv){
     }
 
     LOG4CPLUS_INFO(logger, argv[0] << "daemon begin");
-
-    
+ 
+    //the same as GetCollectorConf()?
     COLLECTORCONFIG::Instance()->Init();
+    
+    COLLECTORENGINE::Instance()->Init();
     return 0;
 }

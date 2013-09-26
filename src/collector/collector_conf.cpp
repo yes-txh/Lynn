@@ -15,7 +15,7 @@ DEFINE_string(collector_lockfile, "/var/run/lynn/collector.pid", "collector lock
 DEFINE_string(collector_port, "9618", "collector port");
 
 /// endpoint of collector
-DEFINE_string(collector_endpoint, "127.0.0.1:9618", "collector endpoint");
+DEFINE_string(collector_endpoint, "127.0.0.1:9998", "collector endpoint");
 
 /// cycle of reporting to scheduler
 DEFINE_int32(report_schedd_timeout, 16, "report_schedd_timeout");
