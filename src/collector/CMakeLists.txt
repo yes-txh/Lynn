@@ -75,6 +75,7 @@ SET(SRC
     machine_pool.cpp
     config_manager.cpp 
     collector_service.cpp
+    collector_engine.cpp
     collector.cpp)
 
 ADD_EXECUTABLE(collector ${SRC})
