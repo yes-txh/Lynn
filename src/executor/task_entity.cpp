@@ -112,6 +112,7 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
         return;
     }
 
+    LOG4CPLUS_DEBUG(logger, "IS_RUN?: " << m_info.is_run );
     // is_run = false, no app_info
     if (false == m_info.is_run) {
         // only create vm, not install or run app
@@ -178,6 +179,8 @@ TaskEntity::TaskEntity(const string& task_info, bool& ret) {
         ret = false;
         return;
     }
+
+    LOG4CPLUS_DEBUG(logger, "exe?: " << m_info.app_info.exe_path);
 
     // init state
     m_id = m_info.id;

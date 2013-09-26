@@ -37,6 +37,8 @@ ADD_CUSTOM_COMMAND (
     OUTPUT ${EXECUTOR_THRIFT_SOURCE}
     COMMAND thrift --gen cpp -r -o ${CMAKE_SOURCE_DIR}/src/proxy/executor
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
+    COMMAND thrift --gen py -r -o ${CMAKE_SOURCE_DIR}/src/proxy/executor
+    ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
 SET (TEST_EXECUTOR

@@ -37,6 +37,8 @@ ADD_CUSTOM_COMMAND (
     OUTPUT ${EXECUTOR_THRIFT_SOURCE}
     COMMAND thrift --gen cpp -r -o ${CMAKE_SOURCE_DIR}/src/proxy/executor
     ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
+    COMMAND thrift --gen py -r -o ${CMAKE_SOURCE_DIR}/src/proxy/executor
+    ${CMAKE_SOURCE_DIR}/src/proxy/executor/executor.thrift
 )
 
 SET(VMWORKER_THRIFT_SOURCE
@@ -49,6 +51,8 @@ SET(VMWORKER_THRIFT_SOURCE
 ADD_CUSTOM_COMMAND (
     OUTPUT ${VMWORKER_THRIFT_SOURCE}
     COMMAND thrift --gen cpp -r -o ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker
+    ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker/vm_worker.thrift
+    COMMAND thrift --gen py -r -o ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker
     ${CMAKE_SOURCE_DIR}/src/proxy/vm_worker/vm_worker.thrift
 )
 

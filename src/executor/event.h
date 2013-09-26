@@ -23,47 +23,53 @@ using clynn::BlockQueue;
 
 class Event {
 public:
-    Event(EventType::type type) : m_type(type) {}
+    Event(EventType::type type, TaskID id) : m_type(type), m_id(id) {}
     virtual ~Event() {}
     virtual bool Handle() = 0;
     EventType::type GetType() const {
         return m_type;
     }
 
+    TaskID GetID() const {
+        return m_id;
+    }
+
 private:
+    TaskID m_id;
     EventType::type m_type;
 }; 
 
 class StateEvent : public Event {
 public:
     explicit StateEvent(TaskID id, bool state)
-        : Event(EventType::STATE_EVENT), m_id(id), m_state(state) {}
+        : Event(EventType::STATE_EVENT, id), m_state(state) {}
     virtual ~StateEvent() {}
-
-    TaskID GetID() const {
-        return m_id;
-    }
 
     bool GetState() const {
         return m_state;
     }
 
 private:
-    TaskID m_id;
     // TODO?
     bool m_state;
 };
 
 class ActionEvent : public Event {
 public:
-    explicit ActionEvent(TaskID id) : Event(EventType::ACTION_EVENT), m_id(id) {}
+    explicit ActionEvent(TaskID id) : Event(EventType::ACTION_EVENT, id) {}
     virtual ~ActionEvent() {} 
+};
 
-    TaskID GetID() const {
-        return m_id;
-    }
-private:
-    TaskID m_id;    
+class TaskEvent : public Event {
+public:
+    explicit TaskEvent(TaskID id) : Event(EventType::TASK_EVENT, id) {}
+    virtual ~TaskEvent() {} 
+};
+
+class StopActionEvent : public ActionEvent {
+public:
+    StopActionEvent(TaskID id) : ActionEvent(id) {}
+    bool Handle();
 };
 
 class KillActionEvent : public ActionEvent {
@@ -72,11 +78,17 @@ public:
     bool Handle();
 };
 
-class InstallAppEvent : public ActionEvent {
+class InstallAppEvent : public TaskEvent {
 public:
-    InstallAppEvent(TaskID id) : ActionEvent(id) {}
+    InstallAppEvent(TaskID id) : TaskEvent(id) {}
     bool Handle();
 }; 
+
+class StartAppEvent : public TaskEvent {
+public:
+    StartAppEvent(TaskID id) : TaskEvent(id) {}
+    bool Handle();
+};
 
 typedef shared_ptr<Event> EventPtr;
 typedef BlockQueue<EventPtr> EventQueue;

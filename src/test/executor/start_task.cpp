@@ -63,7 +63,7 @@ int main(int argc, char ** argv) {
     }
     
     cout << "start task, job_id:" << job_id << ", task_id:" << task_id << endl;
-    string endpoint = "127.0.0.1:9997";
+    string endpoint = "192.168.10.162:9999";
 
     // build task    
     ClassAd ad;
@@ -71,11 +71,11 @@ int main(int argc, char ** argv) {
     ad.InsertAttr(ATTR_JOB_ID, job_id);
     ad.InsertAttr(ATTR_TASK_ID, task_id);
     ad.InsertAttr(ATTR_VMTYPE, vm_t);
-    ad.InsertAttr(ATTR_IS_RUN, is_run);
+    ad.InsertAttr(ATTR_IS_RUN, true);
     // vm info
     ad.InsertAttr(ATTR_MEMORY, 1024);
     ad.InsertAttr(ATTR_VCPU, 1);
-    ad.InsertAttr(ATTR_IP, "192.168.0.2");
+    ad.InsertAttr(ATTR_IP, "192.168.10.163");
     ad.InsertAttr(ATTR_PORT, 9991);
     ad.InsertAttr(ATTR_OS, "ubuntu");
     ad.InsertAttr(ATTR_IMG, "ubuntu.qco");
@@ -85,13 +85,13 @@ int main(int argc, char ** argv) {
     // app info
     ad.InsertAttr(ATTR_APP_ID, 1);
     ad.InsertAttr(ATTR_APP_NAME, "count");
-    ad.InsertAttr(ATTR_APP_SRC_PATH, "/");
-    ad.InsertAttr(ATTR_APP_OUT_DIR, "/");
-    ad.InsertAttr(ATTR_INSTALL_DIR, "/");
-    ad.InsertAttr(ATTR_EXE_PATH, "/usr/local/bin/a");
+    ad.InsertAttr(ATTR_APP_SRC_PATH, "");
+    ad.InsertAttr(ATTR_APP_OUT_DIR, "");
+    ad.InsertAttr(ATTR_INSTALL_DIR, "/usr/bin/");
+    ad.InsertAttr(ATTR_EXE_PATH, "a");
     ad.InsertAttr(ATTR_ARGUMENT, "");
-    ad.InsertAttr(ATTR_STOP_PATH, "/");
-    ad.InsertAttr(ATTR_OUT_DIR, "/");
+    ad.InsertAttr(ATTR_STOP_PATH, "killall a");
+    ad.InsertAttr(ATTR_OUT_DIR, "");
 
     // classad -> string
     ClassAdUnParser unparser;

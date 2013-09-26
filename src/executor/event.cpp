@@ -35,6 +35,13 @@ bool KillActionEvent::Handle() {
     return true;
 }
 
+bool StopActionEvent::Handle() {
+    TaskID id = GetID();
+    LOG4CPLUS_INFO(logger, "StopActionEvent, begin to kill task, job_id:" << id.job_id << ", task_id:" << id.task_id);
+
+    return true;
+}
+
 // install app
 bool InstallAppEvent::Handle() {
     TaskID id = GetID();
@@ -48,6 +55,23 @@ bool InstallAppEvent::Handle() {
     }
 
     ptr->InstallApp();
+    return true;
+}
+
+// start app
+bool StartAppEvent::Handle() {
+    TaskID id = GetID();
+    LOG4CPLUS_INFO(logger, "StartAppEvent, begin to start app for task, job_id:" << id.job_id << ", task_id:" << id.task_id);
+
+    VMPtr ptr;
+    ptr = VMPoolI::Instance()->GetVMPtr(id);
+    if (!ptr) {
+        LOG4CPLUS_ERROR(logger, "No the vm, can't start app, job_id:" << id.job_id << ", task_id:" << id.task_id);
+        return false;
+    }
+
+    // TODO
+    ptr->Execute();
     return true;
 }
 

@@ -46,10 +46,14 @@ bool ExecutorService::StartTask(const string& info) {
 }
 
 bool ExecutorService::StopTask(const int32_t job_id, const int32_t task_id) {
-    // TaskID id;
-    // id.job_id = job_id;
-    // id.task_id = task_id;
-    // return TaskPoolI::Instance()->StopTask(id);
+    TaskID id;
+    id.job_id = job_id;
+    id.task_id = task_id;
+    // new StopActionEvent
+    EventPtr event(new StopActionEvent(id));
+    // Push event into Queue
+    EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
+    return true;
 }
 
 bool ExecutorService::KillTask(const int32_t job_id, const int32_t task_id) {
@@ -65,8 +69,18 @@ bool ExecutorService::KillTask(const int32_t job_id, const int32_t task_id) {
 }
 
 bool ExecutorService::SendVMHeartbeat(const VM_HbVMInfo& hb_vm_info) {
+    LOG4CPLUS_INFO(logger, "receive VM Hb");
     return VMPoolI::Instance()->ProcessHbVMInfo(hb_vm_info);
 }
 
-//void ExecutorService::GetMachineInfo(string& info) {
-//}
+bool ExecutorService::AppInstalled(const int32_t job_id, const int32_t task_id, const int32_t app_id) {
+    LOG4CPLUS_DEBUG(logger, "AppInstalled");
+    TaskID id;
+    id.job_id = job_id;
+    id.task_id = task_id;
+    // new KillActionEvent
+    EventPtr event(new StartAppEvent(id));
+    // Push event into Queue
+    EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
+    return true;
+}

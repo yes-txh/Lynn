@@ -77,7 +77,7 @@ int32_t KVM::CreateEnv() {
 int32_t KVM::InstallApp() {
     printf("KVM::InstallApp\n");
     VM_AppInfo info1;
-    AppInfo info2;
+    AppInfo info2 = GetTaskInfo().app_info;
     info1.id = info2.id;
     info1.name = info2.name;
     info1.app_source = info2.app_src_path;
@@ -86,18 +86,19 @@ int32_t KVM::InstallApp() {
     info1.exe = info2.exe_path;
     info1.argument = info2.argument;
     info1.out_dir = info2.out_dir;
-    info1.run_type = "a";
+    info1.run_type = "normal";
     info1.interval = 1;
-    printf("1\n");
 
     try {
-        printf("2\n");
         Proxy<VMWorkerClient> proxy = Rpc<VMWorkerClient, VMWorkerClient>::GetProxy(GetEndpoint());
+        printf("%s\n", GetEndpoint().c_str());
+        //proxy().StartApp();
+        proxy().test(1, "Helloworld");
+        LOG4CPLUS_INFO(logger, "install_dir:" << info1.install_dir << ", exe:" << info1.exe << " , argument:" << info1.argument);
         proxy().InstallApp(info1);
-        printf("3\n");
+        // proxy().InstallApp(info1);
     } catch (TException &tx) {
         LOG4CPLUS_ERROR(logger, "Install App error: " << tx.what());
-        printf("4\n");
     }
     return 0;
 }
@@ -106,7 +107,7 @@ int32_t KVM::InstallApp() {
 bool KVM::Execute() {
     printf("KVM::StartApp\n");
     VM_AppInfo info1;
-    AppInfo info2;
+    AppInfo info2 = GetTaskInfo().app_info;
     info1.id = info2.id;
     info1.name = info2.name;
     info1.app_source = info2.app_src_path;
@@ -115,15 +116,26 @@ bool KVM::Execute() {
     info1.exe = info2.exe_path;
     info1.argument = info2.argument;
     info1.out_dir = info2.out_dir;
-    info1.run_type = "a";
+    info1.run_type = "normal";
     info1.interval = 1;
 
     try {
-           Proxy<VMWorkerClient> proxy = Rpc<VMWorkerClient, VMWorkerClient>::GetProxy(GetEndpoint());
-           proxy().StartApp(info1);
-       } catch (TException &tx) {
-           LOG4CPLUS_ERROR(logger, "Start App error: " << tx.what());
-       }
+        Proxy<VMWorkerClient> proxy = Rpc<VMWorkerClient, VMWorkerClient>::GetProxy(GetEndpoint());
+        proxy().StartApp(info1);
+    } catch (TException &tx) {
+        LOG4CPLUS_ERROR(logger, "Start App error: " << tx.what());
+    }
+
+    // TODO test stop
+    sleep(30);
+    LOG4CPLUS_DEBUG(logger, "before stop");
+    try {
+        Proxy<VMWorkerClient> proxy = Rpc<VMWorkerClient, VMWorkerClient>::GetProxy(GetEndpoint());
+        proxy().StopApp(info2.id, info2.stop_path);
+    } catch (TException &tx) {
+        LOG4CPLUS_ERROR(logger, "Stop App error: " << tx.what());
+    }
+
     return true;
 }
 
@@ -155,16 +167,14 @@ bool KVM::Kill() {
 
 HbVMInfo KVM::GetHbVMInfo() {
     VMState::type state = GetState();
-
     // TODO test
-    if (!m_created) {
+    /*if (!m_created) {
         m_created = true;
-        m_installed = false;
         // new KillActionEvent
         EventPtr event(new InstallAppEvent(GetID()));
         // Push event into Queue
         EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event);
-    }
+    }*/
      
     // if state != VM_SERVICE_ONLINE then return "empty"
     if (true || state != VMState::VM_SERVICE_ONLINE){
@@ -215,7 +225,8 @@ void KVM::SetHbVMInfo(const VM_HbVMInfo& hb_vm_info) {
 
     if (!m_created) {
         m_created = true;
-        // new KillActionEvent
+        
+        // new ActionEvent
         EventPtr event(new InstallAppEvent(GetID()));
         // Push event into Queue
         EventDispatcherI::Instance()->Dispatch(event->GetType())->PushBack(event); 
@@ -456,7 +467,7 @@ int32_t KVM::ConfigVirXML() {
         LOG4CPLUS_ERROR(logger, "Error in finding T_IMG_LOCATION in kvm xml template");
         return -1;
     }
-    xml_conf.replace(pos, strlen("T_IMG_LOCATION"), m_img);
+    xml_conf.replace(pos, strlen("T_IMG_LOCATION"), "/var/lib/libvirt/images/ubuntu.qco");//m_img);
 
     // iso
     pos = xml_conf.find("T_ISO_LOCATION");
@@ -514,11 +525,12 @@ int32_t KVM::CreateKVM() {
 
     // config iso, include ip, app
     ofstream conf_file(m_conf.c_str());
-    conf_file << "[vm_agent]" << endl;
+    conf_file << "[vm_worker]" << endl;
     conf_file << "job_id = " << GetID().job_id << endl;
     conf_file << "task_id = " << GetID().task_id << endl;
     conf_file << "name = " << GetName() << endl;
     conf_file << "os = " << GetTaskInfo().vm_info.os << endl;
+    conf_file << "interface = " << "eth0" << endl;
     conf_file << "ip = " << GetTaskInfo().vm_info.ip << endl;
     conf_file << "port = " << GetTaskInfo().vm_info.port << endl;
     conf_file << "executor_endpoint = " 

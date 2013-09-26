@@ -34,6 +34,7 @@ enum AppState {
 enum EventType {
     STATE_EVENT,
     ACTION_EVENT,
+    TASK_EVENT,
 }
 
 struct VM_AppInfo {
@@ -77,4 +78,7 @@ service Executor {
     bool StopTask(1: i32 job_id, 2: i32 task_id),
     bool KillTask(1: i32 job_id, 2: i32 task_id),
     bool SendVMHeartbeat(1: VM_HbVMInfo hb_vm_info),
+
+    // event & callback
+    bool AppInstalled(1: i32 job_id, 2: i32 task_id, 3: i32 app_id);
 }

@@ -26,6 +26,9 @@ public:
     bool SendVMHeartbeat(const VM_HbVMInfo& hb_vm_info);
 
     // void GetMachineInfo(string& info);
+    
+    bool AppInstalled(const int32_t job_id, const int32_t task_id, const int32_t app_id); 
+
 };
 
 #endif

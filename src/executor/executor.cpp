@@ -120,14 +120,19 @@ int ExecutorEntity(int argc, char **argv) {
 
     /* event dispatcher */
     // state event
-    Handler* state_event_handler = new Handler;
-    state_event_handler->Start();
-    EventDispatcherI::Instance()->Register(EventType::STATE_EVENT, state_event_handler);
+    // Handler* state_event_handler = new Handler;
+    // state_event_handler->Start();
+    // EventDispatcherI::Instance()->Register(EventType::STATE_EVENT, state_event_handler);
 
     // action event
     Handler* action_event_handler = new Handler;
     action_event_handler->Start();
     EventDispatcherI::Instance()->Register(EventType::ACTION_EVENT, action_event_handler);
+
+    // task event
+    Handler* task_event_handler = new Handler;
+    task_event_handler->Start();
+    EventDispatcherI::Instance()->Register(EventType::TASK_EVENT, task_event_handler);
 
     /*TaskID id;
     id.job_id = 1;
@@ -139,7 +144,7 @@ int ExecutorEntity(int argc, char **argv) {
 
     // Listen for service 
     Rpc<ExecutorService, ExecutorProcessor>::Listen(FLAGS_port);
-    //int port = 9997; 
+    //int port = 9999; 
     //Rpc<ExecutorService, ExecutorProcessor>::Listen(port);
 
     return 0;
