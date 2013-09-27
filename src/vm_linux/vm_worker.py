@@ -1,9 +1,15 @@
 #-*- coding:utf8 -*-
+#/********************************
+# FileName: vm_worker/vm_worker.py
+# Author:   TangXuehai
+# Date:     2013-08-14
+# Version:  0.1
+# Description: vm_worker main
+#*********************************/
+
 import sys
 import os
 import string
-#python不支持gen-py 中的特殊字符,所以将文件夹的名字改为gen
-#主要是我想取文件名字为vm_worker.py，这个与自动生成的文件名冲突了
 #sys.path.append('/root/vm_worker_linux/')
 sys.path.append('./gen')
 
