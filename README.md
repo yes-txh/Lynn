@@ -1,5 +1,6 @@
 Lynn
 ====
+<<<<<<< HEAD
  a fine-gained resource management platform for virtulized environment
 
 
@@ -16,3 +17,7 @@ Email
 
     autumn_sky_is@163.com
 
+=======
+
+Lynn-2.0.0
+>>>>>>> 782437cb4fc7a489a8db17e80de4d0613e68a343
