@@ -4,6 +4,8 @@
 #include <classad/classad.h>
 #include "common/clynn/singleton.h"
 
+#include "collector/collector_conf.h"
+
 #define MACHINE_NUM 1000
 
 class CollectorEngine {
@@ -17,7 +19,10 @@ class CollectorEngine {
         pthread_rwlock_t m_machine_locks[MACHINE_NUM];
         /// the id rwlocks
         pthread_rwlock_t m_id_lock;
-
+       
+        /// returns true on success; false on failure (and sets error_desc)
+        bool SetCollectorRequirements(string str, string& error_desc);
+        
     private:
         /// the collector_requirements configured by conf
         ClassAd* m_collector_requirements;

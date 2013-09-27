@@ -34,3 +34,6 @@ DEFINE_string(zk_server, "127.0.0.1:2181", "zk server");
 
 // lock_node of collector, not used any more
 DEFINE_string(lock_node, "", "node for lead select");
+
+/// collector requirements, it's used to filter classads from es
+DEFINE_string(collector_requirements, "true", "collector_requirements");

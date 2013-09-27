@@ -38,4 +38,7 @@ DECLARE_string(zk_server);
 // lock_node of collector, not used any more
 DECLARE_string(lock_node);
 
+/// collector requirements,用于筛选上报到collector的es ad
+DECLARE_string(collector_requirements);
+
 #endif
